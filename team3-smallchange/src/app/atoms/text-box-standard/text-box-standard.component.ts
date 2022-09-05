@@ -12,4 +12,7 @@ import { Component } from '@angular/core';
 })
 export class TextBoxStandardComponent {
 
+  ops: string[] = ['a', 'b', 'c'];
+  ops2: string[] = ['1', '2', '3'];
+
 }
