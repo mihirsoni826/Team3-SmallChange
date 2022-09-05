@@ -1,0 +1,43 @@
+nav{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5rem 1rem;
+    max-width: 62.5;
+    background-color: #f2f2f2;
+    display: block;
+  }
+  ul{
+    list-style-type: none;
+    margin: 0em -1em;
+    padding: 0;
+    
+  }
+  li{
+    display: inline-block;
+  }
+  
+  .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 720px) {
+    .icon {
+      display: block;
+      cursor: pointer;
+    }
+  
+    .navbar.toggle-navbar {
+      display: block;
+    }
+  
+    .navbar {
+      display:none;
+    }
+  
+    nav li {
+      display: block;
+    }
+  
+  }
+  
+  

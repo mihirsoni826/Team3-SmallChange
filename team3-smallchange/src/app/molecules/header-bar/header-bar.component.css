@@ -1,0 +1,11 @@
+.header {
+    padding: 0.5rem 1rem;
+    max-width: auto;
+    display: block;
+    background-color: #568200;
+  }
+  
+  body{
+    padding: 0;
+    align-content: stretch;
+  }

@@ -1,0 +1,9 @@
+.footer {
+    font-family: 'Fidelity Sans', arial, sans-serif;
+    padding: 0.5rem 1rem;
+    max-width: 62.5em;
+    margin-bottom: auto;
+    margin-top: auto;
+    display: block;
+    background-color: transparent;
+  }
