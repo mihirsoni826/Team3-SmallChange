@@ -1,0 +1,15 @@
+#form-wrapper {
+    font-family: 'Fidelity Sans', Arial, sans-serif;
+    margin: 0 auto;
+    padding: 2rem 3rem;
+    border: 1px solid #ccc;
+    max-width: 18rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .forgot-pass {
+    text-align: center;
+  }
