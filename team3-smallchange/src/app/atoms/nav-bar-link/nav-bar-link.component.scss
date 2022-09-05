@@ -1,0 +1,23 @@
+.navbar {
+    font-family: 'Fidelity Sans', arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5em;
+    text-decoration: none;
+    box-sizing: content-box;
+    padding: 0.5rem 1rem;
+    color: #356F95;
+  }
+  
+  a:visited {
+    color: #5C0198;
+  }
+  
+  a:hover{
+    color:black;
+  }
+  a:focus{
+    outline-style: dotted;
+    outline-color: #ccc;
+    outline-width: 1px;
+  }
+  
