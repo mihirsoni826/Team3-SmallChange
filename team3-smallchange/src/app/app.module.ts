@@ -19,6 +19,7 @@ import { FooterBarComponent } from './molecules/footer-bar/footer-bar.component'
 import { UsernameFormControlComponent } from './molecules/username-form-control/username-form-control.component';
 import { PasswordFormControlComponent } from './molecules/password-form-control/password-form-control.component';
 import { RouterOutlet } from '@angular/router';
+import { DropDownComponent } from './atoms/drop-down/drop-down.component';
 
 /**
  * ******************
@@ -58,6 +59,7 @@ import { RouterOutlet } from '@angular/router';
 
     LoginFormComponent,
     LoginPageComponent,
+    DropDownComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

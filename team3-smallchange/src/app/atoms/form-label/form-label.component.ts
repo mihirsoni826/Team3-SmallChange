@@ -3,7 +3,7 @@
   which has no JS requirements for it.
 ***************************************************************************/
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'sc-atom-form-label',
@@ -11,5 +11,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./form-label.component.scss']
 })
 export class FormLabelComponent {
+
+  @Input()
+  labelTxt: string = "~not assigned~";
+
+  @Input()
+  labelFor: string = "~not assigned~";
 
 }
