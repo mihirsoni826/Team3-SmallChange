@@ -18,6 +18,7 @@ import { PageTitleComponent } from './molecules/page-title/page-title.component'
 import { FooterBarComponent } from './molecules/footer-bar/footer-bar.component';
 import { UsernameFormControlComponent } from './molecules/username-form-control/username-form-control.component';
 import { PasswordFormControlComponent } from './molecules/password-form-control/password-form-control.component';
+import { RouterOutlet } from '@angular/router';
 
 /**
  * ******************
@@ -35,8 +36,9 @@ import { PasswordFormControlComponent } from './molecules/password-form-control/
  */
 
 @NgModule({
-  imports: [BrowserModule],
-  declarations: [AppComponent,
+  imports: [BrowserModule, RouterOutlet],
+  declarations: [
+    AppComponent,
     LogoComponent,
     NavBarLinkComponent,
     HeaderTextComponent,
@@ -53,14 +55,11 @@ import { PasswordFormControlComponent } from './molecules/password-form-control/
     FooterBarComponent,
     UsernameFormControlComponent,
     PasswordFormControlComponent,
-    
+
     LoginFormComponent,
     LoginPageComponent,
-
-    
-    
-],
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
