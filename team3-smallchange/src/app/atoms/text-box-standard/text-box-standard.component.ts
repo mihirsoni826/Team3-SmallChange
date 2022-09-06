@@ -18,4 +18,7 @@ export class TextBoxStandardComponent {
   @Input()
   inputId :string ="";
 
+  @Input()
+  inputPlaceholder: string ="";
+
 }
