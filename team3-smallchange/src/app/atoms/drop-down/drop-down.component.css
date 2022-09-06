@@ -1,0 +1,9 @@
+select {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+  
+    font-size: 18px;
+    line-height: 1.5em;
+}
