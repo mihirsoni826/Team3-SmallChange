@@ -3,7 +3,7 @@
   which has no JS requirements for it.
 ***************************************************************************/
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'sc-text-box-standard',
@@ -11,5 +11,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./text-box-standard.component.scss']
 })
 export class TextBoxStandardComponent {
+
+  @Input()
+  inputName : string ="";
+
+  @Input()
+  inputId :string ="";
 
 }

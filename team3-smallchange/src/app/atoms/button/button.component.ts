@@ -3,7 +3,7 @@
   which has no JS requirements for it.
 ***************************************************************************/
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'sc-atom-button',
@@ -12,4 +12,10 @@ import { Component } from '@angular/core';
 })
 export class ButtonComponent {
 
+  @Input()
+  btType: string ="";
+
+  @Input()
+  btValue: string ="";
+  
 }
