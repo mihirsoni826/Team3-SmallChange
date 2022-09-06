@@ -21,6 +21,9 @@ import { PasswordFormControlComponent } from './molecules/password-form-control/
 import { RouterOutlet } from '@angular/router';
 import { DropDownComponent } from './atoms/drop-down/drop-down.component';
 import { TableHeaderComponent } from './atoms/table-header/table-header.component';
+import { TableBodyComponent } from './atoms/table-body/table-body.component';
+import { FilterComponent } from './molecules/filter-generic/filter.component';
+import { FilterGenericComponent } from './molecules/filter-generic/filter-generic.component';
 
 /**
  * ******************
@@ -62,6 +65,9 @@ import { TableHeaderComponent } from './atoms/table-header/table-header.componen
     LoginPageComponent,
     DropDownComponent,
     TableHeaderComponent,
+    TableBodyComponent,
+    FilterComponent,
+    FilterGenericComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

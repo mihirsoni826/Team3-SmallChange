@@ -2,6 +2,7 @@
 // Allows JavaScript to be compiled - otherwise use of TypeScript is enforced.
 // @ts-nocheck
 import { Component, OnInit, Output } from '@angular/core';
+import {KeyValuePipe} from '@angular/common';
 
 @Component({
   selector: 'sc-login-page',
@@ -18,5 +19,9 @@ export class LoginPageComponent implements OnInit {
 
 
   }
-  COLUMNS : string[] = ['name1', 'name2', 'name3','name4']
+  COLUMNS : string[] = ['Serial No.', 'Trade Name', 'Account','DOP', 'DOS', 'Buy/Sell', 'Assest Class', 'Bought at', 'Sold at', 'Quantity']
+  VALUES = [
+    {'id': '1', 'name': 'ABC', 'acc': 'savings', 'dop' : '05-09-2022', 'dos': '-', 'bs': 'Buy', 'assert': 'XYZ', 'bp' : '199', 'sp': '-', 'quantity': '10'}
+
+  ]
 }
