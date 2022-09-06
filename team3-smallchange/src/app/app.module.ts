@@ -21,6 +21,10 @@ import { PasswordFormControlComponent } from './molecules/password-form-control/
 import { RouterOutlet } from '@angular/router';
 import { DropDownComponent } from './atoms/drop-down/drop-down.component';
 
+import { SellTradePageComponent } from './pages/sell-trade-page/sell-trade-page.component';
+import { BankAccountComponent } from './molecules/bank-account/bank-account.component';
+import { QuantityComponent } from './molecules/quantity/quantity.component';
+
 /**
  * ******************
  * *** IMPORTANT! ***
@@ -60,6 +64,12 @@ import { DropDownComponent } from './atoms/drop-down/drop-down.component';
     LoginFormComponent,
     LoginPageComponent,
     DropDownComponent,
+
+    LoginPageComponent,
+    SellTradePageComponent,
+    BankAccountComponent,
+    QuantityComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent],
