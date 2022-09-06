@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-filter-generic',
@@ -11,5 +11,8 @@ export class FilterGenericComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  labelTxt : string = 'Account Type'
+  labelFor: string = 'account'
+  selectName: string = "Account"
+  OPTIONS : string[]= ["Account", "Brokerage"]
 }

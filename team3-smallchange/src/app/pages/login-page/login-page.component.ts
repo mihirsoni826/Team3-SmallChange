@@ -19,9 +19,9 @@ export class LoginPageComponent implements OnInit {
 
 
   }
-  COLUMNS : string[] = ['Serial No.', 'Trade Name', 'Account','DOP', 'DOS', 'Buy/Sell', 'Assest Class', 'Bought at', 'Sold at', 'Quantity']
-  VALUES = [
-    {'id': '1', 'name': 'ABC', 'acc': 'savings', 'dop' : '05-09-2022', 'dos': '-', 'bs': 'Buy', 'assert': 'XYZ', 'bp' : '199', 'sp': '-', 'quantity': '10'}
+  // COLUMNS : string[] = ['Serial No.', 'Trade Name', 'Account','DOP', 'DOS', 'Buy/Sell', 'Assest Class', 'Bought at', 'Sold at', 'Quantity']
+  // VALUES = [
+  //   {'id': '1', 'name': 'ABC', 'acc': 'savings', 'dop' : '05-09-2022', 'dos': '-', 'bs': 'Buy', 'assert': 'XYZ', 'bp' : '199', 'sp': '-', 'quantity': '10'}
 
-  ]
+  // ]
 }
