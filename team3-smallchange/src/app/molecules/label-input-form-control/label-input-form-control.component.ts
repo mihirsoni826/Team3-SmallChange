@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LabelInputFormControlComponent implements OnInit {
 
   @Input() labelFor: string = "~";
-  @Input() labelInnerHtml: string = "~";
+  @Input() labelTxt: string = "~";
   @Input() inputName: string = "~";
 
   constructor() { }
