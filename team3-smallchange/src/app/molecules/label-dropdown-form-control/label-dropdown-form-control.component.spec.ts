@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilterGenericComponent } from './filter-generic.component';
+import { FilterGenericComponent } from './label-dropdown-form-control.component';
 
 describe('FilterGenericComponent', () => {
   let component: FilterGenericComponent;
