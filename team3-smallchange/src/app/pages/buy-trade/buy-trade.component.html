@@ -2,12 +2,24 @@
 <form (submit)="onSubmit($event)" id="buy-trade-form">
 
     <div class="form-group">
-        <app-label-dropdown-form-control [labelFor]="labelFor" [labelTxt]="labelTxt" [selectName]="selectName" [OPTIONS]="assetClassList"></app-label-dropdown-form-control>
+        <app-label-dropdown-form-control labelFor="assetClass" labelTxt="Asset Class:" selectName="assetClass" [OPTIONS]="assetClassList"></app-label-dropdown-form-control>
+        <span id="asset-class-err">Please choose an asset class</span>
     </div>
     
     <div class="form-group">
-        <app-label-input-form-control labelFor="security" labelInnerHtml="Security: " inputName="security"></app-label-input-form-control>
-    </div> 
+        <app-label-input-form-control labelFor="security" labelTxt="Security: " inputName="security"></app-label-input-form-control>
+        <span id="security-err">Please provide a security</span>
+    </div>
+
+    <div class="form-group">
+        <app-label-input-form-control labelFor="quantity" labelTxt="Quantity: " inputName="quantity"></app-label-input-form-control>
+        <span id="quantity-err">Please provide a quantity</span>
+    </div>
+
+    <div class="form-group">
+        <app-label-dropdown-form-control labelFor="bankAccount" labelTxt="Bank Account: " selectName="bankAccount" [OPTIONS]="bankAccountList"></app-label-dropdown-form-control>
+        <span id="security-err">Please provide a security</span>
+    </div>
 
     <div class="form-group">
         <sc-atom-button btType="submit" btValue="{{ 'Buy (₹' + price  + ')' }}"></sc-atom-button>
