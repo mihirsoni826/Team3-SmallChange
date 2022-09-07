@@ -1,4 +1,27 @@
 
-<app-model [display]="dis" (btnClick)="model()" ></app-model>
+<app-red-alert></app-red-alert>
+<form (submit)="onSubmit($event)" id="buy-trade-form">
+    
+    <div class="form-group">
+        <app-label-input-form-control labelFor="security" labelTxt="Security: " inputName="security"></app-label-input-form-control>
+        <span id="security-err">Please provide a security</span>
+    </div>
 
-<sc-atom-button (click)="model()" btValue="Amount" > HI</sc-atom-button>
+    <div class="form-group">
+        <app-label-input-form-control labelFor="quantity" labelTxt="Quantity: " inputName="quantity"></app-label-input-form-control>
+        <span id="quantity-err">Please provide a quantity</span>
+    </div>
+
+    <div class="form-group">
+        <app-label-dropdown-form-control labelFor="bankAccount" labelTxt="Bank Account: " selectName="bankAccount" [OPTIONS]="bankAccountList"></app-label-dropdown-form-control>
+        <span id="security-err">Please provide a security</span>
+    </div>
+
+    <div class="form-group">
+        <sc-atom-button btType="submit" btValue="{{ 'Buy (₹' + price  + ')' }}"  (click)="model()"></sc-atom-button>
+    </div>
+
+</form>
+
+
+<app-model [display]="dis" (btnNoClick)="model()"  (btnYesClick)="model()"></app-model>
