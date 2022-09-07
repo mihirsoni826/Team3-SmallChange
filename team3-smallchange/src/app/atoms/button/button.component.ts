@@ -11,11 +11,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
+  @Input()
+  btType: string = '';
 
   @Input()
-  btType: string ="";
-
-  @Input()
-  btValue: string ="";
-  
+  btValue: string = '';
 }

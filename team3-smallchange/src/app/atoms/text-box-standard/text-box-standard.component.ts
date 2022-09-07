@@ -8,17 +8,16 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'sc-text-box-standard',
   templateUrl: './text-box-standard.component.html',
-  styleUrls: ['./text-box-standard.component.scss']
+  styleUrls: ['./text-box-standard.component.scss'],
 })
 export class TextBoxStandardComponent {
+  @Input()
+  inputName: string = '';
 
   @Input()
-  inputName : string ="";
 
-  @Input()
   inputId :string ="";
 
   @Input()
   inputPlaceholder: string ="";
-
 }

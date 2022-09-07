@@ -3,7 +3,7 @@
   which has no JS requirements for it.
 ***************************************************************************/
 
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 
 @Component({
   selector: 'sc-atom-header-text',
@@ -12,4 +12,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderTextComponent {
 
+  @Input()
+  headerText: string = '';
 }

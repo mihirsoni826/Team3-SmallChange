@@ -6,11 +6,15 @@ button {
     
   
     font-family: 'Fidelity Sans', Arial, sans-serif;
-    font-size: 32px;
+    font-size: 25px;
     line-height: 1.5em;
     text-align: center;
     display: block;
     
     background-color: #568200;
     color: white;
+  }
+
+  button:hover {
+    cursor: pointer;
   }
