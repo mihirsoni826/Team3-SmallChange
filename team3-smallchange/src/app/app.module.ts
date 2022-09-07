@@ -26,6 +26,7 @@ import { RedAlertComponent } from './atoms/red-alert/red-alert.component';
 import { AssetClassFormControlComponent } from './molecules/asset-class-form-control/asset-class-form-control.component';
 import { BuySecurityFormControlComponent } from './molecules/buy-security-form-control/buy-security-form-control.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LabelInputFormControlComponent } from './molecules/label-input-form-control/label-input-form-control.component';
 
 /**
  * ******************
@@ -75,6 +76,7 @@ import { AppRoutingModule } from './app-routing.module';
     RedAlertComponent,
     AssetClassFormControlComponent,
     BuySecurityFormControlComponent,
+    LabelInputFormControlComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
