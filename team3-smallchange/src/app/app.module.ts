@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginFormComponent } from './organisms/login-form/login-form.component';
@@ -33,6 +34,11 @@ import { AccountSummaryComponent } from './molecules/account-summary/account-sum
 import { BrokerageTableComponent } from './molecules/brokerage-table/brokerage-table.component';
 import { BrokerageSummaryComponent } from './molecules/brokerage-summary/brokerage-summary.component';
 import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio-header.component';
+import { BuyTradeComponent } from './pages/buy-trade/buy-trade.component';
+import { RedAlertComponent } from './atoms/red-alert/red-alert.component';
+import { AssetClassFormControlComponent } from './molecules/asset-class-form-control/asset-class-form-control.component';
+import { BuySecurityFormControlComponent } from './molecules/buy-security-form-control/buy-security-form-control.component';
+import { AppRoutingModule } from './app-routing.module';
 
 import { SellTradePageComponent } from './pages/sell-trade-page/sell-trade-page.component';
 
@@ -40,7 +46,12 @@ import { SellTradeFormComponent } from './organisms/sell-trade-form/sell-trade-f
 import { ModelComponent } from './molecules/model/model.component';
 
 @NgModule({
-  imports: [BrowserModule, RouterOutlet,AppRoutingModule],
+  imports: [
+    BrowserModule, 
+    RouterOutlet,
+    FormsModule,
+    AppRoutingModule
+  ],
   declarations: [
     AppComponent,
     LogoComponent,
@@ -64,7 +75,6 @@ import { ModelComponent } from './molecules/model/model.component';
     LoginPageComponent,
     DropDownComponent,
 
-
     LoginPageComponent,
     SellTradePageComponent,
     SellTradeFormComponent,
@@ -82,8 +92,14 @@ import { ModelComponent } from './molecules/model/model.component';
     BrokerageTableComponent,
     BrokerageSummaryComponent,
     PortfolioHeaderComponent
+
+    BuyTradeComponent,
+    RedAlertComponent,
+    AssetClassFormControlComponent,
+    BuySecurityFormControlComponent,
+
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

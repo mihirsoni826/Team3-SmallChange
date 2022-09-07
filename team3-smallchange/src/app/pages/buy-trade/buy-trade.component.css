@@ -1,0 +1,9 @@
+#buy-trade-form {
+    display: block;
+    margin: 0 auto;
+    width: 300px;    
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
