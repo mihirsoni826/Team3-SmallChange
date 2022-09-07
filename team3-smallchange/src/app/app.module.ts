@@ -22,23 +22,9 @@ import { RouterOutlet } from '@angular/router';
 import { DropDownComponent } from './atoms/drop-down/drop-down.component';
 
 import { SellTradePageComponent } from './pages/sell-trade-page/sell-trade-page.component';
-import { BankAccountComponent } from './molecules/bank-account/bank-account.component';
-import { QuantityComponent } from './molecules/quantity/quantity.component';
 
-/**
- * ******************
- * *** IMPORTANT! ***
- * ******************
- *
- * In Angular-only applications it is correct to use this app.module.ts file to build out the NgModule
- * config so that declared components become aware of each other, and the necessary imports are wired in.
- *
- * However, SmallChange is an Angular application WITH Storybook. The way Storybook works is that every story
- * told in Storybook is its own mini-app with its own NgModule definition.
- *
- * Meaning, if you add declarations and imports here in this file, your stories will not be affected! Instead,
- * you need to go to the appropriate src\stories\**\*.stories.ts file and edit the moduleMetadata config.
- */
+import { SellTradeFormComponent } from './organisms/sell-trade-form/sell-trade-form.component';
+import { ModelComponent } from './molecules/model/model.component';
 
 @NgModule({
   imports: [BrowserModule, RouterOutlet],
@@ -67,8 +53,8 @@ import { QuantityComponent } from './molecules/quantity/quantity.component';
 
     LoginPageComponent,
     SellTradePageComponent,
-    BankAccountComponent,
-    QuantityComponent,
+    SellTradeFormComponent,
+    ModelComponent,
 
   ],
   providers: [],

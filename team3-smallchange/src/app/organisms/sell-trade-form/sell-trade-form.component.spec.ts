@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BankAccountComponent } from './bank-account.component';
+import { SellTradeFormComponent } from './sell-trade-form.component';
 
-describe('BankAccountComponent', () => {
-  let component: BankAccountComponent;
-  let fixture: ComponentFixture<BankAccountComponent>;
+describe('SellTradeFormComponent', () => {
+  let component: SellTradeFormComponent;
+  let fixture: ComponentFixture<SellTradeFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BankAccountComponent ]
+      declarations: [ SellTradeFormComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BankAccountComponent);
+    fixture = TestBed.createComponent(SellTradeFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
