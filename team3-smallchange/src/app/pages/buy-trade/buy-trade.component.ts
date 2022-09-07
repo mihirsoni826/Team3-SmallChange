@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class BuyTradeComponent implements OnInit {
 
   price: number = 0;
+
   assetClassList: string[] = [
     " -- Choose an asset class --",
     "Main index stocks",
@@ -16,9 +17,11 @@ export class BuyTradeComponent implements OnInit {
     "Government bonds",
     "Corporate bonds"
   ];
-  labelFor: string = "assetClass";
-  labelTxt: string = "Asset Class:";
-  selectName: string = "assetClass";
+
+  bankAccountList: string[] = [
+    "HDFC Bank (01234456789)",
+    "ICICI Bank (65437889243)",
+  ];
 
   constructor() {}
 
