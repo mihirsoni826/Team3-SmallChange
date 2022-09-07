@@ -1,0 +1,12 @@
+.filters{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding: 2% 1%;
+    background-color: rgb(243, 230, 213);
+    
+}
+
+.filter-elements{
+    padding-right: 5%;
+}

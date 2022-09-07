@@ -36,7 +36,7 @@ import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio
 import { BuyTradeComponent } from './pages/buy-trade/buy-trade.component';
 import { RedAlertComponent } from './atoms/red-alert/red-alert.component';
 import { LabelInputFormControlComponent } from './molecules/label-input-form-control/label-input-form-control.component';
-
+import { TradeHistoryComponent } from './pages/trade-history/trade-history.component';
 import { SellTradePageComponent } from './pages/sell-trade-page/sell-trade-page.component';
 
 import { SellTradeFormComponent } from './organisms/sell-trade-form/sell-trade-form.component';
@@ -89,6 +89,7 @@ import { LabelDropdownFormControlComponent } from './molecules/label-dropdown-fo
     BrokerageTableComponent,
     BrokerageSummaryComponent,
     PortfolioHeaderComponent,
+    TradeHistoryComponent,
     BuyTradeComponent,
     RedAlertComponent,
 	  LabelInputFormControlComponent,
