@@ -1,0 +1,30 @@
+.filter {
+    display: flex;
+    flex-direction: row;
+    margin: 2em 1em;
+}
+
+
+.filterOnAcctType {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    font-family: 'Fidelity Sans', Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.5em;
+    text-align: center;
+    margin-left: 1em;
+    background-color: #568200;
+    color: white;
+    cursor: pointer;
+}
+
+.fa-arrow-right {
+    padding-top: 0.5em;
+
+}
+
+
+
