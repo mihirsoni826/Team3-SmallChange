@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-buy-trade',
@@ -10,12 +9,16 @@ export class BuyTradeComponent implements OnInit {
 
   price: number = 0;
   assetClassList: string[] = [
+    " -- Choose an asset class --",
     "Main index stocks",
     "Small cap company stocks",
     "International market stocks",
     "Government bonds",
     "Corporate bonds"
   ];
+  labelFor: string = "assetClass";
+  labelTxt: string = "Asset Class:";
+  selectName: string = "assetClass";
 
   constructor() {}
 
