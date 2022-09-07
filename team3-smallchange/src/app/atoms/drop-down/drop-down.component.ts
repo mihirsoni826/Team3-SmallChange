@@ -11,7 +11,7 @@ export class DropDownComponent implements OnInit {
   selectName: string = "";
 
   @Input()
-  OPTIONS: string[] = ["abc", "def", "ghi"];
+  OPTIONS: string[] = [];
 
   constructor() { }
 

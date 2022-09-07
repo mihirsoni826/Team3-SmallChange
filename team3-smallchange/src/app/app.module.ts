@@ -23,6 +23,16 @@ import { DropDownComponent } from './atoms/drop-down/drop-down.component';
 import { TableHeaderComponent } from './atoms/table-header/table-header.component';
 import { TableBodyComponent } from './atoms/table-body/table-body.component';
 import { FilterGenericComponent } from './molecules/filter-generic/filter-generic.component';
+import { TotalValueComponent } from './atoms/total-value/total-value.component';
+import { UserNameComponent } from './atoms/user-name/user-name.component';
+import { PortfolioTableComponent } from './organisms/portfolio-table/portfolio-table.component';
+import { PortfolioComponent } from './pages/portfolio/portfolio.component';
+import { AcctTypeFilterComponent } from './molecules/acct-type-filter/acct-type-filter.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AccountSummaryComponent } from './molecules/account-summary/account-summary.component';
+import { BrokerageTableComponent } from './molecules/brokerage-table/brokerage-table.component';
+import { BrokerageSummaryComponent } from './molecules/brokerage-summary/brokerage-summary.component';
+import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio-header.component';
 
 /**
  * ******************
@@ -40,7 +50,7 @@ import { FilterGenericComponent } from './molecules/filter-generic/filter-generi
  */
 
 @NgModule({
-  imports: [BrowserModule, RouterOutlet],
+  imports: [BrowserModule, RouterOutlet,AppRoutingModule],
   declarations: [
     AppComponent,
     LogoComponent,
@@ -66,6 +76,15 @@ import { FilterGenericComponent } from './molecules/filter-generic/filter-generi
     TableHeaderComponent,
     TableBodyComponent,
     FilterGenericComponent,
+    TotalValueComponent,
+    UserNameComponent,
+    PortfolioTableComponent,
+    PortfolioComponent,
+    AcctTypeFilterComponent,
+    AccountSummaryComponent,
+    BrokerageTableComponent,
+    BrokerageSummaryComponent,
+    PortfolioHeaderComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
