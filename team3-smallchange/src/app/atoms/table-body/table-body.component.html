@@ -1,0 +1,3 @@
+<tbody *ngFor="let value of VALUES">
+    <td *ngFor="let item of value| keyvalue: originalOrder">{{item.value}}</td>
+</tbody>
