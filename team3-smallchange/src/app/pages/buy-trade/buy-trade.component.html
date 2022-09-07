@@ -1,0 +1,16 @@
+<app-red-alert></app-red-alert>
+<form (submit)="onSubmit($event)" id="buy-trade-form">
+
+    <div class="form-group">
+        <app-label-dropdown-form-control [labelFor]="labelFor" [labelTxt]="labelTxt" [selectName]="selectName" [OPTIONS]="assetClassList"></app-label-dropdown-form-control>
+    </div>
+    
+    <div class="form-group">
+        <app-label-input-form-control labelFor="security" labelInnerHtml="Security: " inputName="security"></app-label-input-form-control>
+    </div> 
+
+    <div class="form-group">
+        <sc-atom-button btType="submit" btValue="{{ 'Buy (₹' + price  + ')' }}"></sc-atom-button>
+    </div>
+
+</form>
