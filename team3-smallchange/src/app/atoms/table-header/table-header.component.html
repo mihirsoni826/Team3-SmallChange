@@ -1,3 +1,10 @@
 <table class="table table-bordered">
-<th class="thead-dark" scope="col" colspan="3" *ngFor="let column of COLUMNS">{{column}}</th>
+    <thead class="thead-dark">
+        <tr>
+            <th *ngFor="let column of COLUMNS">{{column}}</th>
+        </tr>
+
+<tbody *ngFor="let value of VALUES">
+    <td *ngFor="let item of value| keyvalue: originalOrder">{{item.value}}</td>
+</tbody>
 </table>

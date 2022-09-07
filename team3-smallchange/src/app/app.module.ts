@@ -30,9 +30,9 @@ import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { AcctTypeFilterComponent } from './molecules/acct-type-filter/acct-type-filter.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AccountSummaryComponent } from './molecules/account-summary/account-summary.component';
-import { PortfolioSummaryComponent } from './molecules/portfolio-summary/portfolio-summary.component';
 import { BrokerageTableComponent } from './molecules/brokerage-table/brokerage-table.component';
 import { BrokerageSummaryComponent } from './molecules/brokerage-summary/brokerage-summary.component';
+import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio-header.component';
 
 /**
  * ******************
@@ -78,13 +78,13 @@ import { BrokerageSummaryComponent } from './molecules/brokerage-summary/brokera
     FilterGenericComponent,
     TotalValueComponent,
     UserNameComponent,
-    PortfolioSummaryComponent,
     PortfolioTableComponent,
     PortfolioComponent,
     AcctTypeFilterComponent,
     AccountSummaryComponent,
     BrokerageTableComponent,
-    BrokerageSummaryComponent
+    BrokerageSummaryComponent,
+    PortfolioHeaderComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
