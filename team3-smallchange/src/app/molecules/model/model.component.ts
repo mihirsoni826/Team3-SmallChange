@@ -12,14 +12,21 @@ export class ModelComponent implements OnInit {
   @Input()
   display :string="";
   @Output()
-  btnClick = new EventEmitter<string>;
+  btnYesClick = new EventEmitter<string>;
+  @Output()
+  btnNoClick = new EventEmitter<string>;
   
   ngOnInit(): void {
   }
 
-  onClick(eve :Event)
+  onYesClick(eve :Event)
   {
     eve.preventDefault();
-    this.btnClick.emit();
+    this.btnYesClick.emit();
+  }
+  onNoClick(eve :Event)
+  {
+    eve.preventDefault();
+    this.btnNoClick.emit();
   }
 }

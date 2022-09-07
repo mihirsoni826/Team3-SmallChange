@@ -1,0 +1,15 @@
+#buy-trade-form {
+    display: block;
+    margin: 0 auto;
+    width: 300px;    
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+#asset-class-err, #security-err, #quantity-err {
+    color: red;
+    font-size: 0.9em;
+    font-weight: bold;
+}
