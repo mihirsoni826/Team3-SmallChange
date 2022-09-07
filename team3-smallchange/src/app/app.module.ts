@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginFormComponent } from './organisms/login-form/login-form.component';
@@ -20,6 +21,11 @@ import { UsernameFormControlComponent } from './molecules/username-form-control/
 import { PasswordFormControlComponent } from './molecules/password-form-control/password-form-control.component';
 import { RouterOutlet } from '@angular/router';
 import { DropDownComponent } from './atoms/drop-down/drop-down.component';
+import { BuyTradeComponent } from './pages/buy-trade/buy-trade.component';
+import { RedAlertComponent } from './atoms/red-alert/red-alert.component';
+import { AssetClassFormControlComponent } from './molecules/asset-class-form-control/asset-class-form-control.component';
+import { BuySecurityFormControlComponent } from './molecules/buy-security-form-control/buy-security-form-control.component';
+import { AppRoutingModule } from './app-routing.module';
 
 /**
  * ******************
@@ -37,7 +43,12 @@ import { DropDownComponent } from './atoms/drop-down/drop-down.component';
  */
 
 @NgModule({
-  imports: [BrowserModule, RouterOutlet],
+  imports: [
+    BrowserModule, 
+    RouterOutlet,
+    FormsModule,
+    AppRoutingModule
+  ],
   declarations: [
     AppComponent,
     LogoComponent,
@@ -60,8 +71,12 @@ import { DropDownComponent } from './atoms/drop-down/drop-down.component';
     LoginFormComponent,
     LoginPageComponent,
     DropDownComponent,
+    BuyTradeComponent,
+    RedAlertComponent,
+    AssetClassFormControlComponent,
+    BuySecurityFormControlComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
