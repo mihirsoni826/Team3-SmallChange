@@ -33,6 +33,7 @@ import { AccountSummaryComponent } from './molecules/account-summary/account-sum
 import { BrokerageTableComponent } from './molecules/brokerage-table/brokerage-table.component';
 import { BrokerageSummaryComponent } from './molecules/brokerage-summary/brokerage-summary.component';
 import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio-header.component';
+import { TradeHistoryComponent } from './pages/trade-history/trade-history.component';
 
 /**
  * ******************
@@ -84,7 +85,8 @@ import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio
     AccountSummaryComponent,
     BrokerageTableComponent,
     BrokerageSummaryComponent,
-    PortfolioHeaderComponent
+    PortfolioHeaderComponent,
+    TradeHistoryComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
