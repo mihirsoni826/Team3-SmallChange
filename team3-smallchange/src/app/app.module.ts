@@ -34,20 +34,10 @@ import { BrokerageTableComponent } from './molecules/brokerage-table/brokerage-t
 import { BrokerageSummaryComponent } from './molecules/brokerage-summary/brokerage-summary.component';
 import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio-header.component';
 
-/**
- * ******************
- * *** IMPORTANT! ***
- * ******************
- *
- * In Angular-only applications it is correct to use this app.module.ts file to build out the NgModule
- * config so that declared components become aware of each other, and the necessary imports are wired in.
- *
- * However, SmallChange is an Angular application WITH Storybook. The way Storybook works is that every story
- * told in Storybook is its own mini-app with its own NgModule definition.
- *
- * Meaning, if you add declarations and imports here in this file, your stories will not be affected! Instead,
- * you need to go to the appropriate src\stories\**\*.stories.ts file and edit the moduleMetadata config.
- */
+import { SellTradePageComponent } from './pages/sell-trade-page/sell-trade-page.component';
+
+import { SellTradeFormComponent } from './organisms/sell-trade-form/sell-trade-form.component';
+import { ModelComponent } from './molecules/model/model.component';
 
 @NgModule({
   imports: [BrowserModule, RouterOutlet,AppRoutingModule],
@@ -73,6 +63,13 @@ import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio
     LoginFormComponent,
     LoginPageComponent,
     DropDownComponent,
+
+
+    LoginPageComponent,
+    SellTradePageComponent,
+    SellTradeFormComponent,
+    ModelComponent,
+
     TableHeaderComponent,
     TableBodyComponent,
     FilterGenericComponent,

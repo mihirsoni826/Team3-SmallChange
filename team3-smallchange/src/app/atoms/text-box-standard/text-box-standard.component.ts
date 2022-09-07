@@ -15,5 +15,9 @@ export class TextBoxStandardComponent {
   inputName: string = '';
 
   @Input()
-  inputId: string = '';
+
+  inputId :string ="";
+
+  @Input()
+  inputPlaceholder: string ="";
 }
