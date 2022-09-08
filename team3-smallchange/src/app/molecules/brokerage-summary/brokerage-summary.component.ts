@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrokerageSummaryComponent implements OnInit {
 
+  totalValue = 'Total Value: $10000';
+  currentValue = 'Current Value: $10500';
+  PL = '$500(5%)';
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -33,6 +33,8 @@ import { AccountSummaryComponent } from './molecules/account-summary/account-sum
 import { BrokerageTableComponent } from './molecules/brokerage-table/brokerage-table.component';
 import { BrokerageSummaryComponent } from './molecules/brokerage-summary/brokerage-summary.component';
 import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio-header.component';
+import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page-message.component';
+import { AcctInfoMessageComponent } from './atoms/acct-info-message/acct-info-message.component';
 
 /**
  * ******************
@@ -84,7 +86,9 @@ import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio
     AccountSummaryComponent,
     BrokerageTableComponent,
     BrokerageSummaryComponent,
-    PortfolioHeaderComponent
+    PortfolioHeaderComponent,
+    EmptyPageMessageComponent,
+    AcctInfoMessageComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
