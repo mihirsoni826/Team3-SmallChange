@@ -13,7 +13,7 @@ export class TradeHistoryComponent implements OnInit {
 
   btType = 'button'
   btValue = 'Go'  
-  OPTIONS1: string[] = ["Savings", "Current"]
+  OPTIONS1: string[] = ["Brokerage", "401K", 'IRAs','HSAs']
   OPTIONS2: string[] = ["Asset1", "Asset2", "Asset3", "Asset4"]
   OPTIONS3: string[] = ["Buy", "Sell"]
 
