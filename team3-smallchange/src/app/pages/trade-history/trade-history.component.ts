@@ -10,6 +10,9 @@ import { DataService } from 'src/app/data.service';
 export class TradeHistoryComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
+
+  btType = 'button'
+  btValue = 'Go'  
   OPTIONS1: string[] = ["Savings", "Current"]
   OPTIONS2: string[] = ["Asset1", "Asset2", "Asset3", "Asset4"]
   OPTIONS3: string[] = ["Buy", "Sell"]
