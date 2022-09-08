@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginFormComponent } from './organisms/login-form/login-form.component';
@@ -22,7 +23,6 @@ import { RouterOutlet } from '@angular/router';
 import { DropDownComponent } from './atoms/drop-down/drop-down.component';
 import { TableHeaderComponent } from './atoms/table-header/table-header.component';
 import { TableBodyComponent } from './atoms/table-body/table-body.component';
-import { FilterGenericComponent } from './molecules/filter-generic/filter-generic.component';
 import { TotalValueComponent } from './atoms/total-value/total-value.component';
 import { UserNameComponent } from './atoms/user-name/user-name.component';
 import { PortfolioTableComponent } from './organisms/portfolio-table/portfolio-table.component';
@@ -33,26 +33,23 @@ import { AccountSummaryComponent } from './molecules/account-summary/account-sum
 import { BrokerageTableComponent } from './molecules/brokerage-table/brokerage-table.component';
 import { BrokerageSummaryComponent } from './molecules/brokerage-summary/brokerage-summary.component';
 import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio-header.component';
-import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page-message.component';
-import { AcctInfoMessageComponent } from './atoms/acct-info-message/acct-info-message.component';
+import { BuyTradeComponent } from './pages/buy-trade/buy-trade.component';
+import { RedAlertComponent } from './atoms/red-alert/red-alert.component';
+import { LabelInputFormControlComponent } from './molecules/label-input-form-control/label-input-form-control.component';
+import { TradeHistoryComponent } from './pages/trade-history/trade-history.component';
+import { SellTradePageComponent } from './pages/sell-trade-page/sell-trade-page.component';
 
-/**
- * ******************
- * *** IMPORTANT! ***
- * ******************
- *
- * In Angular-only applications it is correct to use this app.module.ts file to build out the NgModule
- * config so that declared components become aware of each other, and the necessary imports are wired in.
- *
- * However, SmallChange is an Angular application WITH Storybook. The way Storybook works is that every story
- * told in Storybook is its own mini-app with its own NgModule definition.
- *
- * Meaning, if you add declarations and imports here in this file, your stories will not be affected! Instead,
- * you need to go to the appropriate src\stories\**\*.stories.ts file and edit the moduleMetadata config.
- */
+import { SellTradeFormComponent } from './organisms/sell-trade-form/sell-trade-form.component';
+import { ModelComponent } from './molecules/model/model.component';
+import { LabelDropdownFormControlComponent } from './molecules/label-dropdown-form-control/label-dropdown-form-control.component';
 
 @NgModule({
-  imports: [BrowserModule, RouterOutlet,AppRoutingModule],
+  imports: [
+    BrowserModule, 
+    RouterOutlet,
+    FormsModule,
+    AppRoutingModule
+  ],
   declarations: [
     AppComponent,
     LogoComponent,
@@ -75,9 +72,14 @@ import { AcctInfoMessageComponent } from './atoms/acct-info-message/acct-info-me
     LoginFormComponent,
     LoginPageComponent,
     DropDownComponent,
+
+    LoginPageComponent,
+    SellTradePageComponent,
+    SellTradeFormComponent,
+    ModelComponent,
+
     TableHeaderComponent,
     TableBodyComponent,
-    FilterGenericComponent,
     TotalValueComponent,
     UserNameComponent,
     PortfolioTableComponent,
@@ -87,10 +89,13 @@ import { AcctInfoMessageComponent } from './atoms/acct-info-message/acct-info-me
     BrokerageTableComponent,
     BrokerageSummaryComponent,
     PortfolioHeaderComponent,
-    EmptyPageMessageComponent,
-    AcctInfoMessageComponent
+    TradeHistoryComponent,
+    BuyTradeComponent,
+    RedAlertComponent,
+	  LabelInputFormControlComponent,
+    LabelDropdownFormControlComponent
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
