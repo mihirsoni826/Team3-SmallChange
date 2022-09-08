@@ -1,9 +1,12 @@
 select {
-    width: 100%;
+    width: 200px;
     display: block;
     box-sizing: border-box;
     padding: 0.5rem 1rem;
-  
     font-size: 18px;
     line-height: 1.5em;
+    background-color: rgb(190, 185, 185);
+    border-radius: 6px;
+    color: rgb(15, 1, 1);
 }
+
