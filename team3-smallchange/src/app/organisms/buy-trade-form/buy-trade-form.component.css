@@ -1,0 +1,29 @@
+#buy-trade-form {
+    display: block;
+    margin-top: 2rem;
+    width: 100%;    
+}
+
+#red-alert-box {
+    margin-top: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+#btn-form-group {
+    margin: 2.5rem 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

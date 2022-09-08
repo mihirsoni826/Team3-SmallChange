@@ -3,11 +3,12 @@
     border: none;
     padding: 1rem 2rem;
     box-sizing: border-box;
-    margin-bottom: 1.5rem;
+    margin: 1.5rem 0;
 }
 
 p {
     color: red;
     font-size: medium;
     font-weight: bold;
+    margin: 0;
 }
