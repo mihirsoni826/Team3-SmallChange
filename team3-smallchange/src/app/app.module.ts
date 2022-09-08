@@ -53,8 +53,9 @@ import { BuyTradeFormComponent } from './organisms/buy-trade-form/buy-trade-form
     BrowserModule, 
     RouterOutlet,
     FormsModule,
-HttpClientModule,
-ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     AppComponent,
