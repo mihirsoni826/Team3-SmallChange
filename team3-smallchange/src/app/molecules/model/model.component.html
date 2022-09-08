@@ -1,12 +1,13 @@
-
-<div class="bg-modal" [style]="display">
-	<div class="modal-contents">
-		
-        <span> Do you want to sell qualtity of stocks</span>
-        <div id="btn">
-            <button (click)="onNoClick($event)">No</button>
-            <button (click)="onYesClick($event)"> Yes</button>
+<div class="modal"  [style]="display" style="background-color: rgba(0, 0, 0, 0.5)" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content"  >
+        <div class="modal-body">
+          <p>{{content}}</p>
         </div>
-	</div>
-   
-</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick($event)">No</button>
+          <button type="button" class="btn btn-primary" (click)="onYesClick($event)">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
