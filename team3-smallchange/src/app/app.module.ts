@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginFormComponent } from './organisms/login-form/login-form.component';
@@ -42,13 +42,16 @@ import { SellTradePageComponent } from './pages/sell-trade-page/sell-trade-page.
 import { SellTradeFormComponent } from './organisms/sell-trade-form/sell-trade-form.component';
 import { ModelComponent } from './molecules/model/model.component';
 import { LabelDropdownFormControlComponent } from './molecules/label-dropdown-form-control/label-dropdown-form-control.component';
+import { ErrorMsgComponent } from './atoms/error-msg/error-msg.component';
+import { BuyTradeFormComponent } from './organisms/buy-trade-form/buy-trade-form.component';
 
 @NgModule({
   imports: [
     BrowserModule, 
     RouterOutlet,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -93,7 +96,9 @@ import { LabelDropdownFormControlComponent } from './molecules/label-dropdown-fo
     BuyTradeComponent,
     RedAlertComponent,
 	  LabelInputFormControlComponent,
-    LabelDropdownFormControlComponent
+    LabelDropdownFormControlComponent,
+    ErrorMsgComponent,
+    BuyTradeFormComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
