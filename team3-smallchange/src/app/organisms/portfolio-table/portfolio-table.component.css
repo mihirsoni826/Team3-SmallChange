@@ -1,0 +1,27 @@
+.filters{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    padding: 2% 1%;
+    
+}
+
+.filter-elements{
+    padding-right: 5%;
+}
+
+.filterBtn{
+    display: flex;
+    flex-direction: row;
+    padding: 2% 1%;
+    cursor: pointer;
+}
+
+.fa-arrow-right {
+    background-color: #568200;
+    color: white;
+    padding: 30% 10% 0% 5%;
+}
+
+
+

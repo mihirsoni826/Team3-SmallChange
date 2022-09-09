@@ -11,5 +11,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-title.component.scss']
 })
 export class PageTitleComponent {
-
+  pageTitle = 'Login Page';
 }
