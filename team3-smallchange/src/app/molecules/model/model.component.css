@@ -3,7 +3,7 @@
   
     color: white;
     border: 0;
-    margin-right: 5%;
+    margin-right: 3%;
     width: 6vw;
     height: 6vh;
     font-size: 100%;
@@ -14,15 +14,16 @@
 } 
 
 .modal-dialog {
-    max-width: 600px;
+    max-width: 650px;
     
 }
 
 .modal-content{
-    height: 35vh;
+    height: 37vh;
     width: 600vw;
      text-align: center;
-      padding-top: 4vh ; 
+      padding: 4vh 3vw 0 3vw ;
+     
     font-size: medium;
     font-weight: 600;
     letter-spacing: 1.2px;
