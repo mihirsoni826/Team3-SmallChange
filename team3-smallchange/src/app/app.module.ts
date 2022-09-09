@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
+import { HttpClientModule} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginFormComponent } from './organisms/login-form/login-form.component';
 import { NavBarLinkComponent } from './atoms/nav-bar-link/nav-bar-link.component';
@@ -36,10 +38,13 @@ import { RedAlertComponent } from './atoms/red-alert/red-alert.component';
 import { LabelInputFormControlComponent } from './molecules/label-input-form-control/label-input-form-control.component';
 import { TradeHistoryComponent } from './pages/trade-history/trade-history.component';
 import { SellTradePageComponent } from './pages/sell-trade-page/sell-trade-page.component';
-
+import { DataService } from './data.service';
 import { SellTradeFormComponent } from './organisms/sell-trade-form/sell-trade-form.component';
 import { ModelComponent } from './molecules/model/model.component';
 import { LabelDropdownFormControlComponent } from './molecules/label-dropdown-form-control/label-dropdown-form-control.component';
+import { ErrorMsgComponent } from './atoms/error-msg/error-msg.component';
+import { BuyTradeFormComponent } from './organisms/buy-trade-form/buy-trade-form.component';
+
 import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page-message.component';
 import { AcctInfoMessageComponent } from './atoms/acct-info-message/acct-info-message.component';
 import { AcctTypeFilterComponent } from './organisms/acct-type-filter/acct-type-filter.component';
@@ -49,7 +54,9 @@ import { AcctTypeFilterComponent } from './organisms/acct-type-filter/acct-type-
     BrowserModule, 
     RouterOutlet,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     AppComponent,
@@ -62,7 +69,6 @@ import { AcctTypeFilterComponent } from './organisms/acct-type-filter/acct-type-
     TextBoxPasswordComponent,
     ButtonComponent,
     LinkComponent,
-
     HeaderBarComponent,
     NavBarComponent,
     PageTitleComponent,
@@ -94,9 +100,14 @@ import { AcctTypeFilterComponent } from './organisms/acct-type-filter/acct-type-
     RedAlertComponent,
 	  LabelInputFormControlComponent,
     LabelDropdownFormControlComponent,
+<<<<<<< HEAD
 
     EmptyPageMessageComponent,
     AcctInfoMessageComponent
+=======
+    ErrorMsgComponent,
+    BuyTradeFormComponent,
+>>>>>>> ff6f49289bc5882b4d78858012cbbe3ae7b0ff15
   ],
   providers: [],
   bootstrap: [AppComponent]

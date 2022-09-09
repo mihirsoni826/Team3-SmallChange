@@ -16,6 +16,9 @@ export class ModelComponent implements OnInit {
   @Output()
   btnNoClick = new EventEmitter<string>;
   
+  @Input()
+  content :string="";
+  
   ngOnInit(): void {
   }
 
