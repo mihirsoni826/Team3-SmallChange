@@ -4,12 +4,14 @@
     width: 300px;    
 }
 
+#red-alert-box {
+    margin-top: 1.5rem;
+}
+
 .form-group {
     margin-bottom: 1.5rem;
 }
 
-#asset-class-err, #security-err, #quantity-err {
-    color: red;
-    font-size: 0.9em;
-    font-weight: bold;
+#btn-form-group {
+    margin: 2.5rem 0;
 }

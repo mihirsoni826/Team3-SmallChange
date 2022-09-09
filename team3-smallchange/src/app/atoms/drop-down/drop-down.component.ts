@@ -13,6 +13,7 @@ export class DropDownComponent implements OnInit {
   @Input()
   OPTIONS: string[] = [];
 
+  ITEMS = ['savins, njfjnfjnf']
   constructor() { }
 
   ngOnInit(): void {
