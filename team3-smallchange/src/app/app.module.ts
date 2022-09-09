@@ -47,7 +47,6 @@ import { BuyTradeFormComponent } from './organisms/buy-trade-form/buy-trade-form
 
 import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page-message.component';
 import { AcctInfoMessageComponent } from './atoms/acct-info-message/acct-info-message.component';
-import { AcctTypeFilterComponent } from './organisms/acct-type-filter/acct-type-filter.component';
 
 @NgModule({
   imports: [
@@ -91,7 +90,6 @@ import { AcctTypeFilterComponent } from './organisms/acct-type-filter/acct-type-
     UserNameComponent,
     PortfolioTableComponent,
     PortfolioComponent,
-    AcctTypeFilterComponent,
     BrokerageTableComponent,
     BrokerageSummaryComponent,
     PortfolioHeaderComponent,
@@ -100,14 +98,11 @@ import { AcctTypeFilterComponent } from './organisms/acct-type-filter/acct-type-
     RedAlertComponent,
 	  LabelInputFormControlComponent,
     LabelDropdownFormControlComponent,
-<<<<<<< HEAD
 
     EmptyPageMessageComponent,
-    AcctInfoMessageComponent
-=======
+    AcctInfoMessageComponent,
     ErrorMsgComponent,
     BuyTradeFormComponent,
->>>>>>> ff6f49289bc5882b4d78858012cbbe3ae7b0ff15
   ],
   providers: [],
   bootstrap: [AppComponent]

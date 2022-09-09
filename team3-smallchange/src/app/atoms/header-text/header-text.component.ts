@@ -13,5 +13,8 @@ import { Component,Input } from '@angular/core';
 export class HeaderTextComponent {
 
   @Input()
+  headerId:any;
+  
+  @Input()
   headerText: string = '';
 }

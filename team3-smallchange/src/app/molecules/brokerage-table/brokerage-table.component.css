@@ -1,3 +1,4 @@
-.table-align {
-    margin: 0 10em;
+#brokerage-table {
+    width:90%; 
+    margin:auto 
 }

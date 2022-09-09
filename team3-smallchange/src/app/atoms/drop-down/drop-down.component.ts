@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-drop-down',
@@ -14,9 +15,17 @@ export class DropDownComponent implements OnInit {
   OPTIONS: string[] = [];
 
   ITEMS = ['savins, njfjnfjnf']
-  constructor() { }
+  selectedValue: string = 'Select Type of Account';
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
+
+  selectChange() {
+    console.log(this.selectedValue);
+    this.dataService.getDropDownValue(this.selectedValue);
+  }
+  
+
 
 }
