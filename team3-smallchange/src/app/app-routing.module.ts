@@ -7,12 +7,14 @@ import { TradeHistoryComponent } from './pages/trade-history/trade-history.compo
 import { BuyTradeComponent } from './pages/buy-trade/buy-trade.component';
 import { SellTradePageComponent } from './pages/sell-trade-page/sell-trade-page.component';
 
+import { AuthGuard } from './services/auth-guard.service'
+
 const routes: Routes = [
   { path: '', component: LoginPageComponent},
-  { path: 'portfolio', component: PortfolioComponent },
-  {path: 'trade-history', component: TradeHistoryComponent},
-  { path: 'buy', component: BuyTradeComponent },
-  { path: 'sell', component: SellTradePageComponent }
+  { path: 'portfolio', component: PortfolioComponent , canActivate: [AuthGuard]},
+  {path: 'trade-history', component: TradeHistoryComponent,canActivate: [AuthGuard]},
+  { path: 'buy', component: BuyTradeComponent ,canActivate: [AuthGuard]},
+  { path: 'sell', component: SellTradePageComponent,canActivate: [AuthGuard] }
 ];
 
 @NgModule({

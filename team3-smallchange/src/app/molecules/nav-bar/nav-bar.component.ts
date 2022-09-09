@@ -2,6 +2,7 @@
 // Allows JavaScript to be compiled - otherwise use of TypeScript is enforced.
 // @ts-nocheck
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'sc-nav-bar',
@@ -9,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
+
+  constructor(private authService:AuthService){}
 
   public ngOnInit(): void {
     document.getElementById('activity').children[0].innerHTML = 'Activity';
@@ -21,6 +24,11 @@ export class NavBarComponent implements OnInit {
       document.getElementsByClassName("navbar")[0].classList.toggle("toggle-navbar");
     });
     
+  }
+
+  logout()
+  {
+    this.authService.logout();
   }
 
 }

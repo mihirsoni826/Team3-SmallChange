@@ -1,6 +1,8 @@
 // Allows JavaScript to be compiled - otherwise use of TypeScript is enforced.
 // @ts-nocheck
 import { Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'sc-login-form',
@@ -9,6 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class LoginFormComponent implements OnInit {
+
+
+ constructor(private rrouter: Router,private dataService:DataService){}
+
+  users : object;
+  wrong :boolean = false;
 
   btnName = 'Login';
   btnType = 'submit';
@@ -33,5 +41,24 @@ export class LoginFormComponent implements OnInit {
 
       console.log(json);
     });
+
+
+    this.dataService.getLoginCred().subscribe((response) => {
+      this.users = response;
+    })
+  }
+
+
+  
+  onSubmitHandler(form:any) {
+   
+   
+    if(this.users[form.value.userId]==form.value.password)
+    {
+        localStorage.setItem('token', "12345qwert");
+        this.rrouter.navigateByUrl('portfolio');
+    }
+    else
+     this.wrong=true;
   }
 }
