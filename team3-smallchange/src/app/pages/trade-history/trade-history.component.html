@@ -3,15 +3,15 @@
 
 <div class="filters">
     <div class="filter-elements">
-        <app-label-dropdown-form-control [labelFor]="labelForA" [labelTxt]="labelTxt1" [selectName]="selectNameA" [OPTIONS]="OPTIONS1">
+        <app-label-dropdown-form-control  (dropdownOption)="selectedFilter($event)" [labelFor]="labelForA" [labelTxt]="labelTxt1" [selectName]="selectNameA" [OPTIONS]="OPTIONS1">
         </app-label-dropdown-form-control>
     </div>
     <div class="filter-elements">
-        <app-label-dropdown-form-control [labelFor]="labelForB" [labelTxt]="labelTxt2" [selectName]="selectNameB" [OPTIONS]="OPTIONS2">
+        <app-label-dropdown-form-control (dropdownOption)="selectedFilter($event)" [labelFor]="labelForB" [labelTxt]="labelTxt2" [selectName]="selectNameB" [OPTIONS]="OPTIONS2">
         </app-label-dropdown-form-control>
     </div>
     <div class="filter-elements">
-        <app-label-dropdown-form-control [labelFor]="labelForC" [labelTxt]="labelTxt3" [selectName]="selectNameC" [OPTIONS]="OPTIONS3">
+        <app-label-dropdown-form-control (dropdownOption)="selectedFilter($event)" [labelFor]="labelForC" [labelTxt]="labelTxt3" [selectName]="selectNameC" [OPTIONS]="OPTIONS3">
         </app-label-dropdown-form-control>
     </div>
     <div id="btn">

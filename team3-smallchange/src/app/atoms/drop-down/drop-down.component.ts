@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-drop-down',
@@ -13,10 +13,14 @@ export class DropDownComponent implements OnInit {
   @Input()
   OPTIONS: string[] = [];
 
-  ITEMS = ['savins, njfjnfjnf']
+  @Output() 
+  filter = new EventEmitter<string>()
   constructor() { }
 
   ngOnInit(): void {
   }
+  selectedFilter(value:any){
+    this.filter.emit(value);
 
+  }
 }

@@ -29,6 +29,10 @@ export class TradeHistoryComponent implements OnInit {
   selectNameB: string = "Asset"
   selectNameC: string = "Trade"
 
+  accountType: string = 'All'
+  assetType: string = 'All'
+  tradeType: string = 'All'
+
   VALUES = []
   COLUMNS: string[] = ['Serial No.', 'Trade Name', 'Account', 'DOP', 'DOS', 'Buy/Sell', 'Assest Class', 'Bought at', 'Sold at', 'Quantity']
 
@@ -37,6 +41,27 @@ export class TradeHistoryComponent implements OnInit {
       this.VALUES = response
       console.log(this.VALUES)
     })
+  }
+
+  selectedFilter(value:string){
+    if(this.OPTIONS1.includes(value)){
+      this.accountType = value
+      // this.setFilterValue(value)
+    }
+    if(this.OPTIONS2.includes(value)){
+      this.assetType = value
+    }
+    if(this.OPTIONS3.includes(value)){
+      this.tradeType = value
+    }
+
+    console.log(this.accountType)
+    console.log(this.assetType)
+    console.log(this.tradeType)
+  }
+
+  setFilterValue(value:string){
+
   }
 
 }
