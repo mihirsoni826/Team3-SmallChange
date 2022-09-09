@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-brokerage-table',
@@ -7,18 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrokerageTableComponent implements OnInit {
 
-  COLUMNS: string[] = ['Serial No','Symbol','TradeDate','Price','Quantity','Buy value','Present value','P&L','P&L %']
+  COLUMNS: string[] = ['Serial No','Symbol','TradeDate','Price','Quantity','Buy value','Present value','P&L(%)']
 
-  VALUES = [
-    {'Serial No':1, 'Symbol': 'MSFT', 'Trade Date': '07-09-22','Price': '$100','Quantity': 5,'Invested amount': '$500','Present value': '$550','P&L': '$50','P&L %': '10%'},
-    {'Serial No':2, 'Symbol': 'MSFT', 'Trade Date': '07-09-22','Price': '$100','Quantity': 5,'Invested amount': '$500','Present value': '$550','P&L': '$50','P&L %': '10%'},
-    {'Serial No':3, 'Symbol': 'MSFT', 'Trade Date': '07-09-22','Price': '$100','Quantity': 5,'Invested amount': '$500','Present value': '$550','P&L': '$50','P&L %': '10%'},
-    {'Serial No':4, 'Symbol': 'MSFT', 'Trade Date': '07-09-22','Price': '$100','Quantity': 5,'Invested amount': '$500','Present value': '$550','P&L': '$50','P&L %': '10%'}
-  ]
+  VALUES = [];
   
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.dataService.getBrokeragePortfolio().subscribe((response) => {
+      this.VALUES = response;
+    })
   }
+
 
 }

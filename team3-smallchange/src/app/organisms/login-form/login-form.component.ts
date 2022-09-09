@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class LoginFormComponent implements OnInit {
 
+  btnName = 'Login';
+  btnType = 'submit';
   public ngOnInit(): void {
     
     let form = document.querySelector('#form-wrapper');
