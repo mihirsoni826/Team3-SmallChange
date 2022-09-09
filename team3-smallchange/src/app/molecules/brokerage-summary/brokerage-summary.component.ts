@@ -7,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrokerageSummaryComponent implements OnInit {
 
-  totalValue = 'Total Value: $10000';
-  currentValue = 'Current Value: $10500';
+  labelTxt1 = 'Invested Value';
+  labelFor1 = 'InvestedAmt';
+
+  labelTxt2 = 'Current Value';
+  labelFor2 = 'currentAmt';
+
+  labelTxt3 = 'P & L';
+  labelFor3 = 'PL';
+  
+  investedValue = '$10000';
+  currentValue = '$10500';
   PL = '$500(5%)';
   
   constructor() { }

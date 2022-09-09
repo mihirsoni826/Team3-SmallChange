@@ -1,11 +1,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="filter">
-    <div class="acct-type">
-        <app-drop-down [selectName]="selectName" [OPTIONS]="OPTIONS"  ></app-drop-down>
+<div class="filters">
+    <div class="filter-elements">
+        <app-label-dropdown-form-control [labelFor]="labelForA" [labelTxt]="labelTxt" [selectName]="selectName" [OPTIONS]="OPTIONS">
+        </app-label-dropdown-form-control>
     </div>
 
-    <div class="filterOnAcctType">
+    <div class="filterBtn">
         <sc-atom-button id="go-btn" [btType]="btType" [btValue]="btValue"></sc-atom-button>
         <i class="fa fa-arrow-right"></i>
     </div>

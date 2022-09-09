@@ -1,5 +1,17 @@
-<div>
-<app-acct-info-message [acctData]="totalValue"></app-acct-info-message>
-<app-acct-info-message [acctData]="currentValue"></app-acct-info-message>
-<app-acct-info-message [acctData]="PL"></app-acct-info-message>
+
+<div class="acct-info">
+    <div class="row">
+        <div class="col-lg-4">
+            <sc-atom-form-label [labelTxt]="labelTxt1" [labelFor]="labelFor1"></sc-atom-form-label>
+            <app-acct-info-message [acctData]="investedValue"></app-acct-info-message>
+        </div>
+        <div class="col-lg-4">
+            <sc-atom-form-label [labelTxt]="labelTxt2" [labelFor]="labelFor2"></sc-atom-form-label>
+            <app-acct-info-message [acctData]="currentValue"></app-acct-info-message>
+        </div>
+        <div class="col-lg-4">
+            <sc-atom-form-label [labelTxt]="labelTxt3" [labelFor]="labelFor3"></sc-atom-form-label>
+            <app-acct-info-message [acctData]="PL"></app-acct-info-message>
+        </div>
+    </div>
 </div>

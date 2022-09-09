@@ -10,6 +10,8 @@ export class AcctTypeFilterComponent implements OnInit {
  
   OPTIONS: string[] = ["Select Type of Account", "Brokerage", "401k", "IRAs", "Roth IRAs", "HSAs"];
   selectName = 'acctType';
+  labelTxt : string = 'By Account';
+  labelForA: string = 'account';
 
   btType = 'submit';
   btValue = 'Go';

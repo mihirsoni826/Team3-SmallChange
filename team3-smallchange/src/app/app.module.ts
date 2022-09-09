@@ -27,9 +27,7 @@ import { TotalValueComponent } from './atoms/total-value/total-value.component';
 import { UserNameComponent } from './atoms/user-name/user-name.component';
 import { PortfolioTableComponent } from './organisms/portfolio-table/portfolio-table.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
-import { AcctTypeFilterComponent } from './molecules/acct-type-filter/acct-type-filter.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AccountSummaryComponent } from './molecules/account-summary/account-summary.component';
 import { BrokerageTableComponent } from './molecules/brokerage-table/brokerage-table.component';
 import { BrokerageSummaryComponent } from './molecules/brokerage-summary/brokerage-summary.component';
 import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio-header.component';
@@ -42,6 +40,9 @@ import { SellTradePageComponent } from './pages/sell-trade-page/sell-trade-page.
 import { SellTradeFormComponent } from './organisms/sell-trade-form/sell-trade-form.component';
 import { ModelComponent } from './molecules/model/model.component';
 import { LabelDropdownFormControlComponent } from './molecules/label-dropdown-form-control/label-dropdown-form-control.component';
+import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page-message.component';
+import { AcctInfoMessageComponent } from './atoms/acct-info-message/acct-info-message.component';
+import { AcctTypeFilterComponent } from './organisms/acct-type-filter/acct-type-filter.component';
 
 @NgModule({
   imports: [
@@ -85,7 +86,6 @@ import { LabelDropdownFormControlComponent } from './molecules/label-dropdown-fo
     PortfolioTableComponent,
     PortfolioComponent,
     AcctTypeFilterComponent,
-    AccountSummaryComponent,
     BrokerageTableComponent,
     BrokerageSummaryComponent,
     PortfolioHeaderComponent,
@@ -93,7 +93,10 @@ import { LabelDropdownFormControlComponent } from './molecules/label-dropdown-fo
     BuyTradeComponent,
     RedAlertComponent,
 	  LabelInputFormControlComponent,
-    LabelDropdownFormControlComponent
+    LabelDropdownFormControlComponent,
+
+    EmptyPageMessageComponent,
+    AcctInfoMessageComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
