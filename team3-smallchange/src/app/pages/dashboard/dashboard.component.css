@@ -1,0 +1,17 @@
+.container, .container-sm {
+    margin-top: 5rem;
+}
+
+.card {
+    border-radius: 10px;
+    background-color: #fff;
+    border: none;
+    box-shadow: 7px 7px 15px 4px rgba(0, 0, 0, 0.13);
+    padding-top: 2rem;
+    transition: transform .4s;
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
