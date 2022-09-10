@@ -47,6 +47,7 @@ import { BuyTradeFormComponent } from './organisms/buy-trade-form/buy-trade-form
 
 import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page-message.component';
 import { AcctInfoMessageComponent } from './atoms/acct-info-message/acct-info-message.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   imports: [
@@ -103,6 +104,7 @@ import { AcctInfoMessageComponent } from './atoms/acct-info-message/acct-info-me
     AcctInfoMessageComponent,
     ErrorMsgComponent,
     BuyTradeFormComponent,
+    DashboardComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
