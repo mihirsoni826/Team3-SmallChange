@@ -3,10 +3,11 @@
       <div class="modal-content"  >
         <div class="modal-body">
           <p>{{content}}</p>
+          <p id="value">Amount Receivable {{value}}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick($event)">No</button>
-          <button type="button" class="btn btn-primary" (click)="onYesClick($event)">Yes</button>
+          <button type="button" class="btn btn-primary" (click)="onYesClick($event)" style=" background-color: #568200;">Yes</button>
         </div>
       </div>
     </div>

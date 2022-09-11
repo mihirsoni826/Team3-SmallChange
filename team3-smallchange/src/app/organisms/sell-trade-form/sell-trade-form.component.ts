@@ -29,9 +29,9 @@ export class SellTradeFormComponent {
  
  
   price: number = 0;
+  insufficientBalance: boolean = false;
 
   assetClassList: string[] = [
-    " -- Choose an asset class --",
     "Main index stocks",
     "Small cap company stocks",
     "International market stocks",
@@ -44,10 +44,7 @@ export class SellTradeFormComponent {
     "ICICI Bank (65437889243)",
   ];
 
-
-  onSubmit(event: any): void {
-    event.preventDefault();
-    let inputValue = event.target["qty"].value;
-    console.log(inputValue);
+  onSubmit(data: any): void {
+    console.log(data);
   } 
 }

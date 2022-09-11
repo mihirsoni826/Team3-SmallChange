@@ -1,44 +1,23 @@
-nav{
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0.5rem 1rem;
-    max-width: 62.5;
-    background-color: #f2f2f2;
-    display: block;
-  }
-  ul{
-    list-style-type: none;
-    margin: 0em -1em;
-    padding: 0;
-    
-  }
-  li{
-    display: inline-block;
-    cursor: pointer;
-  }
-  
-  .icon {
-    display: none;
-  }
-  
-  @media screen and (max-width: 720px) {
-    .icon {
-      display: block;
-      cursor: pointer;
-    }
-  
-    .navbar.toggle-navbar {
-      display: block;
-    }
-  
-    .navbar {
-      display:none;
-    }
-  
-    nav li {
-      display: block;
-    }
-  
-  }
-  
-  
+.navbar {
+  background-color: #2e2e2e;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+  font-weight: 200;
+}
+
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show > .nav-link {
+  color: #ffbe0b;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  text-decoration: underline;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 0 1rem;
+}

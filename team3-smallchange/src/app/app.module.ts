@@ -46,6 +46,8 @@ import { ErrorMsgComponent } from './atoms/error-msg/error-msg.component';
 import { BuyTradeFormComponent } from './organisms/buy-trade-form/buy-trade-form.component';
 
 import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page-message.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { CardComponent } from './atoms/card/card.component';
 
 @NgModule({
   imports: [
@@ -101,6 +103,8 @@ import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page
     EmptyPageMessageComponent,
     ErrorMsgComponent,
     BuyTradeFormComponent,
+    DashboardComponent,
+    CardComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

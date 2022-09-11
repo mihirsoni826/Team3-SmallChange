@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class BuyTradeFormComponent implements OnInit {
 
   price: number = 0;
-  insufficientBalance: boolean = false;
+  insufficientBalance: boolean = true;
+  securityPrice: number = 0;
 
   assetClassList: string[] = [
     "Main index stocks",
@@ -30,6 +31,12 @@ export class BuyTradeFormComponent implements OnInit {
 
   onSubmit(data: any): void {
     console.log(data);
-  } 
+  }
+
+  getRandomIntInclusive(min: number, max: number) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    this.securityPrice = Math.floor(Math.random() * (max - min + 1) + min);
+  }
 
 }

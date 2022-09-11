@@ -25,4 +25,8 @@ export class DataService {
   getBrokeragePortfolio() : Observable<any> {
     return this.http.get<any>('../assets/brokerage-portfolio.json');
   }
+
+  getLoginCred(): Observable<any>{
+    return this.http.get<any>('../assets/users.json')
+  }
 }
