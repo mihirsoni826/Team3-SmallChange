@@ -12,10 +12,9 @@ export class DataService {
   dropdownValue: string = '';
 
   constructor(private http: HttpClient) { 
-
+    this.dropDown$.next('Select Type of Account');
   }
   getDropDownValue(value: any) {
-    console.log(value);
     this.dropDown$.next(value);
   }
 
