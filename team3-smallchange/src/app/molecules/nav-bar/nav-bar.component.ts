@@ -1,8 +1,10 @@
 
+
 // Allows JavaScript to be compiled - otherwise use of TypeScript is enforced.
 // @ts-nocheck
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'sc-nav-bar',
@@ -11,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavBarComponent implements OnInit {
 
+
   constructor(private authService:AuthService){}
 
   public ngOnInit(): void {
@@ -18,13 +21,13 @@ export class NavBarComponent implements OnInit {
     document.getElementById('trade').children[0].innerHTML = 'Trade';
     document.getElementById('preferences').children[0].innerHTML = 'Preferences';
 
-    const hamburgerIcon = document.getElementById('hamburger-icon');
- 
-    hamburgerIcon.addEventListener('click', () => {
-      document.getElementsByClassName("navbar")[0].classList.toggle("toggle-navbar");
-    });
-    
-  }
+  @Input() dashboardActive: boolean = false;
+  @Input() portfolioActive: boolean = false;
+  @Input() tradeActive: boolean = false;
+  @Input() historyActive: boolean = false;
+
+  @Input() username: string = "John Doe";
+
 
   logout()
   {

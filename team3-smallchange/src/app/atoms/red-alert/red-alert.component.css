@@ -1,14 +1,4 @@
-.alert-wrapper {
-    background-color: #FFB4B4;
-    border: none;
-    padding: 1rem 2rem;
-    box-sizing: border-box;
-    margin: 1.5rem 0;
-}
-
-p {
-    color: red;
-    font-size: medium;
-    font-weight: bold;
-    margin: 0;
+.alert {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
 }
