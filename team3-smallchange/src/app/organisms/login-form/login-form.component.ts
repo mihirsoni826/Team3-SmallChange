@@ -56,7 +56,7 @@ export class LoginFormComponent implements OnInit {
     if(this.users[form.value.userId]==form.value.password)
     {
         localStorage.setItem('token', "12345qwert");
-        this.rrouter.navigateByUrl('portfolio');
+        this.rrouter.navigateByUrl('dashboard');
     }
     else
      this.wrong=true;
