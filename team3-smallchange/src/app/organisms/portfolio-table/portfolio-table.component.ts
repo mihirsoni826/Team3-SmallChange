@@ -13,21 +13,16 @@ export class PortfolioTableComponent implements OnInit {
   labelTxt : string = 'By Account';
   labelForA: string = 'account';
 
-  btType = 'submit';
-  btValue = 'Go';
-  dropdownValue: any;
+  dropdownValue = 'Select Type of Account';
+  noData = "Report is empty";
+  noAcct = 'select account to show';
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    const filterBtn = document.getElementById('Btn');
-
-    filterBtn?.addEventListener('click',() => {
       this.dataService.selectedDropDown$.subscribe((value) => {
         this.dropdownValue = value;
-        console.log(this.dropdownValue)
       });
-    })
   }
 
 }

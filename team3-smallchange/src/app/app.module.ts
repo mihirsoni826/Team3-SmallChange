@@ -46,7 +46,6 @@ import { ErrorMsgComponent } from './atoms/error-msg/error-msg.component';
 import { BuyTradeFormComponent } from './organisms/buy-trade-form/buy-trade-form.component';
 
 import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page-message.component';
-import { AcctInfoMessageComponent } from './atoms/acct-info-message/acct-info-message.component';
 
 @NgModule({
   imports: [
@@ -100,7 +99,6 @@ import { AcctInfoMessageComponent } from './atoms/acct-info-message/acct-info-me
     LabelDropdownFormControlComponent,
 
     EmptyPageMessageComponent,
-    AcctInfoMessageComponent,
     ErrorMsgComponent,
     BuyTradeFormComponent,
   ],

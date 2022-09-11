@@ -1,4 +1,24 @@
-<div id="userData">
-    <sc-atom-header-text [headerText]="username"></sc-atom-header-text>
-    <sc-atom-header-text headerId="id" [headerText]="totalValue"></sc-atom-header-text>
-    </div> 
+ 
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card"  [style.backgroundColor]="currentValue < investedValue ? '#FFD8D8' : '#E7FFE7'">
+        <div class="card-body">
+            <h5 class="card-title">
+            <sc-atom-header-text headerId="id" [headerText]="current"></sc-atom-header-text>
+            </h5>
+            <p class="card-text" [style.color]="currentValue < investedValue ? '#FF0000' : '#008000'">{{currentValue | currency}}</p>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card" [style.backgroundColor]="'#DEEEFF'">
+        <div class="card-body">
+            <h5 class="card-title">
+            <sc-atom-header-text headerId="id" [headerText]="invested"></sc-atom-header-text>
+            </h5>
+            <p class="card-text">{{investedValue | currency}}</p>
+            
+        </div>
+        </div>
+    </div>
+    </div>

@@ -3,15 +3,19 @@
     <div class="row">
         <div class="col-lg-4">
             <sc-atom-form-label [labelTxt]="labelTxt1" [labelFor]="labelFor1"></sc-atom-form-label>
-            <app-acct-info-message [acctData]="investedValue"></app-acct-info-message>
+            <p class="card-text">{{investedValue | currency}}</p>
+            
+            
         </div>
         <div class="col-lg-4">
             <sc-atom-form-label [labelTxt]="labelTxt2" [labelFor]="labelFor2"></sc-atom-form-label>
-            <app-acct-info-message [acctData]="currentValue"></app-acct-info-message>
+            <p class="card-text">{{currentValue | currency}}</p>
+            
         </div>
         <div class="col-lg-4">
             <sc-atom-form-label [labelTxt]="labelTxt3" [labelFor]="labelFor3"></sc-atom-form-label>
-            <app-acct-info-message [acctData]="PL"></app-acct-info-message>
+            <p class="card-text" [style.color]="difference < 0 ? '#FF0000' : '#008000'">{{PL}}</p>
+            
         </div>
     </div>
 </div>
