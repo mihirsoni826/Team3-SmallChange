@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AcctTypeFilterComponent } from './acct-type-filter.component';
+import { DashboardComponent } from './dashboard.component';
 
-describe('AcctTypeFilterComponent', () => {
-  let component: AcctTypeFilterComponent;
-  let fixture: ComponentFixture<AcctTypeFilterComponent>;
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AcctTypeFilterComponent ]
+      declarations: [ DashboardComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AcctTypeFilterComponent);
+    fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

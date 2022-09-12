@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-drop-down',
@@ -13,14 +14,23 @@ export class DropDownComponent implements OnInit {
   @Input()
   OPTIONS: string[] = [];
 
-  @Output() 
-  filter = new EventEmitter<string>()
-  constructor() { }
+  @Input()
+  Id: string = ''
+  selectedValue: string = 'Select Type of Account';
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
-  selectedFilter(value:any){
-    this.filter.emit(value);
+  selectChange() {
+    console.log(document.getElementById(('Id')))
+    this.dataService.getDropDownValue(this.selectedValue);
+   var temp = document.getElementById(this.Id) 
+   console.log(this.dataService.reset)
 
+    this.dataService.reset = temp
+    console.log(typeof(temp))
+    console.log(temp)
+    console.log(this.dataService.reset)
   }
+
 }

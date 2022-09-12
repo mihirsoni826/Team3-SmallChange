@@ -15,6 +15,8 @@ export class ModelComponent implements OnInit {
   btnYesClick = new EventEmitter<string>;
   @Output()
   btnNoClick = new EventEmitter<string>;
+  @Input()
+  value: string="";
   
   @Input()
   content :string="";

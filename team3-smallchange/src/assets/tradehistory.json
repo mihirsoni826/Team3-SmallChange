@@ -26,7 +26,7 @@
     {
        "id": "3",
        "name": "Google",
-       "acc": "savings",
+       "acc": "Brokerage",
        "dop": "-",
        "dos": "03-09-2022",
        "bs": "Sell",
@@ -38,7 +38,7 @@
     {
        "id": "4",
        "name": "Tesla",
-       "acc": "savings",
+       "acc": "401K",
        "dop": "02-09-2022",
        "dos": "-",
        "bs": "Buy",

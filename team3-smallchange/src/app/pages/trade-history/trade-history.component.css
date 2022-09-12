@@ -19,3 +19,8 @@
     width:100%; 
     margin:auto  
 }
+
+#Btn1, #Btn{
+    margin: 10px;
+    width: 100px;
+}

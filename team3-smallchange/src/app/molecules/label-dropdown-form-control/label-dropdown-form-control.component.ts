@@ -12,12 +12,8 @@ export class LabelDropdownFormControlComponent implements OnInit {
   @Input() selectName: string = "~";
   @Input() OPTIONS : string[] = [];
 
-  @Output()
-  dropdownOption = new EventEmitter<string>()
-
-  selectedFilter(filter:string){
-    this.dropdownOption.emit(filter)
-  }
+  @Input()
+  Id: string = ''
 
 
   constructor() { }

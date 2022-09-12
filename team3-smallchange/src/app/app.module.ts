@@ -29,9 +29,7 @@ import { TotalValueComponent } from './atoms/total-value/total-value.component';
 import { UserNameComponent } from './atoms/user-name/user-name.component';
 import { PortfolioTableComponent } from './organisms/portfolio-table/portfolio-table.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
-import { AcctTypeFilterComponent } from './molecules/acct-type-filter/acct-type-filter.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AccountSummaryComponent } from './molecules/account-summary/account-summary.component';
 import { BrokerageTableComponent } from './molecules/brokerage-table/brokerage-table.component';
 import { BrokerageSummaryComponent } from './molecules/brokerage-summary/brokerage-summary.component';
 import { PortfolioHeaderComponent } from './molecules/portfolio-header/portfolio-header.component';
@@ -47,6 +45,10 @@ import { LabelDropdownFormControlComponent } from './molecules/label-dropdown-fo
 import { ErrorMsgComponent } from './atoms/error-msg/error-msg.component';
 import { BuyTradeFormComponent } from './organisms/buy-trade-form/buy-trade-form.component';
 
+import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page-message.component';
+import { AcctInfoMessageComponent } from './atoms/acct-info-message/acct-info-message.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { CardComponent } from './atoms/card/card.component';
 
 @NgModule({
   imports: [
@@ -90,8 +92,6 @@ import { BuyTradeFormComponent } from './organisms/buy-trade-form/buy-trade-form
     UserNameComponent,
     PortfolioTableComponent,
     PortfolioComponent,
-    AcctTypeFilterComponent,
-    AccountSummaryComponent,
     BrokerageTableComponent,
     BrokerageSummaryComponent,
     PortfolioHeaderComponent,
@@ -100,8 +100,13 @@ import { BuyTradeFormComponent } from './organisms/buy-trade-form/buy-trade-form
     RedAlertComponent,
 	  LabelInputFormControlComponent,
     LabelDropdownFormControlComponent,
+
+    EmptyPageMessageComponent,
+    AcctInfoMessageComponent,
     ErrorMsgComponent,
     BuyTradeFormComponent,
+    DashboardComponent,
+    CardComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
