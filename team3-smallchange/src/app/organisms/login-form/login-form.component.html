@@ -1,45 +1,28 @@
-
 <form action="#" id="form-wrapper" #loginForm="ngForm">
-  
-    <div class="form-group">
-        <label for="userId" class="inputLab">User Name</label>
-        <input name="userId" id="userId" ngModel #userId="ngModel" required />
+    
+    <div *ngIf="wrong" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong> Incorrect Password!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 
     <div class="form-group">
-        <label for="password" class="inputLab">Password</label>
-        <input type="password" name="password" id="password" ngModel #password="ngModel" required>
+        <label for="userId" class="inputLab">Username:</label>
+        <input name="userId" id="userId" class="form-control" ngModel #userId="ngModel" required />
     </div>
 
     <div class="form-group">
-        <button id ="submit" type="submit" (click)="onSubmitHandler(loginForm)">Login</button>
+        <label for="password" class="inputLab">Password:</label>
+        <input type="password" class="form-control" name="password" id="password" ngModel #password="ngModel" required>
     </div>
-    <div *ngIf="wrong">
-        <small class="text-danger" >Credentials wrong</small>
-      </div>
+
+    <div class="form-group">
+        <button id="submit" type="submit" class="btn btn-primary btn-block"
+            (click)="onSubmitHandler(loginForm)">Login</button>
+    </div>
 
     <div class="forgot-pass">
-        <sc-link></sc-link>
+        <a>New user? Register here</a>
     </div>
 </form>
-
-<!-- <div class="row">
-<div class="card text-center col-sm-4 ">
-    <div class="card-body ">
-      
-<form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
-</div>
-</div> -->

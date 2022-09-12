@@ -4,8 +4,8 @@
     padding: 7vh 2vw;
     border: 1px solid #ccc;
     max-width: 22vw;
-    height: 62vh ;
-    text-align: center;
+    max-height: 67vh ;
+    
     border-radius: 0.5rem;
     font-size: large;
     font-weight: lighter !important;
@@ -39,4 +39,7 @@
     height: 200%;
     border: 0;
     padding: 3% 0;
+    color: black;
+    font-weight: 500;
+    font-size: large;
   }
