@@ -1,10 +1,25 @@
-<table class="table table-bordered">
-    <thead class="thead-dark">
-        <tr>
-            <th *ngFor="let column of COLUMNS">{{column}}</th>
-        </tr>
+<fieldset>
+    <form action="" class="form-group" method="post">
+        <div class="table-responsive">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="myTable">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th *ngFor="let column of COLUMNS">{{column}}</th>
+                        </tr>
 
-<tbody *ngFor="let value of VALUES">
-    <td *ngFor="let item of value| keyvalue: originalOrder">{{item.value}}</td>
-</tbody>
-</table>
+                    <tbody *ngFor="let value of VALUES | paginate: { itemsPerPage: 10, currentPage: p}">
+                        <td *ngFor="let item of value| keyvalue: originalOrder ">{{item.value}}</td>
+                    </tbody>
+                    <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+                </table>
+            </div>
+        </div>
+    </form>
+</fieldset>
+
+<script>
+    $(document).ready(function () {
+        $('#myTable').dataTable();
+    });
+</script>

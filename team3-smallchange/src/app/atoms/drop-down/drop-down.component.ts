@@ -14,17 +14,16 @@ export class DropDownComponent implements OnInit {
   @Input()
   OPTIONS: string[] = [];
 
-  ITEMS = ['savins, njfjnfjnf']
+  @Input()
+  Id: string = ''
   selectedValue: string = 'Select Type of Account';
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
-
   selectChange() {
+    console.log(document.getElementById(('Id')))
     this.dataService.getDropDownValue(this.selectedValue);
   }
-  
-
 
 }

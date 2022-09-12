@@ -3,6 +3,7 @@
     flex-direction: row;
     margin-left: 6%;
     padding: 2% 1%;
+    justify-content: space-evenly;
     
 }
 
@@ -18,4 +19,31 @@
 #table{
     width:100%; 
     margin:auto  
+}
+
+
+
+#filter1, #filter2, #filter3{
+    width: 200px;
+}
+
+
+
+input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].btn-block {
+    background-color: #ffbe0b;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+  }
+
+.row{
+    width: 90%;
+    margin: auto;
+    box-shadow: 5px 5px 10px 2px rgb(0 0 0 / 0.2);
+    margin: 2% 5%;
+
+}
+
+.col-sm-12{
+    width: 100%;
 }
