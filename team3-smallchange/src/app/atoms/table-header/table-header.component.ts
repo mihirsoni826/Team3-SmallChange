@@ -6,6 +6,7 @@ import {KeyValue} from '@angular/common';
   templateUrl: './table-header.component.html',
   styleUrls: ['./table-header.component.css']
 })
+
 export class TableHeaderComponent implements OnInit {
 
   constructor() { }
@@ -19,7 +20,9 @@ export class TableHeaderComponent implements OnInit {
   originalOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
     return 0;
   }
+ 
 
+ 
   ngOnInit(): void {
     
   }

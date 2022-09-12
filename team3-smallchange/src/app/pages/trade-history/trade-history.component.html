@@ -1,18 +1,30 @@
 <sc-nav-bar [historyActive]=true></sc-nav-bar>
 <div class="filters">
     <div class="filter-elements">
-        <app-label-dropdown-form-control [Id]="filterId1"  (click)="applyFilters('filter1')" [labelFor]="labelForA" [labelTxt]="labelTxt1" [selectName]="selectNameA" [OPTIONS]="OPTIONS1">
-        </app-label-dropdown-form-control>
+        <sc-atom-form-label [labelFor]="labelForA" [labelTxt]="labelTxt1"></sc-atom-form-label>
+
+        <select class="custom-select"  (change)='applyFilters("filter1")'  id="filter1">
+            <option *ngFor="let option of OPTIONS1"  >{{ option }}</option>
+        </select>
+        
     </div> 
    
     <div class="filter-elements">
-        <app-label-dropdown-form-control id="filter2"  [Id]="filterId2" (click)="applyFilters('filter2')" [labelFor]="labelForB" [labelTxt]="labelTxt2" [selectName]="selectNameB" [OPTIONS]="OPTIONS2">
-        </app-label-dropdown-form-control>
+        <sc-atom-form-label [labelFor]="labelForB" [labelTxt]="labelTxt2"></sc-atom-form-label>
+
+        <select (change)='applyFilters("filter2")' class="custom-select"id="filter2" > 
+            <option *ngFor="let option of OPTIONS2" >{{ option }}</option>
+        </select>
     </div>
+
     <div class="filter-elements">
-        <app-label-dropdown-form-control id="filter3"   [Id]="filterId3" (click)="applyFilters('filter3')" [labelFor]="labelForC" [labelTxt]="labelTxt3" [selectName]="selectNameC" [OPTIONS]="OPTIONS3">
-        </app-label-dropdown-form-control>
+        <sc-atom-form-label [labelFor]="labelForC" [labelTxt]="labelTxt3"></sc-atom-form-label>
+
+        <select  class="custom-select"  (change)='applyFilters("filter3")'id="filter3" > 
+            <option *ngFor="let option of OPTIONS3" >{{ option }}</option>
+        </select>
     </div>
+
     <div id="Btn">
         <sc-atom-button (click)="getFilteredTable()" [btType]="btType" [btValue]="btValue"></sc-atom-button>
     </div>

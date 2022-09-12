@@ -16,9 +16,9 @@ export class TradeHistoryComponent implements OnInit {
   btType1 = 'button'
   btValue = 'Go'
   btValue1 = 'Reset'
-  OPTIONS1: string[] = ["Brokerage", "401K", 'IRAs', 'HSAs']
-  OPTIONS2: string[] = ["Asset1", "Asset2", "Asset3", "Asset4"]
-  OPTIONS3: string[] = ["Buy", "Sell"]
+  OPTIONS1: string[] = ["All","Brokerage", "401K", 'IRAs', 'HSAs']
+  OPTIONS2: string[] = ["All","Asset1", "Asset2", "Asset3", "Asset4"]
+  OPTIONS3: string[] = ["All","Buy", "Sell"]
 
   labelTxt1: string = 'By Account'
   labelTxt2: string = 'By Asset Class'
@@ -76,16 +76,17 @@ export class TradeHistoryComponent implements OnInit {
       this.TABLE = response
       this.TEMP = response
     })
-
-  //   console.log(this.dataService.reset)
-  //  this.dataService.reset1.selectedIndex = -1
-  //  this.dataService.reset2.selectedIndex = -1
-  //  this.dataService.reset3.selectedIndex = -1
   }
   reset(){
-    location.reload();
+  for(var i=1; i<4; i++){
+    var temp =  document.getElementById("filter" + i) as HTMLSelectElement
+    temp.selectedIndex = 0
+ 
+  }
+  this.getAll()
   }
   selectedFilter(value: string) {
+  
     if (this.OPTIONS1.includes(value)) {
       this.accountType = value
       this.accountValue = true
@@ -101,13 +102,8 @@ export class TradeHistoryComponent implements OnInit {
   }
 
   applyFilters(filter: string) {
-    const filterBtn = document.getElementById(filter);
-    filterBtn?.addEventListener('click', () => {
-      this.dataService.selectedDropDown$.subscribe((value) => {
-        this.dropdownValue = value;
-        this.selectedFilter(value)
-      });
-    })
+    const filterBtn = document.getElementById(filter) as HTMLSelectElement;
+    this.selectedFilter(filterBtn.value)
   }
   getFilteredTable() {
     this.VALUES = []

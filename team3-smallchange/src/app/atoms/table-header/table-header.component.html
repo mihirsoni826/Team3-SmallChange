@@ -1,4 +1,8 @@
-<table class="table table-bordered">
+<fieldset>
+    <form action="" class="form-group" method="post">
+        <div class="table-responsive">
+            <div class="table-responsive">
+<table class="table table-bordered" id="myTable">
     <thead class="thead-dark">
         <tr>
             <th *ngFor="let column of COLUMNS">{{column}}</th>
@@ -8,3 +12,13 @@
     <td *ngFor="let item of value| keyvalue: originalOrder">{{item.value}}</td>
 </tbody>
 </table>
+            </div>
+        </div>
+    </form>
+</fieldset>
+
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
