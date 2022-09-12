@@ -1,50 +1,29 @@
 <div class="container">
+  
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-6 card">
       <app-red-alert *ngIf="insufficientBalance"></app-red-alert>
-      <form
-        #buyForm="ngForm"
-        (submit)="onSubmit(buyForm.value)"
-        id="buy-trade-form"
-      >
+      <form #buyForm="ngForm" (submit)="onSubmit(buyForm.value)" id="buy-trade-form">
         <div class="form-group">
           <label for="assetClass" class="font-weight-bold">Asset Class:</label>
-          <select
-            name="assetClass"
-            id="assetClass"
-            class="custom-select"
-            ngModel
-            #assetClass="ngModel"
-            [class.is-invalid]="assetClass.touched && assetClass.invalid"
-            required
-          >
+          <select name="assetClass" id="assetClass" class="custom-select" ngModel #assetClass="ngModel"
+            [class.is-invalid]="assetClass.touched && assetClass.invalid" required>
             <option value="" disabled selected>Choose an asset class</option>
-            <option
-              *ngFor="let assetClass of assetClassList"
-              value="{{ assetClass }}"
-            >
+            <option *ngFor="let assetClass of assetClassList" value="{{ assetClass }}">
               {{ assetClass }}
             </option>
           </select>
           <div *ngIf="assetClass.touched && assetClass.errors">
             <small class="text-danger" *ngIf="assetClass.errors['required']">Please choose an asset class</small>
           </div>
-          
+
         </div>
 
         <div class="form-group">
           <label for="security" class="font-weight-bold">Security:</label>
-          <input
-            type="text"
-            name="security"
-            id="security"
-            class="form-control"
-            ngModel
-            #security="ngModel"
-            [class.is-invalid]="security.touched && security.invalid"
-            required
-          />
+          <input type="text" name="security" id="security" class="form-control" ngModel #security="ngModel"
+            [class.is-invalid]="security.touched && security.invalid" required />
           <div *ngIf="security.touched && security.errors">
             <small class="text-danger" *ngIf="security.errors['required']">Please enter a security</small>
           </div>
@@ -52,38 +31,19 @@
 
         <div class="form-group">
           <label for="quantity" class="font-weight-bold">Quantity:</label>
-          <input
-            type="number"
-            name="quantity"
-            id="quantity"
-            class="form-control"
-            ngModel
-            #quantity="ngModel"
-            [class.is-invalid]="quantity.touched && quantity.invalid"
-            required
-          />
+          <input type="number" name="quantity" id="quantity" class="form-control" ngModel #quantity="ngModel"
+            [class.is-invalid]="quantity.touched && quantity.invalid" required />
           <div *ngIf="quantity.touched && quantity.errors">
             <small class="text-danger" *ngIf="quantity.errors['required']">Please provide a quantity</small>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="bankAccount" class="font-weight-bold"
-            >Bank Account:</label
-          >
-          <select
-            name="bankAccountid"
-            class="custom-select"
-            ngModel
-            #bankAccount="ngModel"
-            required
-            [class.is-invalid]="bankAccount.touched && bankAccount.invalid"
-          >
+          <label for="bankAccount" class="font-weight-bold">Bank Account:</label>
+          <select name="bankAccountid" class="custom-select" ngModel #bankAccount="ngModel" required
+            [class.is-invalid]="bankAccount.touched && bankAccount.invalid">
             <option value="" disabled selected>Choose a bank account</option>
-            <option
-              *ngFor="let bankAccount of bankAccountList"
-              value="{{ bankAccount }}"
-            >
+            <option *ngFor="let bankAccount of bankAccountList" value="{{ bankAccount }}">
               {{ bankAccount }}
             </option>
           </select>

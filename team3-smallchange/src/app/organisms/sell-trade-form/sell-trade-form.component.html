@@ -1,12 +1,21 @@
 
 <div class="container">
+
+
     <div class="row">
+      
       <div class="col-lg-3"></div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 card">
         <form #buyForm="ngForm" (submit)="onSubmit(buyForm.value)" id="buy-trade-form">
           <app-red-alert *ngIf="insufficientBalance"></app-red-alert>
   
           <div class="form-group">
+            <div  class="alert alert-danger alert-dismissible fade show" role="alert">
+               Given <strong> stock quantity</strong> not available
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
             <label for="assetClass" class="font-weight-bold">Asset Class:</label>
             <select name="assetClass" id="assetClass" class="custom-select" ngModel #assetClass="ngModel"
               [class.is-invalid]="assetClass.touched && assetClass.invalid" required>
@@ -52,22 +61,22 @@
               <small class="text-danger" *ngIf="bankAccount.errors['required']">Please choose a bank account</small>
             </div>
           </div>
-  
+
           <div class="form-group">
-            <button type="submit"   class="btn btn-primary btn-block"  (click)="model()"> Buy</button>
+            <label for="disabledTextInput" class="font-weight-bold">Total amount:</label>
+            <input type="text" id="disabledTextInput" class="form-control" readonly>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-block" id="submit-btn"  (click)="model()"> Buy</button>
           </div>
         </form>
       </div>
       <div class="col-lg-3"></div>
     </div>
   </div>
-  <!-- [disabled]="buyForm.invalid" -->
-    <!-- <div class="form-group">
-        <sc-atom-button btType="submit" btValue="{{ 'Buy (₹' + price  + ')' }}"  (click)="model()"></sc-atom-button>
-        
-    </div> -->
 
 
 
 
-<app-model [display]="dis" (btnNoClick)="model()"  (btnYesClick)="model()" value="123,456" content="Do you confirm purchase of security {{buyForm.value.security | uppercase}} of quantity {{buyForm.value.quantity }} of asset class {{buyForm.value.assetClass | uppercase}}   "></app-model>
+<app-model [display]="dis" (btnNoClick)="model()"  (btnYesClick)="model()" value="123,456" content="Confirm purchase of {{buyForm.value.quantity }} {{buyForm.value.security | uppercase}} security of asset class {{buyForm.value.assetClass | uppercase}}"></app-model>
