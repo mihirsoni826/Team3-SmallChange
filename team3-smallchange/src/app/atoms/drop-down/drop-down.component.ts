@@ -24,13 +24,6 @@ export class DropDownComponent implements OnInit {
   selectChange() {
     console.log(document.getElementById(('Id')))
     this.dataService.getDropDownValue(this.selectedValue);
-   var temp = document.getElementById(this.Id) 
-   console.log(this.dataService.reset)
-
-    this.dataService.reset = temp
-    console.log(typeof(temp))
-    console.log(temp)
-    console.log(this.dataService.reset)
   }
 
 }

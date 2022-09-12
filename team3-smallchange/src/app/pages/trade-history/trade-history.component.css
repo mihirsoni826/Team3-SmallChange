@@ -24,3 +24,11 @@
     margin: 10px;
     width: 100px;
 }
+
+
+input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].btn-block {
+    background-color: #ffbe0b;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+  }

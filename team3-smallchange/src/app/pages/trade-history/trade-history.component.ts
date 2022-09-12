@@ -59,11 +59,6 @@ export class TradeHistoryComponent implements OnInit {
   }
 
   getAll() {
-
-    console.log(this.accountValue)
-    console.log(this.assetValue)
-    console.log(this.tradeValue)
-    
     this.accountValue = false
     this.assetValue = false
     this.tradeValue = false
@@ -82,8 +77,13 @@ export class TradeHistoryComponent implements OnInit {
       this.TEMP = response
     })
 
-    console.log(this.dataService.reset)
-   this.dataService.reset.selectedIndex = -1
+  //   console.log(this.dataService.reset)
+  //  this.dataService.reset1.selectedIndex = -1
+  //  this.dataService.reset2.selectedIndex = -1
+  //  this.dataService.reset3.selectedIndex = -1
+  }
+  reset(){
+    location.reload();
   }
   selectedFilter(value: string) {
     if (this.OPTIONS1.includes(value)) {
