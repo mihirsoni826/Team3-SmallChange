@@ -79,4 +79,4 @@
 
 
 
-<app-model [display]="dis" (btnNoClick)="model()"  (btnYesClick)="model()" value="123,456" content="Confirm purchase of {{buyForm.value.quantity }} {{buyForm.value.security | uppercase}} security of asset class {{buyForm.value.assetClass | uppercase}}"></app-model>
+<app-model [display]="dis" (btnNoClick)="model()"  (btnYesClick)="model()" value="123,456" [form]="buyForm.value"></app-model>

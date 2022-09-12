@@ -17,9 +17,8 @@ export class ModelComponent implements OnInit {
   btnNoClick = new EventEmitter<string>;
   @Input()
   value: string="";
-  
   @Input()
-  content :string="";
+  form: any={};
   
   ngOnInit(): void {
   }
