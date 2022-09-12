@@ -22,7 +22,6 @@ export class DropDownComponent implements OnInit {
   }
 
   selectChange() {
-    console.log(this.selectedValue);
     this.dataService.getDropDownValue(this.selectedValue);
   }
   

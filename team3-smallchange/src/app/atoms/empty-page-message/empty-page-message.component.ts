@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-empty-page-message',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmptyPageMessageComponent implements OnInit {
 
+  @Input()
+  msg: any;
+  
   constructor() { }
 
   ngOnInit(): void {
