@@ -2,12 +2,13 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content"  >
         <div class="modal-body">
+          <p id="value" > <strong>Confirmation</strong></p>
           <p>{{content}}</p>
-          <p id="value">Amount Receivable {{value}}</p>
+          <p ><Strong>Amount Receivable</Strong> {{value}}</p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onNoClick($event)">No</button>
-          <button type="button" class="btn btn-primary" (click)="onYesClick($event)" style=" background-color: #568200;">Yes</button>
+        <div class="modal-footer" style="border-top:0 ; padding-top:0%;">
+          <button type="button" class="btn btn-light" data-dismiss="modal" (click)="onNoClick($event)">No</button>
+          <button type="button" class="btn btn-success" (click)="onYesClick($event)" >Yes</button>
         </div>
       </div>
     </div>
