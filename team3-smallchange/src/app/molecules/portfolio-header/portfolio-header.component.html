@@ -1,6 +1,6 @@
  
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="card"  [style.backgroundColor]="currentValue < investedValue ? '#FFD8D8' : '#E7FFE7'">
         <div class="card-body">
             <h5 class="card-title">
@@ -10,15 +10,14 @@
         </div>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="card" [style.backgroundColor]="'#DEEEFF'">
         <div class="card-body">
             <h5 class="card-title">
             <sc-atom-header-text headerId="id" [headerText]="invested"></sc-atom-header-text>
             </h5>
             <p class="card-text">{{investedValue | currency}}</p>
-            
         </div>
         </div>
     </div>
-    </div>
+</div>

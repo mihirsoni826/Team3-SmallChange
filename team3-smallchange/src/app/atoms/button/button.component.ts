@@ -1,8 +1,3 @@
-/**************************************************************************
-  Note: You do not need to interact with this file for this Module 1 work,
-  which has no JS requirements for it.
-***************************************************************************/
-
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -11,9 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-  @Input()
-  btType: string = '';
 
-  @Input()
-  btValue: string = '';
+  @Input() btnType: string = '';
+  @Input() btnValue: string = '';
+  @Input() btnId: string = '';
+  @Input() btnClass: string = '';
+  @Input() isDisabled: boolean | null = false;
 }
