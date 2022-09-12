@@ -8,7 +8,7 @@ import {KeyValue} from '@angular/common';
 })
 
 export class TableHeaderComponent implements OnInit {
-
+  p = 1;
   constructor() { }
   
   @Input()
