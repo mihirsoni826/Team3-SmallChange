@@ -49,16 +49,24 @@ export class LoginFormComponent implements OnInit {
   }
 
 
-  
+  banner: string="Incorrect Password!";
+
   onSubmitHandler(form:any) {
    
+   if(form.value.userId.length==0 || form.value.password.length==0 )
+   {
+    this.banner="Please enter Login credentials";
+    this.wrong=true;
+    return;
+   }
    
-    if(this.users[form.value.userId]==form.value.password)
+    if(this.users[form.value.userId]==form.value.password  )
     {
         localStorage.setItem('token', "12345qwert");
         this.rrouter.navigateByUrl('dashboard');
     }
     else
      this.wrong=true;
+     
   }
 }

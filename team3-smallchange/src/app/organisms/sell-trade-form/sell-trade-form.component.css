@@ -1,11 +1,12 @@
 #buy-trade-form {
     display: block;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     width: 100%;    
 }
 
 #red-alert-box {
-    margin-top: 1.5rem;
+    margin-bottom: 2rem ;
+    
 }
 
 .form-group {
@@ -46,5 +47,5 @@ input[type=number] {
   #submit-btn {
     background-color: #ffbe0b;
     font-weight: bold;
-
+   margin-top: 9%;
   }
