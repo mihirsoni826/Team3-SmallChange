@@ -1,4 +1,11 @@
+
+
+// Allows JavaScript to be compiled - otherwise use of TypeScript is enforced.
+// @ts-nocheck
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+
+
 
 @Component({
   selector: 'sc-nav-bar',
@@ -7,13 +14,25 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  @Input() dashboardActive: boolean = false;
-  @Input() portfolioActive: boolean = false;
-  @Input() tradeActive: boolean = false;
-  @Input() historyActive: boolean = false;
 
-  @Input() username: string = "John Doe";
+  constructor(private authService:AuthService){}
+  
 
-  public ngOnInit(): void {}
+    @Input() dashboardActive: boolean = false;
+    @Input() portfolioActive: boolean = false;
+    @Input() tradeActive: boolean = false;
+    @Input() historyActive: boolean = false;
+  
+    @Input() username: string = "John Doe";
+  
+    public ngOnInit(): void {}
+  
+  
+
+
+  logout()
+  {
+    this.authService.logout();
+  }
 
 }

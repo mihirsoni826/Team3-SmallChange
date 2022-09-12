@@ -1,14 +1,45 @@
-<form action="#" id="form-wrapper">
+
+<form action="#" id="form-wrapper" #loginForm="ngForm">
+  
     <div class="form-group">
-        <sc-username-form-control></sc-username-form-control>
+        <label for="userId" class="inputLab">User Name</label>
+        <input name="userId" id="userId" ngModel #userId="ngModel" required />
     </div>
+
     <div class="form-group">
-        <sc-password-form-control></sc-password-form-control>
+        <label for="password" class="inputLab">Password</label>
+        <input type="password" name="password" id="password" ngModel #password="ngModel" required>
     </div>
+
     <div class="form-group">
-        <sc-atom-button btType="submit" btValue="Login"></sc-atom-button>
+        <button id ="submit" type="submit" (click)="onSubmitHandler(loginForm)">Login</button>
     </div>
+    <div *ngIf="wrong">
+        <small class="text-danger" >Credentials wrong</small>
+      </div>
+
     <div class="forgot-pass">
         <sc-link></sc-link>
     </div>
 </form>
+
+<!-- <div class="row">
+<div class="card text-center col-sm-4 ">
+    <div class="card-body ">
+      
+<form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</div>
+</div> -->

@@ -4,16 +4,15 @@
         </app-label-dropdown-form-control>
     </div>
 
-    <div class="filterBtn" id="Btn">
-        <sc-atom-button [btType]="btType" [btValue]="btValue"></sc-atom-button>
-        <i class="fa fa-arrow-right"></i>
-    </div>
 </div>
 
 <div *ngIf="dropdownValue == 'Select Type of Account'">
-    <app-empty-page-message></app-empty-page-message>
+    <app-empty-page-message [msg] = 'noAcct'></app-empty-page-message>
 </div>
 <div *ngIf="dropdownValue == 'Brokerage'">
     <app-brokerage-summary></app-brokerage-summary>
     <app-brokerage-table></app-brokerage-table>
+</div>
+<div *ngIf="dropdownValue != 'Select Type of Account' && dropdownValue != 'Brokerage'">
+    <app-empty-page-message [msg] = 'noData'></app-empty-page-message>
 </div>

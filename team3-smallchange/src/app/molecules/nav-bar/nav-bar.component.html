@@ -38,6 +38,7 @@
         <a routerLink="/trade-history" class="nav-link">Trade history</a>
       </li>
     </ul>
+
     <form class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
@@ -51,10 +52,12 @@
               {{ username }}
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="/login">Logout</a>
+              <a class="dropdown-item" (click)="logout()">Logout</a>
+             
             </div>
           </li>
       </ul>
     </form>
   </div>
 </nav>
+

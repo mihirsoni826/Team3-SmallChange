@@ -2,14 +2,12 @@
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-6 card">
-      <app-red-alert></app-red-alert>
+      <app-red-alert *ngIf="insufficientBalance"></app-red-alert>
       <form
         #buyForm="ngForm"
         (submit)="onSubmit(buyForm.value)"
         id="buy-trade-form"
       >
-        <app-red-alert *ngIf="insufficientBalance"></app-red-alert>
-
         <div class="form-group">
           <label for="assetClass" class="font-weight-bold">Asset Class:</label>
           <select
