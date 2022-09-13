@@ -7,7 +7,8 @@ import { Component, OnInit,ElementRef ,Renderer2, ViewChild} from '@angular/core
 })
 export class SellTradeFormComponent {
 
-  
+  Success:boolean=false;
+
   constructor() {
    
    }
@@ -21,37 +22,27 @@ export class SellTradeFormComponent {
   toggleModalDisplay()
   {
 
-
-    if(this.dis.length) {
-      this.dis="";
-    }
-    else {
-      this.dis="display:flex"
-    }
+    this.dis="display:flex";
   }
 
   toggleModalDisplayOnYes(buyForm: any)
   {
 
-    if(this.dis.length) {
-      this.dis="";
-      buyForm.resetForm();
-    }
-    else {
-      this.dis="display:flex"
-    }
+    this.dis="display:flex";
+    this.Success=true;
   }
 
-  toggleModalDisplayOnNo(buyForm: any)
+  toggleModalDisplayOnNo()
   {
 
-    if(this.dis.length) {
-      this.dis="";
-    }
-    else {
-      this.dis="display:flex"
-    }
+    this.dis="";
+  
+  }
 
+  closeBtn(buyForm: any){
+    this.dis="";
+    this.Success=false;
+    buyForm.resetForm();
   }
  
  

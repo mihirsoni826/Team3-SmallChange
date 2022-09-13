@@ -78,5 +78,5 @@
 
 
 
-<app-model [display]="dis" (btnNoClick)="toggleModalDisplayOnNo(buyForm)"  (btnYesClick)="toggleModalDisplayOnYes(buyForm)" value="123,456" [form]="buyForm.value"></app-model>
+<app-model [display]="dis" (btnNoClick)="toggleModalDisplayOnNo()"  (btnYesClick)="toggleModalDisplayOnYes(buyForm)" (btnCloseClick) ="closeBtn(buyForm)" value="123,456" [form]="buyForm.value"  [modalSuccess]="Success"></app-model>
 
