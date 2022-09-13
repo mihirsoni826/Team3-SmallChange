@@ -44,7 +44,7 @@ import { ModelComponent } from './molecules/model/model.component';
 import { LabelDropdownFormControlComponent } from './molecules/label-dropdown-form-control/label-dropdown-form-control.component';
 import { ErrorMsgComponent } from './atoms/error-msg/error-msg.component';
 import { BuyTradeFormComponent } from './organisms/buy-trade-form/buy-trade-form.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page-message.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CardComponent } from './atoms/card/card.component';
@@ -57,6 +57,7 @@ import { CardComponent } from './atoms/card/card.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxPaginationModule
   ],
   declarations: [
     AppComponent,

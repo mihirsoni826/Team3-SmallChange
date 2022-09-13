@@ -8,7 +8,6 @@ export class DataService {
 
   private dropDown$ = new BehaviorSubject<any>({});
   selectedDropDown$ = this.dropDown$.asObservable();
-    
   dropdownValue: string = '';
 
   constructor(private http: HttpClient) { 
