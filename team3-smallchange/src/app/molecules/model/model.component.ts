@@ -19,6 +19,8 @@ export class ModelComponent implements OnInit {
   value: string="";
   @Input()
   form: any={};
+  @Input()
+  modalSuccess:boolean=false;
   
   ngOnInit(): void {
   }
@@ -27,6 +29,7 @@ export class ModelComponent implements OnInit {
   {
     eve.preventDefault();
     this.btnYesClick.emit();
+    
   }
   onNoClick(eve :Event)
   {

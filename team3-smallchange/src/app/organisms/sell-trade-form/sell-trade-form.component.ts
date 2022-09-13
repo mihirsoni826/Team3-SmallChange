@@ -24,7 +24,7 @@ export class SellTradeFormComponent {
     if(this.dis.length)
     this.dis="";
     else
-   this.dis="display:flex"
+    this.dis="display:flex"
   }
  
  
