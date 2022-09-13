@@ -32,13 +32,17 @@ export class SellTradeFormComponent {
     this.Success=true;
   }
 
-  toggleModalDisplayOnNo(buyForm: any)
+  toggleModalDisplayOnNo()
   {
 
     this.dis="";
+  
+  }
+
+  closeBtn(buyForm: any){
+    this.dis="";
     this.Success=false;
     buyForm.resetForm();
-
   }
  
  

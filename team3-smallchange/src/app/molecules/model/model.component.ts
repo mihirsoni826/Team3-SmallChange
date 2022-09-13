@@ -15,6 +15,9 @@ export class ModelComponent implements OnInit {
   btnYesClick = new EventEmitter<string>;
   @Output()
   btnNoClick = new EventEmitter<string>;
+  @Output()
+  btnCloseClick = new EventEmitter<string>;
+  
   @Input()
   value: string="";
   @Input()
@@ -35,5 +38,12 @@ export class ModelComponent implements OnInit {
   {
     eve.preventDefault();
     this.btnNoClick.emit();
+  }
+
+  onCloseClick(eve :Event)
+  {
+    eve.preventDefault();
+    this.btnCloseClick.emit();
+    
   }
 }
