@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DataService } from 'src/app/data.service';
 
 import { PortfolioHeaderComponent } from './portfolio-header.component';
 
@@ -8,7 +10,9 @@ describe('PortfolioHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PortfolioHeaderComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ PortfolioHeaderComponent ],
+      providers: [DataService]
     })
     .compileComponents();
 

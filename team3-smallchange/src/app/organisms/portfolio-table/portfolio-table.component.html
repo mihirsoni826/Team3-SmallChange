@@ -1,18 +1,22 @@
 <div class="filters">
     <div class="filter-elements">
-        <app-label-dropdown-form-control  [labelFor]="labelForA" [labelTxt]="labelTxt" [selectName]="selectName" [OPTIONS]="OPTIONS">
-        </app-label-dropdown-form-control>
+        <sc-atom-form-label [labelFor]="labelForA" [labelTxt]="labelTxt"></sc-atom-form-label>
+        <select class="custom-select" [(ngModel)]="selectedValue" id="selectBar" [name]="selectName" >
+            <option *ngFor="let option of OPTIONS" value="{{ option }}" >{{ option }}</option>
+        </select>
     </div>
-
 </div>
 
-<div *ngIf="dropdownValue == 'Select Type of Account'">
+<div *ngIf="selectedValue == 'Select Type of Account'">
     <app-empty-page-message [msg] = 'noAcct'></app-empty-page-message>
 </div>
-<div *ngIf="dropdownValue == 'Brokerage'">
+<div *ngIf="selectedValue == 'Brokerage'">
     <app-brokerage-summary></app-brokerage-summary>
-    <app-brokerage-table></app-brokerage-table>
+    <div class="table">
+
+        <app-brokerage-table></app-brokerage-table>
+    </div>
 </div>
-<div *ngIf="dropdownValue != 'Select Type of Account' && dropdownValue != 'Brokerage'">
+<div *ngIf="selectedValue != 'Select Type of Account' && selectedValue != 'Brokerage'">
     <app-empty-page-message [msg] = 'noData'></app-empty-page-message>
 </div>

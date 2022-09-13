@@ -3,7 +3,9 @@
 }
 
 .card {
-    box-shadow: 5px 5px 10px 2px rgb(0 0 0 / 0.2);
+    box-shadow: 7px 7px 15px 4px rgba(0, 0, 0, 0.13);
+    border: none;
+    border-radius: 10px;
 }
 
 .card-text {
