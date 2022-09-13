@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { TableHeaderComponent } from './table-header.component';
 
@@ -8,6 +9,7 @@ describe('TableHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[NgxPaginationModule],
       declarations: [ TableHeaderComponent ]
     })
     .compileComponents();
