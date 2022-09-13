@@ -18,9 +18,9 @@ export class TradeHistoryComponent implements OnInit {
   btValue1 = 'Reset'
   btnId = 'go'
   btnId1 = 'reset'
-  OPTIONS1: string[] = ["All","Brokerage", "401K", 'IRAs', 'HSAs']
-  OPTIONS2: string[] = ["All","Asset1", "Asset2", "Asset3", "Asset4"]
-  OPTIONS3: string[] = ["All","Buy", "Sell"]
+  OPTIONS1: string[] = ["Brokerage", "401K", 'IRAs', 'HSAs']
+  OPTIONS2: string[] = ["Asset1", "Asset2", "Asset3", "Asset4"]
+  OPTIONS3: string[] = ["Buy", "Sell"]
 
   labelTxt1: string = 'By Account'
   labelTxt2: string = 'By Asset Class'
@@ -61,6 +61,11 @@ export class TradeHistoryComponent implements OnInit {
   }
 
   getAll() {
+    for (var i = 1; i < 4; i++) {
+      var temp = document.getElementById("filter" + i) as HTMLSelectElement
+      temp.selectedIndex = 0
+    }
+
     this.accountValue = false
     this.assetValue = false
     this.tradeValue = false
@@ -69,7 +74,7 @@ export class TradeHistoryComponent implements OnInit {
     this.assetFilterState = 'inactive'
     this.tradeFilterState = 'inactive'
 
-    this.accountType= 'All'
+    this.accountType = 'All'
     this.assetType = 'All'
     this.tradeType = 'All'
 
@@ -79,16 +84,16 @@ export class TradeHistoryComponent implements OnInit {
       this.TEMP = response
     })
   }
-  reset(){
-  for(var i=1; i<4; i++){
-    var temp =  document.getElementById("filter" + i) as HTMLSelectElement
-    temp.selectedIndex = 0
- 
+  reset() {
+    for (var i = 1; i < 4; i++) {
+      var temp = document.getElementById("filter" + i) as HTMLSelectElement
+      temp.selectedIndex = 0
+    }
+    this.getAll()
   }
-  this.getAll()
-  }
+
   selectedFilter(value: string) {
-  
+
     if (this.OPTIONS1.includes(value)) {
       this.accountType = value
       this.accountValue = true
@@ -107,7 +112,10 @@ export class TradeHistoryComponent implements OnInit {
     const filterBtn = document.getElementById(filter) as HTMLSelectElement;
     this.selectedFilter(filterBtn.value)
   }
+
+
   getFilteredTable() {
+
     this.VALUES = []
     if (this.accountValue) {
       if (this.accountFilterState == 'active') {
@@ -118,19 +126,23 @@ export class TradeHistoryComponent implements OnInit {
           this.VALUES.push(this.TEMP[i])
           this.accountFilterState = 'active'
         }
+
       }
       this.TEMP = this.VALUES
     }
+    console.log(this.assetValue)
     if (this.assetValue) {
       if (this.assetFilterState == 'active') {
         this.TEMP = this.TABLE
       }
       this.VALUES = []
+      console.log(this.VALUES)
       for (var i = 0; i < this.TEMP.length; i++) {
         if (this.assetValue && this.TEMP[i].asset == this.assetType) {
           this.VALUES.push(this.TEMP[i])
           this.assetFilterState = 'active'
         }
+
       }
       this.TEMP = this.VALUES
     }
