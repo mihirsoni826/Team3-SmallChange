@@ -18,13 +18,40 @@ export class SellTradeFormComponent {
 
     dis:string="";
 
-  model()
+  toggleModalDisplay()
   {
 
-    if(this.dis.length)
-    this.dis="";
-    else
-    this.dis="display:flex"
+
+    if(this.dis.length) {
+      this.dis="";
+    }
+    else {
+      this.dis="display:flex"
+    }
+  }
+
+  toggleModalDisplayOnYes(buyForm: any)
+  {
+
+    if(this.dis.length) {
+      this.dis="";
+      buyForm.resetForm();
+    }
+    else {
+      this.dis="display:flex"
+    }
+  }
+
+  toggleModalDisplayOnNo(buyForm: any)
+  {
+
+    if(this.dis.length) {
+      this.dis="";
+    }
+    else {
+      this.dis="display:flex"
+    }
+
   }
  
  

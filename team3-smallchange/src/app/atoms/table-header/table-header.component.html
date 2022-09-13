@@ -1,17 +1,17 @@
 <fieldset>
     <form action="" class="form-group" method="post">
         <div class="table-responsive">
-            <div class="table-responsive">
+            <div class="table-responsive bdr">
                 <table class="table table-bordered" id="myTable">
                     <thead class="thead-dark">
                         <tr>
                             <th *ngFor="let column of COLUMNS">{{column}}</th>
                         </tr>
-
+                    </thead>
                     <tbody *ngFor="let value of VALUES | paginate: { itemsPerPage: 10, currentPage: p}">
                         <td *ngFor="let item of value| keyvalue: originalOrder ">{{item.value}}</td>
                     </tbody>
-                    <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+                	<pagination-controls (pageChange)="p = $event" ></pagination-controls>
                 </table>
             </div>
         </div>
