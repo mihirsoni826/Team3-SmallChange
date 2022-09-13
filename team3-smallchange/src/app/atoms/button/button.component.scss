@@ -3,14 +3,13 @@ button {
   border-radius: 5px;
   color: black;
   font-weight: bold;
-  width: 100px;
+  margin-top: 3rem;
 }
 
-#submit-btn:disabled {
-  background-color: #ffbe0b;
-  cursor: not-allowed;
-  opacity: 1;
-  margin-top: 3rem;
+button:disabled {
+    background-color: #ffbe0b;
+    cursor: not-allowed;
+    opacity: 1;
 }
 
 #btnId{
@@ -20,5 +19,9 @@ button {
 #go-btn, #reset-btn{
   width: 175px;
   margin-top: 30px;
+}
+
+#reset-btn {
+  background-color: #DDDDDD;
 }
 

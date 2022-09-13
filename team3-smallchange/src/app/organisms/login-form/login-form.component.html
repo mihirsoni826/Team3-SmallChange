@@ -11,7 +11,7 @@
         <label for="userId" class="inputLab">Username:</label>
         <input name="userId" id="userId" class="form-control" ngModel #userId="ngModel" required />
         <div *ngIf="userId.touched && userId.errors">
-            <small class="text-danger" *ngIf="userId.errors['required']">Please enter userId</small>
+            <small class="text-danger" *ngIf="userId.errors['required']">Please enter username</small>
           </div>
     </div>
 
@@ -25,10 +25,10 @@
 
     <div class="form-group">
         <button id="submit" type="submit" class="btn btn-primary btn-block"
-            (click)="onSubmitHandler(loginForm)">Login</button>
+            (click)="onSubmitHandler(loginForm)"  [disabled]="loginForm.invalid">Login</button>
     </div>
 
     <div class="forgot-pass">
-        <a style=" text-decoration: underline;">New user? Register here</a>
+        <a style="text-decoration: underline; cursor: pointer;">New user? Register here</a>
     </div>
 </form>
