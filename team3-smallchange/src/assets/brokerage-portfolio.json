@@ -6,7 +6,7 @@
      "quantity": 5,
      "investedAmt": 500,
      "presentValue": 550,
-     "P&L": "50(10%)"
+     "PL": "50(10%)"
     },
     {"id":2,
      "symbol": "AMD",
@@ -15,7 +15,7 @@
      "quantity": 5,
      "investedAmt": 500,
      "presentValue": 550,
-     "P&L": "50(10%)"
+     "PL": "50(10%)"
     },
     {"id":3,
      "symbol": "TSLA",
@@ -24,7 +24,7 @@
      "quantity": 5,
      "investedAmt": 500,
      "presentValue": 550,
-     "P&L": "50(10%)"
+     "PL": "50(10%)"
     },
     {"id":4,
      "symbol": "GOOGL",
@@ -33,7 +33,7 @@
      "quantity": 5,
      "investedAmt": 500,
      "presentValue": 550,
-     "P&L": "50(10%)"
+     "PL": "50(10%)"
     },
     {"id":5,
      "symbol": "AMZN",
@@ -42,7 +42,7 @@
      "quantity": 5,
      "investedAmt": 500,
      "presentValue": 550,
-     "P&L": "50(10%)"
+     "PL": "50(10%)"
     },
     {"id":6,
      "symbol": "LOW",
@@ -51,6 +51,6 @@
      "quantity": 5,
      "investedAmt": 500,
      "presentValue": 550,
-     "P&L": "50(10%)"
+     "PL": "50(10%)"
     }
 ]

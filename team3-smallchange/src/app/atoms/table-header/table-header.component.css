@@ -1,6 +1,7 @@
 
-table {
+.bdr {
     width: 90%;
     margin: auto;
-    
+    /* border: 5px solid rgba(0, 128, 255, 0.9) !important; */
+    border-radius: 10px;
 }

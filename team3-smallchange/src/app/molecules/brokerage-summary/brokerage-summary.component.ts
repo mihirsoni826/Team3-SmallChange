@@ -41,8 +41,5 @@ export class BrokerageSummaryComponent implements OnInit {
       const str = '(' + percentageChange + '%' + ')';
       this.PL = (this.difference > 0) ? ("+" + this.difference + str) : (this.difference + str);
     })
-    
-    
-
   }
 }
