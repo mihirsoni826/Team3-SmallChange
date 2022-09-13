@@ -1,13 +1,6 @@
 <sc-nav-bar  [dashboardActive]=true ></sc-nav-bar>
 <div class="container">
   <div class="card-group">
-    <div class="card text-center mr-3 ml-3" routerLink="/trade-history">
-      <app-card
-        imgSrc="../../../assets/money-back-guarantee.png"
-        cardTitle="Trade history"
-        cardSubText="View your trade history"
-      ></app-card>
-    </div>
     <div class="card text-center mr-3 ml-3" routerLink="/portfolio">
       <app-card
         imgSrc="../../../assets/pie-chart.png"
@@ -15,6 +8,7 @@
         cardSubText="View your current portfolio"
       ></app-card>
     </div>
+
     <div class="card text-center mr-3 ml-3" routerLink="/buy">
       <app-card
         imgSrc="../../../assets/cart.png"
@@ -22,6 +16,7 @@
         cardSubText="Buy securities with just a few clicks!"
       ></app-card>
     </div>
+    
     <div class="card text-center mr-3 ml-3" routerLink="/sell">
       <app-card
         imgSrc="../../../assets/save-money.png"
@@ -29,5 +24,15 @@
         cardSubText="Sell securities instantly!"
       ></app-card>
     </div>
+
+    <div class="card text-center mr-3 ml-3" routerLink="/trade-history">
+      <app-card
+        imgSrc="../../../assets/money-back-guarantee.png"
+        cardTitle="Trade history"
+        cardSubText="View your trade history"
+      ></app-card>
+    </div>
+    
+    
   </div>
 </div>

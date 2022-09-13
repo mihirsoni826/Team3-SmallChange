@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-label-dropdown-form-control',
@@ -11,6 +11,10 @@ export class LabelDropdownFormControlComponent implements OnInit {
   @Input() labelFor: string = '~';
   @Input() selectName: string = "~";
   @Input() OPTIONS : string[] = [];
+
+  @Input()
+  Id: string = ''
+
 
   constructor() { }
 
