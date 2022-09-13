@@ -49,3 +49,10 @@ input[type=number] {
     font-weight: bold;
    margin-top: 9%;
   }
+
+  #submit-btn:disabled {
+   
+    cursor: not-allowed;
+  
+   
+}
