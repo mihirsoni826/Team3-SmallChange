@@ -49,16 +49,11 @@ export class LoginFormComponent implements OnInit {
   }
 
 
-  banner: string="Incorrect Password!";
+  banner: string="Incorrect Username or Password!";
 
   onSubmitHandler(form:any) {
    
-   if(form.value.userId.length==0 || form.value.password.length==0 )
-   {
-    this.banner="Please enter Login credentials";
-    this.wrong=true;
-    return;
-   }
+   
    
     if(this.users[form.value.userId]==form.value.password  )
     {
