@@ -1,49 +1,47 @@
-import { Component, OnInit,Input , Output,EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-model',
   templateUrl: './model.component.html',
-  styleUrls: ['./model.component.css']
+  styleUrls: ['./model.component.css'],
 })
 export class ModelComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  @Input() display: string = '';
+  @Input() value: string;
+  @Input() form: any = {};
+  @Input() modalSuccess: boolean = false;
+  @Input() tradeAction: string = ''; // sale or purchase
 
-  @Input()
-  display :string="";
-  @Output()
-  btnYesClick = new EventEmitter<string>;
-  @Output()
-  btnNoClick = new EventEmitter<string>;
-  @Output()
-  btnCloseClick = new EventEmitter<string>;
+  @Output() btnYesClick = new EventEmitter<string>();
+  @Output() btnNoClick = new EventEmitter<string>();
+  @Output() btnCloseClick = new EventEmitter<string>();
   
-  @Input()
-  value: string="";
-  @Input()
-  form: any={};
-  @Input()
-  modalSuccess:boolean=false;
-  
+  receivableOrPayable: string = '';
+  valueNumber: number;
+
   ngOnInit(): void {
+    this.valueNumber = +this.value;
+
+    if (this.tradeAction === 'Sale') {
+      this.receivableOrPayable = 'Receivable';
+    } else if (this.tradeAction === 'Purchase') {
+      this.receivableOrPayable = 'Payable';
+    }
   }
 
-  onYesClick(eve :Event)
-  {
+  onYesClick(eve: Event) {
     eve.preventDefault();
     this.btnYesClick.emit();
-    
   }
-  onNoClick(eve :Event)
-  {
+  onNoClick(eve: Event) {
     eve.preventDefault();
     this.btnNoClick.emit();
   }
 
-  onCloseClick(eve :Event)
-  {
+  onCloseClick(eve: Event) {
     eve.preventDefault();
     this.btnCloseClick.emit();
-    
   }
 }
