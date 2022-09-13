@@ -20,7 +20,6 @@ export class PortfolioHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getBrokeragePortfolio().subscribe((response) => {
       this.brokerageData = response;
-      console.log(this.brokerageData);
 
       for(let data of this.brokerageData){
         this.investedValue += data['investedAmt'];

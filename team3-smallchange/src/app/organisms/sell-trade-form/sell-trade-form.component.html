@@ -1,7 +1,4 @@
-
 <div class="container">
-
-
     <div class="row">
       
       <div class="col-lg-3"></div>
@@ -10,7 +7,7 @@
           <app-red-alert *ngIf="insufficientBalance"></app-red-alert>
   
           <div class="form-group">
-            <div  class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div  class="alert alert-danger alert-dismissible fade show" id="red-alert-box"role="alert">
                Given <strong> stock quantity</strong> not available
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -68,7 +65,8 @@
           </div>
 
           <div class="form-group">
-            <button type="submit" class="btn btn-block" id="submit-btn"  (click)="model()"> Buy</button>
+            <!-- <button type="submit" class="btn btn-block" id="submit-btn"  (click)="model()" [disabled]="buyForm.invalid"> Buy</button> -->
+            <sc-atom-button btnType="submit" btnClass="btn btn-block" btnId="submit-btn" btnValue="Sell" [isDisabled]="buyForm.invalid" (click)="toggleModalDisplay()" ></sc-atom-button>
           </div>
         </form>
       </div>
@@ -80,5 +78,5 @@
 
 
 
-<app-model [display]="dis" (btnNoClick)="model()"  (btnYesClick)="model()" value="123,456" [form]="buyForm.value"></app-model>
+<app-model [display]="dis" (btnNoClick)="toggleModalDisplayOnNo(buyForm)"  (btnYesClick)="toggleModalDisplayOnYes(buyForm)" value="123,456" [form]="buyForm.value"></app-model>
 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-portfolio-table',
@@ -12,17 +11,15 @@ export class PortfolioTableComponent implements OnInit {
   selectName = 'acctType';
   labelTxt : string = 'By Account';
   labelForA: string = 'account';
+  selectedValue: string = 'Select Type of Account';
 
-  dropdownValue = 'Select Type of Account';
   noData = "Report is empty";
   noAcct = 'select account to show';
 
-  constructor(private dataService: DataService) { }
+  constructor() { }
 
   ngOnInit(): void {
-      this.dataService.selectedDropDown$.subscribe((value) => {
-        this.dropdownValue = value;
-      });
+      
   }
 
 }

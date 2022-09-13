@@ -1,7 +1,7 @@
-<form action="#" id="form-wrapper" #loginForm="ngForm">
+<form action="#" id="form-wrapper" #loginForm="ngForm" class="card">
     
     <div *ngIf="wrong" class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong> Incorrect Password!</strong>
+        <strong> {{banner}}</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -10,19 +10,25 @@
     <div class="form-group">
         <label for="userId" class="inputLab">Username:</label>
         <input name="userId" id="userId" class="form-control" ngModel #userId="ngModel" required />
+        <div *ngIf="userId.touched && userId.errors">
+            <small class="text-danger" *ngIf="userId.errors['required']">Please enter userId</small>
+          </div>
     </div>
 
     <div class="form-group">
         <label for="password" class="inputLab">Password:</label>
-        <input type="password" class="form-control" name="password" id="password" ngModel #password="ngModel" required>
+        <input type="password" class="form-control" name="password" id="password" ngModel #password="ngModel" required />
+        <div *ngIf="password.touched && password.errors">
+            <small class="text-danger" *ngIf="password.errors['required']">Please enter passowrd</small>
+          </div>
     </div>
 
     <div class="form-group">
         <button id="submit" type="submit" class="btn btn-primary btn-block"
-            (click)="onSubmitHandler(loginForm)">Login</button>
+            (click)="onSubmitHandler(loginForm)"  [disabled]="loginForm.invalid">Login</button>
     </div>
 
     <div class="forgot-pass">
-        <a>New user? Register here</a>
+        <a style=" text-decoration: underline;">New user? Register here</a>
     </div>
 </form>

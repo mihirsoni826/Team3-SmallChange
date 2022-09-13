@@ -3,7 +3,7 @@
 }
 
 .card {
-    border-radius: 10px;
+    border-radius: 10px !important;
     background-color: #fff;
     border: none;
     box-shadow: 7px 7px 15px 4px rgba(0, 0, 0, 0.13);
