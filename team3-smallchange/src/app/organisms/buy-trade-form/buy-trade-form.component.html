@@ -132,5 +132,13 @@
   </div>
 </div>
 
-
-<app-model tradeAction="Purchase" [display]="dis" (btnNoClick)="toggleModalDisplayOnNo(buyForm)"  (btnYesClick)="toggleModalDisplayOnYes(buyForm)" value="28657" [form]="buyForm.value"  [modalSuccess]="success"></app-model>
+<app-model
+  tradeAction="Purchase"
+  [display]="dis"
+  (btnNoClick)="toggleModalDisplayOnNo()"
+  (btnYesClick)="toggleModalDisplayOnYes(buyForm)"
+  (btnCloseClick)="closeBtn(buyForm)"
+  value="28657"
+  [form]="buyForm.value"
+  [modalSuccess]="success"
+></app-model>

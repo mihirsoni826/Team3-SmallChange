@@ -13,16 +13,17 @@ export class ModelComponent implements OnInit {
   @Input() form: any = {};
   @Input() modalSuccess: boolean = false;
   @Input() tradeAction: string = ''; // sale or purchase
-  
+
   @Output() btnYesClick = new EventEmitter<string>();
   @Output() btnNoClick = new EventEmitter<string>();
-
+  @Output() btnCloseClick = new EventEmitter<string>();
+  
   receivableOrPayable: string = '';
   valueNumber: number;
 
   ngOnInit(): void {
     this.valueNumber = +this.value;
-    
+
     if (this.tradeAction === 'Sale') {
       this.receivableOrPayable = 'Receivable';
     } else if (this.tradeAction === 'Purchase') {
@@ -37,5 +38,10 @@ export class ModelComponent implements OnInit {
   onNoClick(eve: Event) {
     eve.preventDefault();
     this.btnNoClick.emit();
+  }
+
+  onCloseClick(eve: Event) {
+    eve.preventDefault();
+    this.btnCloseClick.emit();
   }
 }

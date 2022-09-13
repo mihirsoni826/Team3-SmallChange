@@ -55,7 +55,11 @@ export class BuyTradeFormComponent implements OnInit {
     this.success = true;
   }
 
-  toggleModalDisplayOnNo(buyForm: any) {
+  toggleModalDisplayOnNo() {
+    this.dis = '';
+  }
+
+  closeBtn(buyForm: any) {
     this.dis = '';
     this.success = false;
     buyForm.resetForm();
