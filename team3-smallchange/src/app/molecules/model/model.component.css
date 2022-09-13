@@ -1,5 +1,35 @@
+
+
+.modal-body{
+  padding-bottom: 0%;
+ 
+}
+.modal-header{
+  padding: 0;
+  border: 0;
+}
+.close{
+  color: black;
+}
+#imgId{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+img{
+  width: 15%;
+  height: 15%;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+
+
 div.modal-content {
   padding: 1rem;
+
 }
 
 button.btn {
@@ -7,8 +37,10 @@ button.btn {
   font-weight: bold;
 }
 
+
 .btn-light {
   color: red;
+
 }
 
 .btn-light:hover {

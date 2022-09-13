@@ -21,6 +21,7 @@ export class SellTradeFormComponent {
   toggleModalDisplay()
   {
 
+
     if(this.dis.length) {
       this.dis="";
     }
@@ -50,6 +51,7 @@ export class SellTradeFormComponent {
     else {
       this.dis="display:flex"
     }
+
   }
  
  
