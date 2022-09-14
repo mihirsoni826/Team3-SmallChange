@@ -1,8 +1,9 @@
 // Allows JavaScript to be compiled - otherwise use of TypeScript is enforced.
 // @ts-nocheck
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import {  Router } from '@angular/router';
 import { DataService } from 'src/app/data.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'sc-login-form',
@@ -14,6 +15,10 @@ export class LoginFormComponent implements OnInit {
 
 
  constructor(private rrouter: Router,private dataService:DataService){}
+ @ViewChild('loginForm', { static: true }) loginForm: FormGroup;
+
+  @ViewChild('userId', { static: true }) userId: FormGroup;
+  @ViewChild('password', { static: true }) passowrd: FormControl;
 
   users : object;
   wrong :boolean = false;
