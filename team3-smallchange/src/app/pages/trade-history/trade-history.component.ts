@@ -40,8 +40,9 @@ export class TradeHistoryComponent implements OnInit {
   VALUES: any = []
   TEMP: any = []
   TABLE: any = []
+  SORT: any = []
 
-  COLUMNS: string[] = ['Serial No.', 'Trade Name', 'Account', 'DOP', 'DOS', 'Buy/Sell', 'Assest Class', 'Bought at', 'Sold at', 'Quantity']
+  COLUMNS: string[] = ['Trade Id.', 'Trade Name', 'Account', 'Date of Transaction(MM-DD-YYYY)', 'Buy/Sell', 'Assest Class', 'Bought at', 'Sold at', 'Quantity']
   ngOnInit(): void {
     this.getAll()
   }
@@ -65,11 +66,23 @@ export class TradeHistoryComponent implements OnInit {
     this.tradeType = 'All'
 
     this.dataService.getTradeHistory().subscribe((response) => {
-      this.VALUES = response
+       this.SORT = response
       this.TABLE = response
       this.TEMP = response
+      console.log(this.SORT)
+      this.VALUES = response
     })
+
+    
   }
+  // sortByDate(){
+  //   console.log("hello")
+  //    this.VALUES = this.SORT.sort((a: any, b: any) => {
+  //     console.log(a.date)
+  //     return <any>new Date(b.date) - <any>new Date(a.date);
+  //     // console.log(new Date(a.date))
+  //   });
+  // }
   reset() {
     for (var i = 1; i < 4; i++) {
       var temp = document.getElementById("filter" + i) as HTMLSelectElement
