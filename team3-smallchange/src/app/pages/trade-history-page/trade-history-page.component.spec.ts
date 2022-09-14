@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TradeHistoryPageComponent } from './trade-history-page.component';
+// import { TradeHistoryPageComponent } from './trade-history-page.component';
 
-describe('TradeHistoryPageComponent', () => {
-  let component: TradeHistoryPageComponent;
-  let fixture: ComponentFixture<TradeHistoryPageComponent>;
+// describe('TradeHistoryPageComponent', () => {
+//   let component: TradeHistoryPageComponent;
+//   let fixture: ComponentFixture<TradeHistoryPageComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ TradeHistoryPageComponent ]
-    })
-    .compileComponents();
+//   beforeEach(async () => {
+//     await TestBed.configureTestingModule({
+//       declarations: [ TradeHistoryPageComponent ]
+//     })
+//     .compileComponents();
 
-    fixture = TestBed.createComponent(TradeHistoryPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//     fixture = TestBed.createComponent(TradeHistoryPageComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create trade history app', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
