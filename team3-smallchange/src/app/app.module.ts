@@ -48,6 +48,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page-message.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CardComponent } from './atoms/card/card.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -106,6 +107,7 @@ import { CardComponent } from './atoms/card/card.component';
     BuyTradeFormComponent,
     DashboardComponent,
     CardComponent,
+    NotFoundComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
