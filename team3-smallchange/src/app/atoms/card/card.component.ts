@@ -10,6 +10,7 @@ export class CardComponent implements OnInit {
   @Input() imgSrc: string = "";
   @Input() cardTitle: string = "";
   @Input() cardSubText: string = "";
+  @Input() imgId: string = "";
 
   constructor() { }
 
