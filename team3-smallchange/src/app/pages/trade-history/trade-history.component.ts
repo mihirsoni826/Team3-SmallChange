@@ -12,24 +12,10 @@ export class TradeHistoryComponent implements OnInit {
   constructor(private dataService: DataService) { }
   selectedValue: string = 'Select Type of Account';
 
-  btType = 'button'
-  btType1 = 'button'
-  btValue = 'Go'
-  btValue1 = 'Reset'
-  btnId = 'go'
-  btnId1 = 'reset'
   OPTIONS1: string[] = ["Brokerage", "401K", 'IRAs', 'HSAs']
   OPTIONS2: string[] = ["Asset1", "Asset2", "Asset3", "Asset4"]
   OPTIONS3: string[] = ["Buy", "Sell"]
-
-  labelTxt1: string = 'By Account'
-  labelTxt2: string = 'By Asset Class'
-  labelTxt3: string = 'By Trade'
-
-  filterId1 = 'filter1'
-  filterId2 = 'filter2'
-  filterId3 = 'filter3'
-
+  
   labelForA: string = 'account'
   labelForB: string = 'asset'
   labelForC: string = 'trade'
