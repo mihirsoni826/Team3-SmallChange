@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { DataService } from 'src/app/data.service';
 
 import { PortfolioHeaderComponent } from './portfolio-header.component';
@@ -24,4 +25,9 @@ describe('PortfolioHeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create card', () => {
+    expect(fixture.nativeElement.querySelector('.card')).toBeTruthy();
+
+  })
 });
