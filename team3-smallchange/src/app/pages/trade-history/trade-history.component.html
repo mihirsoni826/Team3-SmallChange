@@ -11,7 +11,7 @@
     <div class="col-md-2">
         <sc-atom-form-label [labelFor]="labelForB" labelTxt="By Asset "></sc-atom-form-label>
         <select (change)='applyFilters("filter2")' class="custom-select" id="filter2">
-            <option disabled>Select an assett</option>
+            <option disabled>Select an Asset</option>
             <option *ngFor="let option of OPTIONS2">{{ option }}</option>
         </select>
     </div>
