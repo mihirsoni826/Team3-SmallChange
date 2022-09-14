@@ -14,7 +14,7 @@ export class BuyTradeFormComponent implements OnInit {
   @ViewChild('bankAccount', { static: true }) bankAccount: FormControl;
 
   price: number = 0;
-  insufficientBalance: boolean = true;
+  insufficientBalance: boolean = false;
   securityPrice: number = 0;
   dis: string = '';
   success: boolean = false;

@@ -9,14 +9,16 @@ import { SellTradePageComponent } from './pages/sell-trade-page/sell-trade-page.
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 import { AuthGuard } from './services/auth-guard.service'
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent},
- { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'portfolio', component: PortfolioComponent , canActivate: [AuthGuard]},
-  {path: 'trade-history', component: TradeHistoryComponent,canActivate: [AuthGuard]},
-  { path: 'buy', component: BuyTradeComponent ,canActivate: [AuthGuard]},
-  { path: 'sell', component: SellTradePageComponent,canActivate: [AuthGuard] }
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'portfolio', component: PortfolioComponent , canActivate: [AuthGuard] },
+  { path: 'trade-history', component: TradeHistoryComponent,canActivate: [AuthGuard] },
+  { path: 'buy', component: BuyTradeComponent ,canActivate: [AuthGuard] },
+  { path: 'sell', component: SellTradePageComponent,canActivate: [AuthGuard] },
+  { path: '**', component: NotFoundComponent }
 
 ];
 
