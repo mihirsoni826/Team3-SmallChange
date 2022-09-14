@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PortfolioComponent } from './portfolio.component';
 
-describe('PortfolioComponent', () => {
+fdescribe('PortfolioComponent', () => {
   let component: PortfolioComponent;
   let fixture: ComponentFixture<PortfolioComponent>;
 
@@ -20,4 +20,9 @@ describe('PortfolioComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should make portfolio navbar active', () =>{
+    let nav = fixture.nativeElement.querySelector('#navActive');
+    expect(nav.portfolioActive).toBeTruthy();
+  })
 });
