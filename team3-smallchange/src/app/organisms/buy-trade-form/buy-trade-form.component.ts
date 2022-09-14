@@ -40,12 +40,6 @@ export class BuyTradeFormComponent implements OnInit {
     console.log(this.buyForm);
   }
 
-  getRandomIntInclusive(min: number, max: number) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    this.securityPrice = Math.floor(Math.random() * (max - min + 1) + min);
-  }
-
   toggleModalDisplay() {
     this.dis = 'display: flex';
   }
