@@ -47,7 +47,7 @@
   
           <div class="form-group">
             <label for="bankAccount" class="font-weight-bold">Bank Account:</label>
-            <select name="bankAccountid" class="custom-select" ngModel #bankAccount="ngModel" required
+            <select name="bankAccountid" class="custom-select" id="bankAccount" ngModel #bankAccount="ngModel" required
               [class.is-invalid]="bankAccount.touched && bankAccount.invalid">
               <option value="" disabled selected>Choose a bank account</option>
               <option *ngFor="let bankAccount of bankAccountList" value="{{ bankAccount }}">
