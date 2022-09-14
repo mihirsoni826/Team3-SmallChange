@@ -1,4 +1,5 @@
 import { Component, OnInit,ElementRef ,Renderer2, ViewChild} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-sell-trade-form',
@@ -6,6 +7,14 @@ import { Component, OnInit,ElementRef ,Renderer2, ViewChild} from '@angular/core
   styleUrls: ['./sell-trade-form.component.css']
 })
 export class SellTradeFormComponent {
+
+
+
+  @ViewChild('buyForm', { static: true }) buyForm: FormGroup;
+  @ViewChild('assetClass', { static: true }) assetClass: FormControl;
+  @ViewChild('security', { static: true }) security: FormControl;
+  @ViewChild('quantity', { static: true }) quantity: FormControl;
+  @ViewChild('bankAccount', { static: true }) bankAccount: FormControl;
 
   Success:boolean=false;
 

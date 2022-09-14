@@ -12,23 +12,9 @@ export class TradeHistoryComponent implements OnInit {
   constructor(private dataService: DataService) { }
   selectedValue: string = 'Select Type of Account';
 
-  btType = 'button'
-  btType1 = 'button'
-  btValue = 'Go'
-  btValue1 = 'Reset'
-  btnId = 'go'
-  btnId1 = 'reset'
-  OPTIONS1: string[] = ["Brokerage", "401K", 'IRAs', 'HSAs']
-  OPTIONS2: string[] = ["Asset1", "Asset2", "Asset3", "Asset4"]
+  OPTIONS1: string[] = ["Brokerage", "401K", 'IRAs', 'HSAs', 'Roth IRAs']
+  OPTIONS2: string[] = ["Main Index Stocks", "Small Cap Company Stocks", "International Market Stocks", "Government Stocks", "Corporate Stocks"]
   OPTIONS3: string[] = ["Buy", "Sell"]
-
-  labelTxt1: string = 'By Account'
-  labelTxt2: string = 'By Asset Class'
-  labelTxt3: string = 'By Trade'
-
-  filterId1 = 'filter1'
-  filterId2 = 'filter2'
-  filterId3 = 'filter3'
 
   labelForA: string = 'account'
   labelForB: string = 'asset'
@@ -54,8 +40,9 @@ export class TradeHistoryComponent implements OnInit {
   VALUES: any = []
   TEMP: any = []
   TABLE: any = []
+  SORT: any = []
 
-  COLUMNS: string[] = ['Serial No.', 'Trade Name', 'Account', 'DOP', 'DOS', 'Buy/Sell', 'Assest Class', 'Bought at', 'Sold at', 'Quantity']
+  COLUMNS: string[] = ['Trade Id.', 'Trade Name', 'Account', 'Date of Transaction(MM-DD-YYYY)', 'Buy/Sell', 'Assest Class', 'Bought at', 'Sold at', 'Quantity']
   ngOnInit(): void {
     this.getAll()
   }
@@ -79,11 +66,23 @@ export class TradeHistoryComponent implements OnInit {
     this.tradeType = 'All'
 
     this.dataService.getTradeHistory().subscribe((response) => {
-      this.VALUES = response
+       this.SORT = response
       this.TABLE = response
       this.TEMP = response
+      console.log(this.SORT)
+      this.VALUES = response
     })
+
+    
   }
+  // sortByDate(){
+  //   console.log("hello")
+  //    this.VALUES = this.SORT.sort((a: any, b: any) => {
+  //     console.log(a.date)
+  //     return <any>new Date(b.date) - <any>new Date(a.date);
+  //     // console.log(new Date(a.date))
+  //   });
+  // }
   reset() {
     for (var i = 1; i < 4; i++) {
       var temp = document.getElementById("filter" + i) as HTMLSelectElement

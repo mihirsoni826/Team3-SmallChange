@@ -49,6 +49,7 @@ import { EmptyPageMessageComponent } from './atoms/empty-page-message/empty-page
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CardComponent } from './atoms/card/card.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { TradeHistoryPageComponent } from './pages/trade-history-page/trade-history-page.component';
 
 @NgModule({
   imports: [
@@ -97,6 +98,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     BrokerageSummaryComponent,
     PortfolioHeaderComponent,
     TradeHistoryComponent,
+    TradeHistoryPageComponent,
     BuyTradeComponent,
     RedAlertComponent,
 	  LabelInputFormControlComponent,
