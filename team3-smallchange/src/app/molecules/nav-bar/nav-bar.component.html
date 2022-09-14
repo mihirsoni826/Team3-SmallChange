@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" routerLink="/dashboard">SmallChange</a>
+  <a class="navbar-brand" routerLink="/dashboard" id="logoLink">SmallChange</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,22 +7,22 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" [class.active]="dashboardActive">
-        <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        <a class="nav-link" id="dashboardLink" routerLink="/dashboard">Dashboard</a>
       </li>
       <li class="nav-item" [class.active]="portfolioActive">
-        <a class="nav-link" routerLink="/portfolio">Portfolio</a>
+        <a class="nav-link" id="portfolioLink" routerLink="/portfolio">Portfolio</a>
       </li>
       <li class="nav-item dropdown" [class.active]="tradeActive">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
           Trade
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" routerLink="/buy">Buy securities</a>
-          <a class="dropdown-item" routerLink="/sell">Sell securities</a>
+          <a class="dropdown-item" id="buyLink" routerLink="/buy">Buy securities</a>
+          <a class="dropdown-item" id="sellLink" routerLink="/sell">Sell securities</a>
         </div>
       </li>
       <li class="nav-item" [class.active]="historyActive">
-        <a routerLink="/trade-history" class="nav-link">Trade history</a>
+        <a routerLink="/trade-history" id="historyLink" class="nav-link">Trade history</a>
       </li>
     </ul>
 
@@ -33,7 +33,7 @@
             {{ username }}
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" (click)="logout()">Logout</a>
+            <a class="dropdown-item" id="logoutLink" (click)="logout()">Logout</a>
 
           </div>
         </li>

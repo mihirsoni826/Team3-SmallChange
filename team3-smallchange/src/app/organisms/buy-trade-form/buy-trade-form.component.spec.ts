@@ -1,12 +1,13 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { ButtonComponent } from 'src/app/atoms/button/button.component';
 import { RedAlertComponent } from 'src/app/atoms/red-alert/red-alert.component';
+import { ModelComponent } from 'src/app/molecules/model/model.component';
 
 import { BuyTradeFormComponent } from './buy-trade-form.component';
 
-fdescribe('BuyTradeFormComponent', () => {
+describe('BuyTradeFormComponent', () => {
   let component: BuyTradeFormComponent;
   let fixture: ComponentFixture<BuyTradeFormComponent>;
   let debugElement: DebugElement;
@@ -14,12 +15,14 @@ fdescribe('BuyTradeFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule,
       ],
       declarations: [ 
         BuyTradeFormComponent,
         RedAlertComponent,
         ButtonComponent,
+        ModelComponent
       ]
     })
     .compileComponents();
@@ -61,14 +64,25 @@ fdescribe('BuyTradeFormComponent', () => {
     expect(amtField.getAttribute("readonly")).toBe("true");
   });
 
-  xit("should allow submission when form is valid", () => {
-    component.assetClass.valid;
-    component.security.valid;
-    component.quantity.valid;
-    component.bankAccount.valid;
-    component.buyForm.valid;
-    fixture.detectChanges();
+  it("should allow submission when form is valid", () => {
     let buyBtn = fixture.nativeElement.querySelector("#submit-btn");
+
+    component.buyForm.controls['assetClass'].setErrors(null);
+    component.buyForm.controls['security'].setErrors(null);
+    component.buyForm.controls['quantity'].setErrors(null);
+    component.buyForm.controls['bankAccount'].setErrors(null);
+    fixture.detectChanges();
+    
     expect(buyBtn.disabled).toBeFalsy();
+  });
+
+  it("display modal when 'Buy' button is clicked", () => {
+    let buyBtn = fixture.nativeElement.querySelector("#submit-btn");
+
+    buyBtn.click();
+    fixture.detectChanges();
+    let dis = component.dis;
+
+    expect(dis).toBe("display: flex");
   });
 });
