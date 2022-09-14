@@ -1,14 +1,28 @@
 <div class="modal"  [style]="display" style="background-color: rgba(0, 0, 0, 0.5)" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content"  >
+      <div *ngIf="true ? !modalSuccess : false" class="modal-content"  >
         <div class="modal-body">
           <p id="value" > <strong>Confirmation</strong></p>
-          <p>Confirm purchase of <strong>{{form.quantity }} {{form.security | uppercase}}</strong> security of asset class <strong>{{form.assetClass | uppercase}} </strong> </p>
-          <p ><Strong>Amount Receivable</Strong> {{value}}</p>
+          <p>Confirm {{ tradeAction }} of <strong>{{form.quantity }} {{form.security | uppercase}}</strong> security of asset class <strong>{{form.assetClass | uppercase}} </strong> </p>
+          <p ><Strong>Amount {{ receivableOrPayable }}:</Strong> {{ valueNumber | currency:'INR'}}</p>
         </div>
         <div class="modal-footer" style="border-top:0 ; padding-top:0%;">
           <button type="button" class="btn btn-light" data-dismiss="modal" (click)="onNoClick($event)">No</button>
           <button type="button" class="btn btn-success" (click)="onYesClick($event)" >Yes</button>
+        </div>
+      </div>
+
+      <div *ngIf="modalSuccess" class="modal-content"  style="background-color:#E7FFE7">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseClick($event)">
+            <span >&times;</span>
+          </button>
+        </div>
+          <div class="modal-body">
+            <div class="modal-body" id="imgId">
+              <img src="../../../assets/checked.png" alt="Done">
+              <p>{{ tradeAction }} of <strong>{{form.quantity }} {{form.security | uppercase}}</strong> security  <strong >successful! </strong> </p>
+            </div>
         </div>
       </div>
     </div>
