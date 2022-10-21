@@ -16,6 +16,10 @@ export class DataService {
     return this.http.get<any>('../assets/brokerage-portfolio.json');
   }
 
+  getMFPortfolio() : Observable<any> {
+    return this.http.get<any>('../assets/mutual-funds.json');
+  }  
+
   getLoginCred(): Observable<any>{
     return this.http.get<any>('../assets/users.json')
   }

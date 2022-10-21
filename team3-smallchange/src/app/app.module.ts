@@ -50,6 +50,14 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CardComponent } from './atoms/card/card.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { TradeHistoryPageComponent } from './pages/trade-history-page/trade-history-page.component';
+import { EquityComponent } from './molecules/equity/equity.component';
+import { MutualFundsComponent } from './molecules/mutual-funds/mutual-funds.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
+import { ChartsModule } from 'ng2-charts';
+import { PieChartComponent } from './molecules/pie-chart/pie-chart.component';
+import { NgApexchartsModule } from "ng-apexcharts";
+import { AllChartsComponent } from './organisms/all-charts/all-charts.component';
 import { Ng2CompleterModule } from 'ng2-completer';
 
 @NgModule({
@@ -61,6 +69,10 @@ import { Ng2CompleterModule } from 'ng2-completer';
     HttpClientModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    ChartsModule,
+    NgApexchartsModule,
     Ng2CompleterModule
   ],
   declarations: [
@@ -112,7 +124,11 @@ import { Ng2CompleterModule } from 'ng2-completer';
     DashboardComponent,
     CardComponent,
     NotFoundComponent,
-    
+    TradeHistoryPageComponent,
+    EquityComponent,
+    MutualFundsComponent,
+    PieChartComponent,
+    AllChartsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
