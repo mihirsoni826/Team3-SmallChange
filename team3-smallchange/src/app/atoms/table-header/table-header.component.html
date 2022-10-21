@@ -2,14 +2,14 @@
     <form action="" class="form-group" method="post">
         <div class="table-responsive">
             <div class="table-responsive bdr">
-                <table class="table table-bordered" id="myTable">
+                <table class="table table-hover" id="myTable">
                     <thead class="thead-dark">
                         <tr>
                             <th *ngFor="let column of COLUMNS">{{column}}</th>
                         </tr>
                     </thead>
                     <tbody *ngFor="let value of VALUES | paginate: { itemsPerPage: 10, currentPage: p}">
-                        <td *ngFor="let item of value| keyvalue: originalOrder ">{{item.value}}</td>
+                        <td *ngFor="let item of value| keyvalue: originalOrder" [ngClass]="getClassOf(item.value)">{{item.value}}</td>
                     </tbody>
                 </table>
                 <pagination-controls (pageChange)="p = $event" ></pagination-controls>

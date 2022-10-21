@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, discardPeriodicTasks, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { mapTo, of, timer } from 'rxjs';
 import { DataService } from 'src/app/data.service';
 
 import { PortfolioHeaderComponent } from './portfolio-header.component';
@@ -9,6 +10,16 @@ fdescribe('PortfolioHeaderComponent', () => {
   let component: PortfolioHeaderComponent;
   let fixture: ComponentFixture<PortfolioHeaderComponent>;
   let dataService: DataService;
+
+  const fakeData = {"id":1,
+                    "symbol": "MSFT",
+                    "tradeDate": "07-09-22",
+                    "price": 100,
+                    "quantity": 5,
+                    "investedAmt": 500,
+                    "presentValue": 550,
+                    "PL": "50(10%)"
+                  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -32,31 +43,45 @@ fdescribe('PortfolioHeaderComponent', () => {
     expect(fixture.nativeElement.querySelector('.card')).toBeTruthy();
   })
 
-  it('should render current value',async () =>{
-    component.currentValue = 2800;
-    let productSpy = spyOn(dataService, 'getBrokeragePortfolio').and.callThrough();
-
+  it('should have brokerage data',() => {
+    const spy = spyOn(dataService,'getBrokeragePortfolio').and.returnValue(of([fakeData]));
     component.ngOnInit();
+    
+    expect(spy).toHaveBeenCalled();
+    expect(component.brokerageData).toEqual([fakeData]);
+  })
+
+  //using async
+  it('should render current value', async(() =>{
+    const spy = spyOn(dataService,'getBrokeragePortfolio').and.returnValue(of([fakeData]));
+    component.ngOnInit();
+    fixture.detectChanges();
+    expect(spy).toHaveBeenCalled();
+    
 
     fixture.whenStable().then(() => {
-    fixture.detectChanges();
-    const value = fixture.nativeElement.querySelector('#currentVal');
-    expect(value).toBeTruthy();
-    expect(value.textContent).toContain('$2,800.00');
-    });
-  });
+      fixture.detectChanges();
+      const value = fixture.nativeElement.querySelector('#currentVal');
+      expect(value).toBeTruthy();
+      expect(value.textContent).toContain(component.currentValue);
+    })
+    
+  }));
 
-  it('should render invested value',async () =>{
-    component.investedValue = 3000;
-    let productSpy = spyOn(dataService, 'getBrokeragePortfolio').and.callThrough();
-
+  //using fakeAsync
+  it('should render invested value', fakeAsync(() => {
+    const spy = spyOn(dataService,'getBrokeragePortfolio').and.returnValue(timer(1000).pipe(mapTo([fakeData])));
     component.ngOnInit();
-
-    fixture.whenStable().then(() => {
+    
+    expect(spy).toHaveBeenCalled();
     fixture.detectChanges();
+
     const value = fixture.nativeElement.querySelector('#investedVal');
     expect(value).toBeTruthy();
-    expect(value.textContent).toContain('$3,000.00');
-    });
-  });
+    expect(value.textContent).toContain(component.investedValue);
+
+    tick(1000); 
+    discardPeriodicTasks(); 
+  }));
+
 });
