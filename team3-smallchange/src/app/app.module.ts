@@ -58,7 +58,7 @@ import { ChartsModule } from 'ng2-charts';
 import { PieChartComponent } from './molecules/pie-chart/pie-chart.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { AllChartsComponent } from './organisms/all-charts/all-charts.component';
-
+import { Ng2CompleterModule } from 'ng2-completer';
 
 @NgModule({
   imports: [
@@ -72,7 +72,8 @@ import { AllChartsComponent } from './organisms/all-charts/all-charts.component'
     BrowserAnimationsModule,
     MatTabsModule,
     ChartsModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    Ng2CompleterModule
   ],
   declarations: [
     AppComponent,
@@ -111,6 +112,7 @@ import { AllChartsComponent } from './organisms/all-charts/all-charts.component'
     BrokerageSummaryComponent,
     PortfolioHeaderComponent,
     TradeHistoryComponent,
+    TradeHistoryPageComponent,
     BuyTradeComponent,
     RedAlertComponent,
 	  LabelInputFormControlComponent,
