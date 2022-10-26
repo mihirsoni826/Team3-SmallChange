@@ -50,6 +50,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CardComponent } from './atoms/card/card.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { TradeHistoryPageComponent } from './pages/trade-history-page/trade-history-page.component';
+import { RegisterFormComponent } from './organisms/register-form/register-form.component';
 
 @NgModule({
   imports: [
@@ -110,6 +111,7 @@ import { TradeHistoryPageComponent } from './pages/trade-history-page/trade-hist
     DashboardComponent,
     CardComponent,
     NotFoundComponent,
+    RegisterFormComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

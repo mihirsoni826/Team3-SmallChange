@@ -8,9 +8,11 @@ import { SellTradePageComponent } from './pages/sell-trade-page/sell-trade-page.
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './services/auth-guard.service'
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { RegisterFormComponent } from './organisms/register-form/register-form.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent},
+  {path: 'register', component: RegisterFormComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'portfolio', component: PortfolioComponent , canActivate: [AuthGuard] },
   { path: 'trade-history', component: TradeHistoryPageComponent,canActivate: [AuthGuard] },

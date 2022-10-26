@@ -1,0 +1,70 @@
+#form-wrapper {
+
+    font-family: 'Fidelity Sans', Arial, sans-serif;
+  
+    padding: 7vh 2vw;
+    border: 1px solid #ccc;
+    max-width: 22vw;
+    min-width: 300px;
+    min-height: 59vh;
+
+    margin-top: 5vh;
+    border-radius: 0.5rem;
+    font-size: large;
+    font-weight: lighter !important;
+   
+  }
+  form{
+   
+    background-color: white;
+  }
+  
+  .inputLab{
+    text-align: left;
+    width: 30vw;
+  }
+  .form-group {
+    margin-bottom: 2.5vh;
+  }
+
+  .cardd {
+    margin-top: 3rem;
+    box-shadow: 7px 7px 15px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 10px;
+  }
+
+
+.card {
+  margin: 3rem 0;
+  box-shadow: 7px 7px 15px 4px rgba(0, 0, 0, 0.13);
+  border: none;
+  border-radius: 10px;
+}
+
+.forgot-pass {
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  height: 40px;
+}
+
+#submit {
+  background-color: #ffbe0b;
+  width: 100%;
+  height: 200%;
+  border: 0;
+  padding: 3% 0;
+  color: black;
+  font-weight: 500;
+  font-size: large;
+  margin-top: 6vh;
+}
+
+#submit:disabled {
+  background-color: #ffbe0b;
+  cursor: not-allowed;
+  opacity: 1;
+}
