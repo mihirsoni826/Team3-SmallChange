@@ -1,18 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-brokerage-table',
-  templateUrl: './brokerage-table.component.html',
-  styleUrls: ['./brokerage-table.component.css']
+  selector: 'app-equity',
+  templateUrl: './equity.component.html',
+  styleUrls: ['./equity.component.css']
 })
-export class BrokerageTableComponent implements OnInit {
+export class EquityComponent implements OnInit {
 
   COLUMNS: string[] = ['Serial No','Symbol','TradeDate','Price','Quantity','Buy value','Present value','P&L(%)']
 
   VALUES = [];
-  links = ['Equity', 'Mutual-funds'];
-  activeLink = this.links[0];
   
   constructor(private dataService: DataService) { }
 
@@ -21,6 +20,5 @@ export class BrokerageTableComponent implements OnInit {
       this.VALUES = response;
     })
   }
-
 
 }
