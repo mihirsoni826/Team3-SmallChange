@@ -40,6 +40,8 @@ export class BuyTradeFormComponent implements OnInit {
 
   onSubmit(data: any): void {
     console.log(this.buyForm);
+    console.log(data);
+    
   }
 
   toggleModalDisplay() {
