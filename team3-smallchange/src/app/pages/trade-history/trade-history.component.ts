@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-trade-history',
@@ -9,7 +10,7 @@ import { DataService } from 'src/app/data.service';
 })
 export class TradeHistoryComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private http: HttpClient) { }
   selectedValue: string = 'Select Type of Account';
 
   OPTIONS1: string[] = ["Brokerage", "401K", 'IRAs', 'HSAs', 'Roth IRAs']
@@ -42,9 +43,10 @@ export class TradeHistoryComponent implements OnInit {
   TABLE: any = []
   SORT: any = []
 
-  COLUMNS: string[] = ['Trade Id.', 'Trade Name', 'Account', 'Date of Transaction(MM-DD-YYYY)', 'Buy/Sell', 'Assest Class', 'Bought at', 'Sold at', 'Quantity']
+  COLUMNS: string[] = ['Trade Id.', 'Symbol', 'Company', 'Account', 'Date of Transaction(MM-DD-YYYY)', 'Buy/Sell', 'Assest Class', 'Trade Price', 'Quantity']
   ngOnInit(): void {
     this.getAll()
+    this.getDataFromApi()
   }
 
   getAll() {
@@ -64,14 +66,6 @@ export class TradeHistoryComponent implements OnInit {
     this.accountType = 'All'
     this.assetType = 'All'
     this.tradeType = 'All'
-
-    this.dataService.getTradeHistory().subscribe((response) => {
-       this.SORT = response
-      this.TABLE = response
-      this.TEMP = response
-      console.log(this.SORT)
-      this.VALUES = response
-    })
 
     
   }
@@ -162,5 +156,52 @@ export class TradeHistoryComponent implements OnInit {
     this.accountValue = false
     this.assetValue = false
     this.tradeValue = false
+  }
+
+  async getDataFromApi(){
+   var  apiURL = 'http://localhost:8080/trade-history';
+   const body = {
+    "email" : "123@gmail.com"
+   } 
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    var theDataSource = this.http
+    .post(
+      apiURL,
+      body,
+      httpOptions
+    )
+    var RESULT = [];
+    var data = theDataSource.subscribe(async (response: any) => {
+      console.log(response)
+      for(var i=0; i<response.length; i++){
+        console.log(response[i])
+        console.log(response[i].email);
+       var object =  {
+          "transactionId" : response[i].transactionId,
+          "ticker": response[i].ticker,
+          "securityName" : response[i].securityName,
+          "accountType" : response[i].accountType,
+          "transactionDate" : response[i].transactionDate,
+          "tradeType" : response[i].tradeType,
+          "assetClass" : response[i].assetClass,
+          "tradePrice": response[i].tradePrice,
+          "quantity": response[i].quantity
+        }
+        RESULT.push(object)
+      }
+       
+      this.SORT = RESULT
+        this.TABLE = RESULT
+        this.TEMP = RESULT
+        // console.log(this.SORT)
+        this.VALUES = RESULT
+    }
+    )
   }
 }

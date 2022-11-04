@@ -8,9 +8,9 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  getTradeHistory(): Observable<any>{
-    return this.http.get<any>('../assets/tradehistory.json')
-  }
+  // getTradeHistory(): Observable<any>{
+  //   return this.http.get<any>('../assets/tradehistory.json')
+  // }
 
   getBrokeragePortfolio() : Observable<any> {
     return this.http.get<any>('../assets/brokerage-portfolio.json');
