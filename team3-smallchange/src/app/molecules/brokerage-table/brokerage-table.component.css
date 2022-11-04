@@ -1,4 +1,45 @@
-#brokerage-table {
-    width:90%; 
-    margin:auto 
+.card {
+    padding: 1em;
+    box-shadow: 7px 7px 15px 4px rgba(0, 0, 0, 0.13);
+    border: none;
+    border-radius: 10px;
+    margin: 2% 9.5% 1% 9.5%;
 }
+
+/* .card-header {
+    margin: 0% 1%;
+    border: 0.1px solid rgb(228, 225, 225);
+    border-bottom: none;
+} */
+
+/* .nav-item {
+    margin-left: 2%;
+}
+
+.nav-link {
+    color: #000;
+    font-size: large;
+} */
+
+.card-body {
+    margin: 0% -6%;
+}
+
+/* a:hover,.nav-link {
+    border: none;
+}
+.active {
+    border: 1px solid #fff;
+    background-color: #fff;
+    border: 0.1px solid rgb(228, 225, 225);
+    border-bottom: none;
+} */
+
+a {
+    font-size: medium;
+}
+
+a:hover {
+    text-decoration: none;
+}
+

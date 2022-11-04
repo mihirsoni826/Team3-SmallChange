@@ -1,0 +1,24 @@
+<!-- <div class="chart-wrapper">
+  <canvas baseChart 
+  [data]="pieChartData" 
+  [labels]="pieChartLabels" 
+  [chartType]="pieChartType"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend">
+</canvas>
+</div> -->
+
+<div id="chart">
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [labels]="chartOptions.labels"
+    [fill]="chartOptions.fill"
+    [tooltip]="chartOptions.tooltip"
+    [dataLabels]="chartOptions.dataLabels"
+    [plotOptions]="chartOptions.plotOptions"
+    [colors]="chartOptions.colors"
+    [legend]="chartOptions.legend"
+  ></apx-chart>
+</div>

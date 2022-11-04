@@ -11,7 +11,7 @@ export class PortfolioTableComponent implements OnInit {
   selectName = 'acctType';
   labelTxt : string = 'By Account';
   labelForA: string = 'account';
-  selectedValue: string = 'Select Type of Account';
+  selectedValue: string = 'Brokerage';
 
   noData = "Report is empty";
   noAcct = 'select account to show';
