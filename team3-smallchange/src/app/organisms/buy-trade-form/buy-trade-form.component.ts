@@ -19,6 +19,8 @@ export class BuyTradeFormComponent implements OnInit {
   dis: string = '';
   success: boolean = false;
 
+  tickers: string[] = [];
+
   assetClassList: string[] = [
     'Main index stocks',
     'Small cap company stocks',
