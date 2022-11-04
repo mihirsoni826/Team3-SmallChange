@@ -38,23 +38,39 @@
         </div> -->
 
         <div class="form-group">
-          <label for="security" class="font-weight-bold">Security:</label>
-          <!-- <input
-            type="text"
-            name="security"
-            id="security"
-            class="form-control"
-            ngModel
+          <label for="security" class="font-weight-bold">Security Ticker:</label>
+          <ng2-completer 
+            [inputClass]="'form-control'" 
+            [datasource]="tickers" 
+            [minSearchLength]="1" 
+            name="security" 
+            id="security" 
+            ngModel 
             #security="ngModel"
-            [class.is-invalid]="security.touched && security.invalid"
-            required
-          /> -->
-          <ng2-completer [inputClass]="'form-control'" [datasource]="tickers" [minSearchLength]="1" name="security" id="security" ngModel #security="ngModel"></ng2-completer>
+            (blur)="updateSecurityMarketPrice(security)"
+          ></ng2-completer>
           <div *ngIf="security.touched && security.errors">
             <small class="text-danger" *ngIf="security.errors['required']"
               >Please enter a security
             </small>
           </div>
+        </div>
+
+        <div class="form-group">
+          <label for="readOnlySecurityName" class="font-weight-bold"
+            >Security Name:</label
+          >
+          <input
+            type="text"
+            name="readOnlySecurityName"
+            id="readOnlySecurityName"
+            class="form-control"
+            ngModel
+            #readOnlySecurityName="ngModel"
+            [value]="securityName"
+            readonly="true"
+          />
+          
         </div>
 
         <div class="form-group">
@@ -105,13 +121,16 @@
         </div>
 
         <div class="form-group">
-          <label for="disabledTextInput" class="font-weight-bold"
+          <label for="readOnlySecurityPrice" class="font-weight-bold"
             >Total amount:</label
           >
           <input
             type="text"
-            id="disabledTextInput"
+            id="readOnlySecurityPrice"
+            name="readOnlySecurityPrice"
             class="form-control"
+            ngModel
+            #readOnlySecurityPrice="ngModel"
             [value]="securityPrice"
             readonly="true"
           />
@@ -124,7 +143,7 @@
             btnId="submit-btn"
             btnValue="Buy"
             [isDisabled]="buyForm.invalid"
-            (click)="toggleModalDisplay()"
+            (click)="toggleModalDisplay(buyForm)"
           ></sc-atom-button>
         </div>
       </form>
@@ -139,7 +158,6 @@
   (btnNoClick)="toggleModalDisplayOnNo()"
   (btnYesClick)="toggleModalDisplayOnYes(buyForm)"
   (btnCloseClick)="closeBtn(buyForm)"
-  value="28657"
   [form]="buyForm.value"
   [modalSuccess]="success"
 ></app-model>
