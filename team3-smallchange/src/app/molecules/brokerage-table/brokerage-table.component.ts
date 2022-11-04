@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 
 @Component({
@@ -11,6 +11,8 @@ export class BrokerageTableComponent implements OnInit {
   COLUMNS: string[] = ['Serial No','Symbol','TradeDate','Price','Quantity','Buy value','Present value','P&L(%)']
 
   VALUES = [];
+  links = ['Equity', 'Mutual-funds'];
+  activeLink = this.links[0];
   
   constructor(private dataService: DataService) { }
 

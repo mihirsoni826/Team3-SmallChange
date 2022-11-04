@@ -39,7 +39,7 @@
 
         <div class="form-group">
           <label for="security" class="font-weight-bold">Security:</label>
-          <input
+          <!-- <input
             type="text"
             name="security"
             id="security"
@@ -48,11 +48,12 @@
             #security="ngModel"
             [class.is-invalid]="security.touched && security.invalid"
             required
-          />
+          /> -->
+          <ng2-completer [inputClass]="'form-control'" [datasource]="tickers" [minSearchLength]="1" name="security" id="security" ngModel #security="ngModel"></ng2-completer>
           <div *ngIf="security.touched && security.errors">
             <small class="text-danger" *ngIf="security.errors['required']"
-              >Please enter a security</small
-            >
+              >Please enter a security
+            </small>
           </div>
         </div>
 
@@ -80,7 +81,7 @@
             >Bank Account:</label
           >
           <select
-            name="bankAccountid"
+            name="bankAccount"
             class="custom-select"
             id="bankAccount"
             ngModel

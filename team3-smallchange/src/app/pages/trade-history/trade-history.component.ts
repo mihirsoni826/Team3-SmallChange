@@ -12,23 +12,9 @@ export class TradeHistoryComponent implements OnInit {
   constructor(private dataService: DataService) { }
   selectedValue: string = 'Select Type of Account';
 
-  btType = 'button'
-  btType1 = 'button'
-  btValue = 'Go'
-  btValue1 = 'Reset'
-  btnId = 'go'
-  btnId1 = 'reset'
-  OPTIONS1: string[] = ["All","Brokerage", "401K", 'IRAs', 'HSAs']
-  OPTIONS2: string[] = ["All","Asset1", "Asset2", "Asset3", "Asset4"]
-  OPTIONS3: string[] = ["All","Buy", "Sell"]
-
-  labelTxt1: string = 'By Account'
-  labelTxt2: string = 'By Asset Class'
-  labelTxt3: string = 'By Trade'
-
-  filterId1 = 'filter1'
-  filterId2 = 'filter2'
-  filterId3 = 'filter3'
+  OPTIONS1: string[] = ["Brokerage", "401K", 'IRAs', 'HSAs', 'Roth IRAs']
+  OPTIONS2: string[] = ["Main Index Stocks", "Small Cap Company Stocks", "International Market Stocks", "Government Stocks", "Corporate Stocks"]
+  OPTIONS3: string[] = ["Buy", "Sell"]
 
   labelForA: string = 'account'
   labelForB: string = 'asset'
@@ -54,13 +40,19 @@ export class TradeHistoryComponent implements OnInit {
   VALUES: any = []
   TEMP: any = []
   TABLE: any = []
+  SORT: any = []
 
-  COLUMNS: string[] = ['Serial No.', 'Trade Name', 'Account', 'DOP', 'DOS', 'Buy/Sell', 'Assest Class', 'Bought at', 'Sold at', 'Quantity']
+  COLUMNS: string[] = ['Trade Id.', 'Trade Name', 'Account', 'Date of Transaction(MM-DD-YYYY)', 'Buy/Sell', 'Assest Class', 'Bought at', 'Sold at', 'Quantity']
   ngOnInit(): void {
     this.getAll()
   }
 
   getAll() {
+    for (var i = 1; i < 4; i++) {
+      var temp = document.getElementById("filter" + i) as HTMLSelectElement
+      temp.selectedIndex = 0
+    }
+
     this.accountValue = false
     this.assetValue = false
     this.tradeValue = false
@@ -69,26 +61,38 @@ export class TradeHistoryComponent implements OnInit {
     this.assetFilterState = 'inactive'
     this.tradeFilterState = 'inactive'
 
-    this.accountType= 'All'
+    this.accountType = 'All'
     this.assetType = 'All'
     this.tradeType = 'All'
 
     this.dataService.getTradeHistory().subscribe((response) => {
-      this.VALUES = response
+       this.SORT = response
       this.TABLE = response
       this.TEMP = response
+      console.log(this.SORT)
+      this.VALUES = response
     })
+
+    
   }
-  reset(){
-  for(var i=1; i<4; i++){
-    var temp =  document.getElementById("filter" + i) as HTMLSelectElement
-    temp.selectedIndex = 0
- 
+  // sortByDate(){
+  //   console.log("hello")
+  //    this.VALUES = this.SORT.sort((a: any, b: any) => {
+  //     console.log(a.date)
+  //     return <any>new Date(b.date) - <any>new Date(a.date);
+  //     // console.log(new Date(a.date))
+  //   });
+  // }
+  reset() {
+    for (var i = 1; i < 4; i++) {
+      var temp = document.getElementById("filter" + i) as HTMLSelectElement
+      temp.selectedIndex = 0
+    }
+    this.getAll()
   }
-  this.getAll()
-  }
+
   selectedFilter(value: string) {
-  
+
     if (this.OPTIONS1.includes(value)) {
       this.accountType = value
       this.accountValue = true
@@ -107,7 +111,10 @@ export class TradeHistoryComponent implements OnInit {
     const filterBtn = document.getElementById(filter) as HTMLSelectElement;
     this.selectedFilter(filterBtn.value)
   }
+
+
   getFilteredTable() {
+
     this.VALUES = []
     if (this.accountValue) {
       if (this.accountFilterState == 'active') {
@@ -118,19 +125,23 @@ export class TradeHistoryComponent implements OnInit {
           this.VALUES.push(this.TEMP[i])
           this.accountFilterState = 'active'
         }
+
       }
       this.TEMP = this.VALUES
     }
+    console.log(this.assetValue)
     if (this.assetValue) {
       if (this.assetFilterState == 'active') {
         this.TEMP = this.TABLE
       }
       this.VALUES = []
+      console.log(this.VALUES)
       for (var i = 0; i < this.TEMP.length; i++) {
         if (this.assetValue && this.TEMP[i].asset == this.assetType) {
           this.VALUES.push(this.TEMP[i])
           this.assetFilterState = 'active'
         }
+
       }
       this.TEMP = this.VALUES
     }

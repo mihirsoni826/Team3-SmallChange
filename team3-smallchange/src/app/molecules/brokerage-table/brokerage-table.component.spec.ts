@@ -9,21 +9,28 @@ import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
-describe('BrokerageTableComponent', () => {
+fdescribe('BrokerageTableComponent', () => {
   let component: BrokerageTableComponent;
   let fixture: ComponentFixture<BrokerageTableComponent>;
   let dataService: DataService;
-  let bData;
   let debugElement: DebugElement;
-  let mockDataService;
+  const fakeData = {"id":1,
+                    "symbol": "MSFT",
+                    "tradeDate": "07-09-22",
+                    "price": 100,
+                    "quantity": 5,
+                    "investedAmt": 500,
+                    "presentValue": 550,
+                    "PL": "50(10%)"
+                  };
 
   beforeEach(async () => {
   
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule,NgxPaginationModule],
       declarations: [ BrokerageTableComponent,TableHeaderComponent ],
-      providers: [DataService],
-      schemas: [NO_ERRORS_SCHEMA]
+      providers: [DataService]
+      //schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
 
@@ -42,9 +49,20 @@ describe('BrokerageTableComponent', () => {
     expect(dataService).toBeTruthy();
   });
 
+  it('should render table data from TableHeaderComponent', () => {
+    const spy = spyOn(dataService,'getBrokeragePortfolio').and.returnValue(of([fakeData]));
+    component.ngOnInit();
 
-  it('should render table from TableHeaderComponent', () => {
-   const table = fixture.debugElement.queryAll(By.directive(TableHeaderComponent));
-    expect(table.length).toEqual(1);
+    expect(spy).toHaveBeenCalled();
+    fixture.detectChanges();
+
+    const table = fixture.debugElement.queryAll(By.directive(TableHeaderComponent));
+
+    expect(table.length).toBe(1);
+    for(let i=0;i<table.length;i++) {
+      expect(table[i].componentInstance.COLUMNS).toEqual(component.COLUMNS);
+      expect(table[i].componentInstance.VALUES).toEqual(component.VALUES);
+    }
+    
   })
 });
