@@ -60,6 +60,7 @@ import { PieChartComponent } from './molecules/pie-chart/pie-chart.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { AllChartsComponent } from './organisms/all-charts/all-charts.component';
 import { Ng2CompleterModule } from 'ng2-completer';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 @NgModule({
   imports: [
@@ -130,7 +131,8 @@ import { Ng2CompleterModule } from 'ng2-completer';
     EquityComponent,
     MutualFundsComponent,
     PieChartComponent,
-    AllChartsComponent
+    AllChartsComponent,
+    RegisterPageComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

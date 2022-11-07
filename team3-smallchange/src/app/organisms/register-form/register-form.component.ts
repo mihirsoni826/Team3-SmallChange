@@ -9,34 +9,7 @@ import { MustMatch } from './must-match.validator';
 })
 export class RegisterFormComponent implements OnInit {
 
-  // constructor() { }
-  // @ViewChild('registerForm', { static: true }) registerForm: FormGroup;
-
-  // @ViewChild('firstname', { static: true }) firstname: FormGroup;
-  // @ViewChild('password', { static: true }) password: FormControl;
-
-  // ngOnInit(): void {
-  
-
-  // let form = document.querySelector('#form-wrapper');
-  // form?.addEventListener('submit', function (event) {
-    
-  //   event.preventDefault();
-    
-  //   let json = {
-  //     username: '',
-  //     password: '',
-  //     usernameEncoded: '',
-  //     passwordEncoded: '',
-  //   };
-    
-  //   json.username = form['username'].value;
-  //   json.password = form['password'].value;
-  //   json.usernameEncoded = window.btoa(json.username);
-  //   json.passwordEncoded = window.btoa(json.password);
-
-  //   console.log(json);
-  // });
+ 
   registerForm: FormGroup;
   submitted = false;
 
@@ -58,6 +31,16 @@ export class RegisterFormComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
+
+  show: boolean = false;
+
+ 
+  
+  // click event function toggle
+  showPassword() {
+    console.log(this.show)
+      this.show = !this.show;
+  }
 
   onSubmit() {
       this.submitted = true;
