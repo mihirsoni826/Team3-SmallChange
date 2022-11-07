@@ -13,20 +13,15 @@ export class PortfolioHeaderComponent implements OnInit {
 
   currentValue: number = 0;
   investedValue: number = 0;
-  brokerageData: any;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.getBrokeragePortfolio().subscribe((response) => {
-      this.brokerageData = response;
-
-      for(let data of this.brokerageData){
-        this.investedValue += data['investedAmt'];
-        this.currentValue += data['presentValue'];
-      }
-
+    this.dataService.getPortfolioDataFromApi().subscribe((response) => { 
+       for(let row of response) {
+          this.investedValue += row['quantity'] * row['avg_buy_price'];
+          this.currentValue += row['quantity'] * row['security']['marketPrice'];
+       }
     })
   }
-
 }

@@ -8,7 +8,7 @@ import { DataService } from 'src/app/data.service';
 })
 export class AllChartsComponent implements OnInit {
 
-  accountData = [3300,1100];
+  accountData = [];
   equityData = [];
   mfData = [];
 
@@ -18,6 +18,8 @@ export class AllChartsComponent implements OnInit {
 
   equitybrokerageData = [];
   mfbrokerageData = [];
+  totalEquity = 0;
+  totalMutualFund = 0;
 
   acctLabel = 'Account';
   equityLabel = 'Equity';
@@ -27,23 +29,28 @@ export class AllChartsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.dataService.getBrokeragePortfolio().subscribe((response) => {
-      this.equitybrokerageData = response;
+    this.dataService.getPortfolioDataFromApi().subscribe((response) => {
+ 
+       for(let row of response) {
+          if(row['security']['subAccountType'] == 'Equity') {
+            this.equityLabels = [...this.equityLabels, row['security']['ticker']];
+            this.equityData = [...this.equityData, (row['quantity'] * row['security']['marketPrice'])];
+          }
+          else {
+            this.mfLabels = [...this.mfLabels, row['security']['ticker']];
+            this.mfData = [...this.mfData, (row['quantity'] * row['security']['marketPrice'])];
+          }
+       }
+          
+        var equitySum = this.equityData.reduce(function (x, y) {
+          return x + y;
+        }, 0);   
+        
+        var mfSum = this.mfData.reduce(function (x, y) {
+          return x + y;
+        }, 0); 
 
-      for(let data of this.equitybrokerageData){
-        //this.equityLabels.push(data['symbol']);
-        this.equityLabels = [...this.equityLabels, data['symbol']];
-        this.equityData = [...this.equityData, data['presentValue']];
-      }
-    })
-
-    this.dataService.getMFPortfolio().subscribe((response) => {
-      this.mfbrokerageData = response;
-
-      for(let data of this.mfbrokerageData){
-        this.mfLabels = [...this.mfLabels, data['symbol']];
-        this.mfData = [...this.mfData, data['presentValue']];
-      }
+        this.accountData = [...this.accountData,equitySum,mfSum];
     })
   }
 
