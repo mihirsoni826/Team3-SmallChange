@@ -97,6 +97,7 @@ export class SellTradeFormComponent {
   } 
 
   updateSecurityMarketPrice(security: any): void {
+     this.insufficientSecurity=false;
     let tickerSelected: String = security.control.value;
     let priceNameArr: any[] = this.tickerDetailsMap.get(tickerSelected);
     if(priceNameArr == undefined) {
