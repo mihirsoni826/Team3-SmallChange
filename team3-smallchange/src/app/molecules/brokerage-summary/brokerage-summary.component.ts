@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/data.service';
 
 @Component({
@@ -17,29 +19,49 @@ export class BrokerageSummaryComponent implements OnInit {
   labelTxt3 = 'P & L';
   labelFor3 = 'PL';
   
-  investedValue: number = 0;
-  currentValue: number = 0;
+  
   difference : number = 0;
   PL: any;
-  
-  brokerageData: any;
+  brokerageType = 'Equity';
+  investedValue;
+  currentValue;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,public location: Location) {
+   }
 
+   
   ngOnInit(): void {
-    this.dataService.getBrokeragePortfolio().subscribe((response) => {
-      this.brokerageData = response;
-
-      for(let data of this.brokerageData){
-        this.investedValue += data['investedAmt'];
-        this.currentValue += data['presentValue'];
+    this.loadData();
+    this.location.onUrlChange(url => {
+      console.log(url.split('/').pop());
+      this.brokerageType = url.split('/').pop();
+      if(url.split('/').pop() == 'Mutual-funds') {
+        this.brokerageType = 'Mutual Funds';
       }
+      this.loadData();
+    });
+  }
 
-      this.difference = this.currentValue - this.investedValue;
-      const num =  this.difference.toFixed(2);
-      const percentageChange = ((this.difference / this.investedValue) * 100).toFixed(2);
-      const str = '(' + percentageChange + '%' + ')';
-      this.PL = (this.difference > 0) ? ("+" + num + str) : (num + str);
-    })
+  loadData():void {
+    let invested = 0;
+      let current = 0;
+
+      this.dataService.getPortfolioDataFromApi().subscribe((response) => {
+        for(let row of response) {
+          if(row['security']['subAccountType'] == this.brokerageType) {
+            invested += row['quantity'] * row['avg_buy_price'];
+            current += row['quantity'] * row['security']['marketPrice'];
+          }
+        }
+
+        this.investedValue = invested;
+        this.currentValue = current;
+
+        this.difference = current - invested;
+        const num =  this.difference.toFixed(2);
+        const percentageChange = ((this.difference / invested) * 100).toFixed(2);
+        const str = '(' + percentageChange + '%' + ')';
+        this.PL = (this.difference > 0) ? ("+" + num + str) : (num + str);
+      })
   }
 }
