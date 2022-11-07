@@ -10,6 +10,5 @@ export class BuyTradeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    
   }
 }
