@@ -1,5 +1,7 @@
 import { Component, OnInit,ElementRef ,Renderer2, ViewChild} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-sell-trade-form',
@@ -18,19 +20,32 @@ export class SellTradeFormComponent {
 
   Success:boolean=false;
 
-  constructor() {
-   
-   }
+  price: number = 123;
+  insufficientSecurity: boolean = false;
+  securityPrice: number = 0;
+  securityName: String = "";
+  dis: string = '';
+
+  tickers: String[] = [];
+  tickerDetailsMap: Map<String, any[]> = new Map<String, any[]>;
+
+  bankAccountList: string[] = [];
+  accountBalanceMap: Map<string, number> = new Map<string, number>;
+
+  totalValueOfTransaction: number = 0;
+  accNumberWithoutBrackets: string = "";
+
+
+  constructor(private http: HttpClient) {}
   
   ngOnInit(): void {
+    this.fetchTickersFromDB();
+    this.fetchBankAccountDetails();
    
   }
 
-    dis:string="";
-
-  toggleModalDisplay()
+  toggleModalDisplay(buyForm: any)
   {
-
     this.dis="display:flex";
   }
 
@@ -54,9 +69,12 @@ export class SellTradeFormComponent {
     buyForm.resetForm();
   }
  
- 
-  price: number = 0;
-  insufficientBalance: boolean = false;
+  insuffSecurity()
+  {
+    this.dis="";
+    this.insufficientSecurity=true;
+
+  }
 
   assetClassList: string[] = [
     "Main index stocks",
@@ -66,12 +84,49 @@ export class SellTradeFormComponent {
     "Corporate bonds"
   ];
 
-  bankAccountList: string[] = [
-    "HDFC Bank (01234456789)",
-    "ICICI Bank (65437889243)",
-  ];
-
   onSubmit(data: any): void {
     console.log(data);
   } 
+
+  updateSecurityMarketPrice(security: any): void {
+    let tickerSelected: String = security.control.value;
+    let priceNameArr: any[] = this.tickerDetailsMap.get(tickerSelected);
+    if(priceNameArr == undefined) {
+      this.securityPrice = 0;
+      this.securityName = "";
+    }
+    else {
+      this.securityPrice = priceNameArr[0];
+      this.securityName = priceNameArr[1];
+    }
+  }
+
+
+
+  async fetchTickersFromDB() {
+    const securitiesUrl = 'http://localhost:8080/securities';
+    let dataSource = this.http.get(securitiesUrl);
+    let data = dataSource.subscribe(async (response: any) => {
+        for (let i = 0; i < response.length; i++) {
+          const security = response[i];
+          let tempArr: any[] = [security.marketPrice, security.securityName];
+          this.tickerDetailsMap.set(security.ticker, tempArr);
+          this.tickers.push(security.ticker);
+        }
+    })
+    this.tickerDetailsMap.set("", undefined);
+  }
+
+  async fetchBankAccountDetails() {
+    const bankDetailsUrl = "http://localhost:8080/bank-details";
+    let payload = {"email": "123@gmail.com"}
+    let dataSource = this.http.post(bankDetailsUrl, payload);
+    let data = dataSource.subscribe(async (response: any) => {
+      let accountNameNumber: string = response.bankName + " (" + response.accountNumber + ")";
+      
+      this.accountBalanceMap.set(response.accountNumber, response.balance);
+      
+      this.bankAccountList.push(accountNameNumber);
+    })
+  }
 }
