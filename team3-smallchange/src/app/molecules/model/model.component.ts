@@ -25,7 +25,7 @@ export class ModelComponent implements OnInit {
   valueNumber: number = 0;
   priceFromForm: number = 0;
   qtyFromForm: number = 0;
-  isSecurity: boolean =false;
+  isSecurity: boolean =true;
 
   ngOnInit(): void {
     if (this.tradeAction === 'Sale') {

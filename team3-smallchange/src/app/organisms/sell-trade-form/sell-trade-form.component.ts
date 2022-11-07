@@ -1,7 +1,7 @@
 import { Component, OnInit,ElementRef ,Renderer2, ViewChild} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-
+import { ModelComponent } from 'src/app/molecules/model/model.component'; 
 
 @Component({
   selector: 'app-sell-trade-form',
@@ -47,6 +47,14 @@ export class SellTradeFormComponent {
   toggleModalDisplay(buyForm: any)
   {
     this.dis="display:flex";
+
+    let accWithBracket: string = buyForm.value.bankAccount.split("(")[1];
+    this.accNumberWithoutBrackets = accWithBracket.substring(0, accWithBracket.length - 1);
+    
+    this.totalValueOfTransaction = this.securityPrice * this.quantity.value;
+    
+    let mc: ModelComponent = new ModelComponent(null);
+    mc.setTotalValue(this.securityPrice, this.quantity.value);
   }
 
   toggleModalDisplayOnYes(buyForm: any)
