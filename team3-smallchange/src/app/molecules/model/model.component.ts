@@ -47,15 +47,38 @@ export class ModelComponent implements OnInit {
 
   onYesClick(eve: Event) {
     eve.preventDefault();
+
     if (this.tradeAction === 'Sale') {
-      this.performSellTransaction();
-      console.log(this.isSecurity);
-      if(this.isSecurity== false)
-      {eve.preventDefault();
-      this.insufficientSecurityClick.emit();}
+      const sellUrl = "http://localhost:8080/sell-trade";
+      let accWithBracket: string = this.form.bankAccount.split("(")[1];
+      let accNumber: string = accWithBracket.substring(0, accWithBracket.length - 1);
+      let payload = {
+        "security": {
+          "ticker": this.form.security,
+        },
+        "user": {
+          "email": "123@gmail.com"
+        },
+        "quantity": this.form.quantity,
+        "accountNumber": accNumber,
+        "timeInMilliseconds": Date.now(),
+       
+      }
+  
+      let dataSource = this.http.post(sellUrl, payload);
+  
+      let data = dataSource.subscribe(async (response: boolean) => {
+        console.log(response);
+        if(response== false)
+      this.insufficientSecurityClick.emit();
       else
       this.btnYesClick.emit();
-      
+      })
+  
+    
+      // this.performSellTransaction();
+     
+     
     } else if (this.tradeAction === 'Purchase') {
       this.btnYesClick.emit();
       this.performBuyTransaction();
