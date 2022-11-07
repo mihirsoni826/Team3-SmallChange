@@ -163,6 +163,7 @@ export class TradeHistoryComponent implements OnInit {
    const body = {
     "email" : "123@gmail.com"
    } 
+   console.log(body)
 
     const httpOptions = {
       headers: new HttpHeaders({
