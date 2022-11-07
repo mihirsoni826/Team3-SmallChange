@@ -1,7 +1,8 @@
+import { Options } from '@angular-slider/ngx-slider';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MustMatch } from './must-match.validator';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-register-form',
@@ -18,26 +19,19 @@ export class RegisterFormComponent implements OnInit {
     @ViewChild('dob', {static: true}) dob:FormControl
  
   submitted = false;
+  currentRating = 0;
 
+  value: number = 3;
+  options: Options = {
+    floor: 0,
+    ceil: 5
+  };
   constructor(private formBuilder: FormBuilder, private http:HttpClient) { }
 
   ngOnInit() {
-    //   this.registerForm = this.formBuilder.group({
-         
-    //       firstName: ['', Validators.required],
-    //       lastName: ['', Validators.required],
-    //       email: ['', [Validators.required, Validators.email]],
-    //       password: ['', [Validators.required, Validators.minLength(6)]],
-    //       phoneNumber:['', Validators.required],
-    //       confirmPassword: ['', Validators.required],
-         
-    //   }, {
-    //       validator: MustMatch('password', 'confirmPassword')
-    //   });
+   
   }
 
-  // convenience getter for easy access to form fields
-  get f() { return this.registerForm.controls; }
 
   show: boolean = false;
 
@@ -66,15 +60,8 @@ export class RegisterFormComponent implements OnInit {
       this.registerForm.reset();
   }
 
-
-
   onSubmitHandler(form:any) {
-    console.log(form)
-    console.log(form.firstName)
-//     console.log(form.get('firstName').value)
-//    console.log(this.registerForm.controls)
    this.registerUser(form);
-   
   }
 
   async registerUser(form:any){
@@ -88,7 +75,7 @@ export class RegisterFormComponent implements OnInit {
         "lastName":form.lastName,
         "dob": form.dob,
         "phone": form.phoneNumber,
-        "riskAppetite": 2
+        "riskAppetite": this.value
     })
     console.log(body) 
  

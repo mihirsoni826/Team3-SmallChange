@@ -13,12 +13,12 @@
                     id="firstName" 
                     ngModel 
                     #firstName="ngModel"
-                     class="form-control" 
-                     [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
-                    <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
-                        <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
-                    </div>
-      </div>
+                     class="form-control" >
+                     <div *ngIf="firstName.touched && firstName.errors">
+                        <small class="text-danger" *ngIf="firstName.errors['required']"
+                          >Please enter your first name</small>
+                      </div>
+        </div>
                 <div class="form-group">
                     <label for="lastName">Last Name</label>
                     <input type="text" 
@@ -27,10 +27,12 @@
             ngModel 
             #lastName="ngModel"
                      class="form-control" 
-                     [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" />
-                    <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
-                        <div *ngIf="f['lastName'].errors['required']">Last Name is required</div>
-                    </div>
+                    />
+                    <div *ngIf="lastName.touched && lastName.errors">
+                        <small class="text-danger" *ngIf="lastName.errors['required']"
+                          >Please enter your last name</small
+                        >
+                      </div>
                 </div>
             </div>
             <div class="row">
@@ -41,11 +43,12 @@
                     id="email" 
                     ngModel 
                     #email="ngModel"
-                      class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
-                   <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                      <div *ngIf="f['email'].errors['required']">Email is required</div>
-                      <div *ngIf="f['email'].errors['email']">Email must be a valid email address</div>
-                    </div>
+                      class="form-control"  />
+                      <div *ngIf="email.touched && email.errors">
+                        <small class="text-danger" *ngIf="email.errors['required']"
+                          >Please enter your email</small
+                        >
+                      </div>
               </div>
               <div class="form-group">
                 <label for="phoneNumber" class="inputLab">Phone Number:</label>
@@ -54,7 +57,12 @@
                 id="phoneNumber" 
                 ngModel 
                 #phoneNumber="ngModel"
-                class="form-control" [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }" />
+                class="form-control"  />
+                <div *ngIf="phoneNumber.touched && phoneNumber.errors">
+                    <small class="text-danger" *ngIf="phoneNumber.errors['required']"
+                      >Please provide a quantity</small
+                    >
+                  </div>
                </div>
             </div>
            <div class="row">
@@ -66,12 +74,13 @@
                     ngModel 
                     #password="ngModel"
                     class="form-control" 
-                    [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" [type]="show ? 'text' : 'password'" />
+                    />
                     <button (click)="showPassword()">{{show ? 'Hide' : 'Show'}}</button>
-                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-                        <div *ngIf="f['password'].errors['required']">Password is required</div>
-                        <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
-                    </div>
+                    <div *ngIf="password.touched && password.errors">
+                        <small class="text-danger" *ngIf="password.errors['required']"
+                          >Please provide a quantity</small
+                        >
+                      </div>
                 </div>
                 <!-- <div class="form-group">
                     <label for="co">Confirm Password</label>
@@ -91,6 +100,14 @@
         id="dob" 
         ngModel #dob="ngModel" required />
     </div>
+
+    <div class="form-group">
+        <label for="riskAppetite" class="inputLab">Date of Birth:</label>
+        <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+        <!-- <ngb-rating [max]="5" [(rate)]="currentRating" [readonly]="false">
+        </ngb-rating>   -->
+      </div>
+      
     <div class="form-group">
         <button id="submit" type="submit" class="btn btn-primary btn-block"
             (click)="onSubmitHandler(registerForm)"  [disabled]="registerForm.invalid">Register</button>

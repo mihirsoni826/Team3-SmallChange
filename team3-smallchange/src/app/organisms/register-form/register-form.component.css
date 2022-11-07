@@ -87,3 +87,9 @@ input {
   margin: 5px;
   padding: 5px;
 }
+
+ngb-rating {
+  color: #88ff00;
+  font-size: 30px;
+}
+

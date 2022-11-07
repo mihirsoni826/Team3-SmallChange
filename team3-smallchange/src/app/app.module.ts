@@ -61,6 +61,9 @@ import { NgApexchartsModule } from "ng-apexcharts";
 import { AllChartsComponent } from './organisms/all-charts/all-charts.component';
 import { Ng2CompleterModule } from 'ng2-completer';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+
 
 @NgModule({
   imports: [
@@ -75,7 +78,9 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
     MatTabsModule,
     ChartsModule,
     NgApexchartsModule,
-    Ng2CompleterModule
+    Ng2CompleterModule,
+    NgbModule,
+    NgxSliderModule
   ],
   declarations: [
     AppComponent,
