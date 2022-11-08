@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
+import { RegisterModelComponent } from 'src/app/molecules/register-model/register-model.component';
 
 @Component({
   selector: 'app-register-form',
@@ -20,6 +22,7 @@ export class RegisterFormComponent implements OnInit {
  
   submitted = false;
   currentRating = 0;
+  success : boolean;
 
   value: number = 3;
   options: Options = {
@@ -35,6 +38,14 @@ export class RegisterFormComponent implements OnInit {
 
   show: boolean = false;
 
+  displayStyle = "none";
+  
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
  
   
   // click event function toggle
@@ -64,8 +75,7 @@ export class RegisterFormComponent implements OnInit {
    this.registerUser(form);
   }
 
-  async registerUser(form:any){
-   
+  async registerUser(form:any){   
    
     var  apiURL = 'http://localhost:8080/signup';
     const body = JSON.stringify({
@@ -91,11 +101,21 @@ export class RegisterFormComponent implements OnInit {
        httpOptions
      )
    
-     var data = theDataSource.subscribe(async (response: any) => {
+     var data = theDataSource.subscribe(
+      async (response: any) => {
        console.log(response)
-     }
+      this.displayStyle = "block";
+      this.success = true
+      this.onReset()
+     },
+     (error) => {
+      this.displayStyle = "block";
+      console.log(this.success)
+      this.success = false
+      console.log(this.success)
+      console.log(error)  
+    }
      )
-   
 }
 }
 

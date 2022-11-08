@@ -63,6 +63,7 @@ import { Ng2CompleterModule } from 'ng2-completer';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { RegisterModelComponent } from './molecules/register-model/register-model.component';
 
 
 @NgModule({
@@ -137,7 +138,8 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     MutualFundsComponent,
     PieChartComponent,
     AllChartsComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    RegisterModelComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
