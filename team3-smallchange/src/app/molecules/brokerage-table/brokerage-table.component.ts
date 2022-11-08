@@ -7,19 +7,13 @@ import { DataService } from 'src/app/data.service';
   styleUrls: ['./brokerage-table.component.css']
 })
 export class BrokerageTableComponent implements OnInit {
-
-  COLUMNS: string[] = ['Serial No','Symbol','TradeDate','Price','Quantity','Buy value','Present value','P&L(%)']
-
-  VALUES = [];
   links = ['Equity', 'Mutual-funds'];
   activeLink = this.links[0];
-  
-  constructor(private dataService: DataService) { }
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.dataService.getBrokeragePortfolio().subscribe((response) => {
-      this.VALUES = response;
-    })
+  
   }
 
 
