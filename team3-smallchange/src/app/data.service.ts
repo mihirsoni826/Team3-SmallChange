@@ -11,6 +11,9 @@ export class DataService {
   // getTradeHistory(): Observable<any>{
   //   return this.http.get<any>('../assets/tradehistory.json')
   // }
+  userEmail: String;
+  userName: String;
+  
 
   getBrokeragePortfolio() : Observable<any> {
     return this.http.get<any>('../assets/brokerage-portfolio.json');

@@ -15,7 +15,7 @@ import { MutualFundsComponent } from './molecules/mutual-funds/mutual-funds.comp
 const routes: Routes = [
   { path: '', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent},
   { path: 'portfolio', component: PortfolioComponent , canActivate: [AuthGuard], children: [
     { path: 'Equity', component: EquityComponent },
     { path: 'Mutual-funds', component: MutualFundsComponent }
