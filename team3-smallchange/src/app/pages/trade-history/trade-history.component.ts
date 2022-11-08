@@ -161,7 +161,7 @@ export class TradeHistoryComponent implements OnInit {
   async getDataFromApi(){
    var  apiURL = 'http://localhost:8080/trade-history';
    const body = {
-    "email" : "123@gmail.com"
+    "email" : this.dataService.userEmail
    } 
    console.log(body)
 

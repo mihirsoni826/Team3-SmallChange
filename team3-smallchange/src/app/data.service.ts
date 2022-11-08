@@ -13,7 +13,7 @@ export class DataService {
   // }
   userEmail: String;
   userName: String;
-  
+
 
   getBrokeragePortfolio() : Observable<any> {
     return this.http.get<any>('../assets/brokerage-portfolio.json');
@@ -30,7 +30,7 @@ export class DataService {
        }),
      };
 
-    const user_data = {email: "123@gmail.com"};
+    const user_data = {email: this.userEmail};
     const body = JSON.stringify(user_data);
  
     return this.http.post("http://localhost:8080/portfolio/",body,httpOptions);
