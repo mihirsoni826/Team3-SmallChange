@@ -132,11 +132,13 @@ export class SellTradeFormComponent {
     let payload = {"email": this.dataService.userEmail}
     let dataSource = this.http.post(bankDetailsUrl, payload);
     let data = dataSource.subscribe(async (response: any) => {
-      let accountNameNumber: string = response.bankName + " (" + response.accountNumber + ")";
-      
-      this.accountBalanceMap.set(response.accountNumber, response.balance);
-      
-      this.bankAccountList.push(accountNameNumber);
+      for(let i = 0; i < response.length; i++) {
+
+        let accountNameNumber: string = response[i].bankName + " (" + response[i].accountNumber + ")";
+        this.accountBalanceMap.set(response[i].accountNumber, response[i].balance);
+        this.bankAccountList.push(accountNameNumber);
+
+      }
     })
   }
 }
