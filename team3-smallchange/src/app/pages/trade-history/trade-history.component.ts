@@ -77,12 +77,14 @@ export class TradeHistoryComponent implements OnInit {
   //     // console.log(new Date(a.date))
   //   });
   // }
+
   reset() {
     for (var i = 1; i < 4; i++) {
       var temp = document.getElementById("filter" + i) as HTMLSelectElement
       temp.selectedIndex = 0
     }
     this.getAll()
+    this.getDataFromApi()
   }
 
   selectedFilter(value: string) {
@@ -98,11 +100,14 @@ export class TradeHistoryComponent implements OnInit {
     if (this.OPTIONS3.includes(value)) {
       this.tradeType = value
       this.tradeValue = true
+      console.log(this.tradeType)
+      console.log(this.tradeValue)
     }
   }
 
   applyFilters(filter: string) {
     const filterBtn = document.getElementById(filter) as HTMLSelectElement;
+    console.log(filterBtn.value)
     this.selectedFilter(filterBtn.value)
   }
 
@@ -115,7 +120,7 @@ export class TradeHistoryComponent implements OnInit {
         this.TEMP = this.TABLE
       }
       for (var i = 0; i < this.TEMP.length; i++) {
-        if (this.accountValue && this.TEMP[i].acc == this.accountType) {
+        if (this.accountValue && this.TEMP[i].accountType == this.accountType) {
           this.VALUES.push(this.TEMP[i])
           this.accountFilterState = 'active'
         }
@@ -131,7 +136,7 @@ export class TradeHistoryComponent implements OnInit {
       this.VALUES = []
       console.log(this.VALUES)
       for (var i = 0; i < this.TEMP.length; i++) {
-        if (this.assetValue && this.TEMP[i].asset == this.assetType) {
+        if (this.assetValue && this.TEMP[i].assetClass == this.assetType) {
           this.VALUES.push(this.TEMP[i])
           this.assetFilterState = 'active'
         }
@@ -144,8 +149,9 @@ export class TradeHistoryComponent implements OnInit {
         this.TEMP = this.TABLE
       }
       this.VALUES = []
+      console.log(this.TEMP)
       for (var i = 0; i < this.TEMP.length; i++) {
-        if (this.tradeValue && this.TEMP[i].bs == this.tradeType) {
+        if (this.tradeValue && this.TEMP[i].tradeType == this.tradeType) {
           this.VALUES.push(this.TEMP[i])
           this.tradeFilterState = 'active'
         }
@@ -163,7 +169,6 @@ export class TradeHistoryComponent implements OnInit {
    const body = {
     "email" : localStorage.getItem("userEmail")
    } 
-   console.log(body)
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -179,10 +184,7 @@ export class TradeHistoryComponent implements OnInit {
     )
     var RESULT = [];
     var data = theDataSource.subscribe(async (response: any) => {
-      console.log(response)
       for(var i=0; i<response.length; i++){
-        console.log(response[i])
-        console.log(response[i].email);
        var object =  {
           "transactionId" : response[i].transactionId,
           "ticker": response[i].ticker,
@@ -200,9 +202,13 @@ export class TradeHistoryComponent implements OnInit {
       this.SORT = RESULT
         this.TABLE = RESULT
         this.TEMP = RESULT
-        // console.log(this.SORT)
         this.VALUES = RESULT
+        this.TABLE.sort(function(x,y){
+          console.log(x.transactionDate - y.transactionDate)
+          return y.transactionId - x.transactionId
+        })
     }
     )
+   
   }
 }
