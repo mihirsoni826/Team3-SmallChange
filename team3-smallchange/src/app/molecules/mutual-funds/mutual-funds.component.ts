@@ -8,7 +8,7 @@ import { DataService } from 'src/app/data.service';
 })
 export class MutualFundsComponent implements OnInit {
 
-  COLUMNS: string[] = ['Serial No','Symbol','Quantity','Buy Avg.','Buy value','LTP','Present value','P&L(%)']
+  COLUMNS: string[] = ['Symbol','Quantity','Buy Avg.','Buy value','LTP','Present value','P&L(%)']
 
   VALUES = [];
   mutualFundObj = {};
@@ -34,7 +34,6 @@ export class MutualFundsComponent implements OnInit {
            this.PL = (this.difference > 0) ? ("+" + num + str) : (num + str);
          
            this.mutualFundObj = {
-            id: row['id'],
             symbol: row['security']['ticker'],
             quantity: row['quantity'],
             buyAvg: row['avg_buy_price'],
