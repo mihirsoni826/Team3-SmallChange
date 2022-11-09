@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BuyTradeFormComponent } from 'src/app/organisms/buy-trade-form/buy-trade-form.component';
 
 @Component({
   selector: 'app-model',
@@ -69,8 +70,8 @@ export class ModelComponent implements OnInit {
   
       let data = dataSource.subscribe(async (response: boolean) => {
         console.log(response);
-        if(response== false)
-      this.insufficientSecurityClick.emit();
+      if(response == false)
+        this.insufficientSecurityClick.emit();
       else
       this.btnYesClick.emit();
       })
@@ -118,35 +119,6 @@ export class ModelComponent implements OnInit {
 
     let data = dataSource.subscribe(async (response: boolean) => {
       console.log(response);
-    })
-
-  }
-
-
-  
-   async performSellTransaction() {
-    console.log(this.form);
-    const sellUrl = "http://localhost:8080/sell-trade";
-    let accWithBracket: string = this.form.bankAccount.split("(")[1];
-    let accNumber: string = accWithBracket.substring(0, accWithBracket.length - 1);
-    let payload = {
-      "security": {
-        "ticker": this.form.security,
-      },
-      "user": {
-        "email": "123@gmail.com"
-      },
-      "quantity": this.form.quantity,
-      "accountNumber": accNumber,
-      "timeInMilliseconds": Date.now(),
-     
-    }
-
-    let dataSource = this.http.post(sellUrl, payload);
-
-    let data = dataSource.subscribe(async (response: boolean) => {
-      console.log(response);
-     this.isSecurity=response;
     })
 
   }

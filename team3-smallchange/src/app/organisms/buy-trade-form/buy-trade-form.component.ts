@@ -108,12 +108,16 @@ export class BuyTradeFormComponent implements OnInit {
     const bankDetailsUrl = "http://localhost:8080/bank-details";
     let payload = {"email": "123@gmail.com"}
     let dataSource = this.http.post(bankDetailsUrl, payload);
+
     let data = dataSource.subscribe(async (response: any) => {
-      let accountNameNumber: string = response.bankName + " (" + response.accountNumber + ")";
-      
-      this.accountBalanceMap.set(response.accountNumber, response.balance);
-      
-      this.bankAccountList.push(accountNameNumber);
+
+      for(let i = 0; i < response.length; i++) {
+
+        let accountNameNumber: string = response[i].bankName + " (" + response[i].accountNumber + ")";
+        this.accountBalanceMap.set(response[i].accountNumber, response[i].balance);
+        this.bankAccountList.push(accountNameNumber);
+
+      }
     })
   }
 }

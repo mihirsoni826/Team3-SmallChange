@@ -1,20 +1,19 @@
 #login-form {
   display: flex;
   justify-content: center;
-    padding: 3em 1em;
-    margin-left: auto;
-    margin-right: auto;
-    
-  }
+  padding: 3em 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-main{
+main {
   // background-image: linear-gradient(to right, #FFBE0B , #FF600A);
-  background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
+  background-image: linear-gradient(135deg, #fab2ff 10%, #1904e5 100%);
 
-   height: 96vh;
-    padding: 0;
-  }
-body{
+  height: 96vh;
+  padding: 0;
+}
+body {
   background-color: antiquewhite;
 }
 
@@ -25,36 +24,39 @@ body{
   z-index: 100;
 }
 
-
-.bg{
-
+.bg {
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("https://i.pinimg.com/736x/5d/73/ea/5d73eaabb25e3805de1f8cdea7df4a42--tumblr-backgrounds-iphone-phone-wallpapers-iphone-wallaper-tumblr.jpg");
+  // background-image: url("https://i.pinimg.com/736x/5d/73/ea/5d73eaabb25e3805de1f8cdea7df4a42--tumblr-backgrounds-iphone-phone-wallpapers-iphone-wallaper-tumblr.jpg");
+  background-image: url("https://pamweil.files.wordpress.com/2017/05/pam-weil_incremental_innovcation_process.jpg");
   overflow: hidden;
   padding: 7vh 2vw;
-  
+
   width: 42vw;
   min-width: 300px;
   min-height: 59vh;
-  max-height: 75vh ;
+  max-height: 75vh;
   margin-top: 5vh;
 
   box-shadow: 7px 7px 15px 4px rgba(0, 0, 0, 0.25);
-    border: none;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-
-    box-shadow: inset 0 0 0 1000px rgba(16, 39, 245, 0.336);
-
+  border: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.7);
 }
 
-.bg > p{
-
+.bg > p {
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
-  font-size: 5vw;
+  font-size: 3.5vw;
   color: white;
   font-weight: 600;
-  letter-spacing: 0.3vw;
+  line-height: 90%;
+}
+
+.bg > .filler {
+  padding-top: 2em;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: normal;
 }
