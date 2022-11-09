@@ -10,7 +10,7 @@ import { values } from 'lodash';
 })
 export class EquityComponent implements OnInit {
 
-  COLUMNS: string[] = ['Serial No','Symbol','Quantity','Buy Avg.','Buy value','LTP','Present value','P&L(%)']
+  COLUMNS: string[] = ['Symbol','Quantity','Buy Avg.','Buy value','LTP','Present value','P&L(%)']
 
   VALUES = [];
   equityObj = {};
@@ -36,7 +36,6 @@ export class EquityComponent implements OnInit {
             this.PL = (this.difference > 0) ? ("+" + num + str) : (num + str);
           
             this.equityObj = {
-                id: row['id'],
                 symbol: row['security']['ticker'],
                 quantity: row['quantity'],
                 buyAvg: row['avg_buy_price'],
