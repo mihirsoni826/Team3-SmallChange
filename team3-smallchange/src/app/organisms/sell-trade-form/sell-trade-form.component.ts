@@ -129,7 +129,7 @@ export class SellTradeFormComponent {
 
   async fetchBankAccountDetails() {
     const bankDetailsUrl = "http://localhost:8080/bank-details";
-    let payload = {"email": this.dataService.userEmail}
+    let payload = {"email": localStorage.getItem("userEmail")}
     let dataSource = this.http.post(bankDetailsUrl, payload);
     let data = dataSource.subscribe(async (response: any) => {
       for(let i = 0; i < response.length; i++) {

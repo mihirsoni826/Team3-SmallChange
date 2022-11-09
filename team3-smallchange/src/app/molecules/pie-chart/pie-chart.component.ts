@@ -112,7 +112,7 @@ export class PieChartComponent implements OnChanges {
         enabled: true,
         y: {
           formatter: function(val) {
-            return "$" + val;
+            return "$" + val.toFixed(2);
           },
           title: {
             formatter: function (seriesName) {

@@ -19,7 +19,7 @@
         <label for="password" class="inputLab">Password:</label>
         <input type="password" class="form-control" name="password" id="password" ngModel #password="ngModel" required />
         <div *ngIf="password.touched && password.errors">
-            <small class="text-danger" *ngIf="password.errors['required']">Please enter passowrd</small>
+            <small class="text-danger" *ngIf="password.errors['required']">Please enter password</small>
           </div>
     </div>
 

@@ -4,8 +4,8 @@
   
       <div class="row">
         <div class="form-group">
-          <label for="firstName"><strong>First Name</strong></label>
-          <input type="text" name="firstName" id="firstName" ngModel #firstName="ngModel" class="form-control">
+          <label for="firstName">First Name</label>
+          <input type="text" name="firstName" id="firstName" ngModel #firstName="ngModel" class="form-control" required>
           <div *ngIf="firstName.touched && firstName.errors">
             <small class="text-danger" *ngIf="firstName.errors['required']">Please enter your first name</small>
           </div>
