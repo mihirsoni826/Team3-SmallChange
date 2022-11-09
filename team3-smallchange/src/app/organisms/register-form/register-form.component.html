@@ -4,14 +4,14 @@
   
       <div class="row">
         <div class="form-group">
-          <label for="firstName">First Name</label>
+          <label for="firstName"><strong>First Name</strong></label>
           <input type="text" name="firstName" id="firstName" ngModel #firstName="ngModel" class="form-control">
           <div *ngIf="firstName.touched && firstName.errors">
             <small class="text-danger" *ngIf="firstName.errors['required']">Please enter your first name</small>
           </div>
         </div>
         <div class="form-group">
-          <label for="lastName">Last Name</label>
+          <label for="lastName"><strong>Last Name</strong></label>
           <input type="text" name="lastName" id="lastName" ngModel #lastName="ngModel" class="form-control" />
           <div *ngIf="lastName.touched && lastName.errors">
             <small class="text-danger" *ngIf="lastName.errors['required']">Please enter your last name</small>
@@ -20,53 +20,46 @@
       </div> 
       <div class="row">
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email"><strong>Email</strong></label>
           <input type="text" name="email" id="email" ngModel #email="ngModel" class="form-control" />
           <div *ngIf="email.touched && email.errors">
             <small class="text-danger" *ngIf="email.errors['required']">Please enter your email</small>
           </div>
         </div>
          <div class="form-group">
-          <label for="phoneNumber" >Phone Number:</label>
+          <label for="phoneNumber"><strong>Phone Number</strong></label>
           <input type="text" name="phoneNumber" id="phoneNumber" ngModel #phoneNumber="ngModel" class="form-control" />
           <div *ngIf="phoneNumber.touched && phoneNumber.errors">
-            <small class="text-danger" *ngIf="phoneNumber.errors['required']">Please provide a quantity</small>
+            <small class="text-danger" *ngIf="phoneNumber.errors['required']">Please enter phone number</small>
           </div>
        </div>
       </div>
     <div class="row">
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password"><strong>Password</strong></label>
           <input name="password" id="password" ngModel #password="ngModel" class="form-control" />
           <!-- <button (click)="showPassword()">{{show ? 'Hide' : 'Show'}}</button> -->
           <div *ngIf="password.touched && password.errors">
-            <small class="text-danger" *ngIf="password.errors['required']">Please provide a quantity</small>
+            <small class="text-danger" *ngIf="password.errors['required']">Please enter password</small>
           </div>
        </div>
 
        <div class="form-group">
-        <label for="dob" >Date of Birth:</label>
-        <input type="date" class="form-control" name="dob" id="dob" ngModel #dob="ngModel" required />
+        <label for="dob"><strong>Date of Birth</strong></label>
+        <input type="date" style="width: 160px" class="form-control" name="dob" id="dob" ngModel #dob="ngModel" required />
       </div>
     </div>
        
-       <div class="form-group" style="width: 400px;">
-        <label for="riskAppetite" > Risk Appetite</label>
-        <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+       <div class="form-group" style="width: 400px; padding-left: 60px;">
+        <label for="riskAppetite" ><strong>Risk of Appetite </strong></label>
+        <ngx-slider [(value)]="value" style="padding-left: 10px;" [options]="options"></ngx-slider>
       </div>
-   
-  
-     
-  
    
   
       <div class="form-group">
         <button id="submit" type="submit" class="btn btn-primary btn-block" (click)="onSubmitHandler(registerForm)"
           [disabled]="registerForm.invalid">Register</button>
       </div>
-
-
-  
   
       <div class="forgot-pass">
         <a style="text-decoration: underline; cursor: pointer;" href="/">Already registered? Login here</a>

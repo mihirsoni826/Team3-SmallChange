@@ -1,31 +1,12 @@
-#form-wrapper {
 
-    font-family: 'Fidelity Sans', Arial, sans-serif;
-  
-    padding: 7vh 2vw;
-    border: 1px solid #ccc;
-    max-width: 22vw;
-    min-width: 40vw;
-    min-height: 59vh;
-
-    margin-top: 5vh;
-    border-radius: 0.5rem;
-    font-size: large;
-    font-weight: lighter !important;
-   
-  }
   form{
    
     background-color: white;
   }
-  
-  .inputLab{
-    text-align: left;
-    width: 30vw;
-  }
+
   .form-group {
     margin-bottom: 2.5vh;
-    padding: 5px;
+    padding-left: 50px;
   }
 
   .cardd {
@@ -54,7 +35,7 @@ input {
 
 #submit {
   background-color: #ffbe0b;
-  width: 100%;
+  width: 80%;
   height: 200%;
   border: 0;
   padding: 3% 0;
@@ -86,11 +67,6 @@ input {
   flex-direction: row;
   margin: 5px;
   padding: 5px;
-}
-
-ngb-rating {
-  color: #88ff00;
-  font-size: 30px;
 }
 
 .modal-header {
@@ -137,6 +113,7 @@ button.btn {
 }
 
 .container {
+  font-family: 'Fidelity Sans', Arial, sans-serif;
   width: 40%;
   margin: auto;
   padding: 16px;
