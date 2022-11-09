@@ -18,11 +18,14 @@ export class ModelComponent implements OnInit {
   @Output() btnYesClick = new EventEmitter<string>();
   @Output() btnNoClick = new EventEmitter<string>();
   @Output() btnCloseClick = new EventEmitter<string>();
+  @Output() insufficientSecurityClick = new EventEmitter<string>();
+
   
   receivableOrPayable: string = '';
   valueNumber: number = 0;
   priceFromForm: number = 0;
   qtyFromForm: number = 0;
+  isSecurity: boolean =false;
 
   ngOnInit(): void {
     if (this.tradeAction === 'Sale') {
@@ -44,11 +47,44 @@ export class ModelComponent implements OnInit {
 
   onYesClick(eve: Event) {
     eve.preventDefault();
-    this.btnYesClick.emit();
 
-    console.log(localStorage.getItem("token"));
+    if (this.tradeAction === 'Sale') {
+      const sellUrl = "http://localhost:8080/sell-trade";
+      let accWithBracket: string = this.form.bankAccount.split("(")[1];
+      let accNumber: string = accWithBracket.substring(0, accWithBracket.length - 1);
+      let payload = {
+        "security": {
+          "ticker": this.form.security,
+        },
+        "user": {
+          "email": "123@gmail.com"
+        },
+        "quantity": this.form.quantity,
+        "accountNumber": accNumber,
+        "timeInMilliseconds": Date.now(),
+       
+      }
+  
+      let dataSource = this.http.post(sellUrl, payload);
+  
+      let data = dataSource.subscribe(async (response: boolean) => {
+        console.log(response);
+        if(response== false)
+      this.insufficientSecurityClick.emit();
+      else
+      this.btnYesClick.emit();
+      })
+  
+    
+      // this.performSellTransaction();
+     
+     
+    } else if (this.tradeAction === 'Purchase') {
+      this.btnYesClick.emit();
+      this.performBuyTransaction();
+    }
 
-    this.performBuyTransaction();
+    
     
   }
   onNoClick(eve: Event) {
@@ -62,6 +98,7 @@ export class ModelComponent implements OnInit {
   }
 
   async performBuyTransaction() {
+    console.log(this.form);
     const buyUrl = "http://localhost:8080/buy-trade";
     let accWithBracket: string = this.form.bankAccount.split("(")[1];
     let accNumber: string = accWithBracket.substring(0, accWithBracket.length - 1);
@@ -85,13 +122,33 @@ export class ModelComponent implements OnInit {
 
   }
 
-  // async fetchBankAccountDetails() {
-  //   const bankDetailsUrl = "http://localhost:8080/bank-details";
-  //   let payload = {"email": "123@gmail.com"}
-  //   let dataSource = this.http.post(bankDetailsUrl, payload);
-  //   let data = dataSource.subscribe(async (response: any) => {
-  //     let accountNameNumber: string = response.bankName + " (" + response.accountNumber + ")";
-  //     this.bankAccountList.push(accountNameNumber);
-  //   })
-  // }
+
+  
+   async performSellTransaction() {
+    console.log(this.form);
+    const sellUrl = "http://localhost:8080/sell-trade";
+    let accWithBracket: string = this.form.bankAccount.split("(")[1];
+    let accNumber: string = accWithBracket.substring(0, accWithBracket.length - 1);
+    let payload = {
+      "security": {
+        "ticker": this.form.security,
+      },
+      "user": {
+        "email": "123@gmail.com"
+      },
+      "quantity": this.form.quantity,
+      "accountNumber": accNumber,
+      "timeInMilliseconds": Date.now(),
+     
+    }
+
+    let dataSource = this.http.post(sellUrl, payload);
+
+    let data = dataSource.subscribe(async (response: boolean) => {
+      console.log(response);
+     this.isSecurity=response;
+    })
+
+  }
+
 }
