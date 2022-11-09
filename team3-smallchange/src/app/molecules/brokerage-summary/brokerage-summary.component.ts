@@ -59,9 +59,13 @@ export class BrokerageSummaryComponent implements OnInit {
 
         this.difference = current - invested;
         const num =  this.difference.toFixed(2);
-        const percentageChange = ((this.difference / invested) * 100).toFixed(2);
-        const str = '(' + percentageChange + '%' + ')';
-        this.PL = (this.difference > 0) ? ("+" + num + str) : (num + str);
+        let percentageChange = 0;
+        if(this.difference != 0) {
+          percentageChange = ((this.difference / invested) * 100);
+        }
+        
+        const pc = '(' + percentageChange.toFixed(2) + '%' + ')';
+        this.PL = (this.difference > 0) ? ("+" + num + pc) : (num + pc);
       })
   }
 }
