@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-red-alert',
@@ -11,5 +11,8 @@ export class RedAlertComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  @Input() boldBanner: String=" ";
+  @Input() banner: String=" ";
 
 }
