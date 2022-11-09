@@ -1,0 +1,117 @@
+<div class="container">
+
+    <form #registerForm="ngForm" (submit)="onSubmitHandler(registerForm.value)" id="register-user-form" >
+  
+      <div class="row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" name="firstName" id="firstName" ngModel #firstName="ngModel" class="form-control">
+          <div *ngIf="firstName.touched && firstName.errors">
+            <small class="text-danger" *ngIf="firstName.errors['required']">Please enter your first name</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" name="lastName" id="lastName" ngModel #lastName="ngModel" class="form-control" />
+          <div *ngIf="lastName.touched && lastName.errors">
+            <small class="text-danger" *ngIf="lastName.errors['required']">Please enter your last name</small>
+          </div>
+        </div>
+      </div> 
+      <div class="row">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" name="email" id="email" ngModel #email="ngModel" class="form-control" />
+          <div *ngIf="email.touched && email.errors">
+            <small class="text-danger" *ngIf="email.errors['required']">Please enter your email</small>
+          </div>
+        </div>
+         <div class="form-group">
+          <label for="phoneNumber" >Phone Number:</label>
+          <input type="text" name="phoneNumber" id="phoneNumber" ngModel #phoneNumber="ngModel" class="form-control" />
+          <div *ngIf="phoneNumber.touched && phoneNumber.errors">
+            <small class="text-danger" *ngIf="phoneNumber.errors['required']">Please provide a quantity</small>
+          </div>
+       </div>
+      </div>
+    <div class="row">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input name="password" id="password" ngModel #password="ngModel" class="form-control" />
+          <!-- <button (click)="showPassword()">{{show ? 'Hide' : 'Show'}}</button> -->
+          <div *ngIf="password.touched && password.errors">
+            <small class="text-danger" *ngIf="password.errors['required']">Please provide a quantity</small>
+          </div>
+       </div>
+
+       <div class="form-group">
+        <label for="dob" >Date of Birth:</label>
+        <input type="date" class="form-control" name="dob" id="dob" ngModel #dob="ngModel" required />
+      </div>
+    </div>
+       
+       <div class="form-group" style="width: 400px;">
+        <label for="riskAppetite" > Risk Appetite</label>
+        <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+      </div>
+   
+  
+     
+  
+   
+  
+      <div class="form-group">
+        <button id="submit" type="submit" class="btn btn-primary btn-block" (click)="onSubmitHandler(registerForm)"
+          [disabled]="registerForm.invalid">Register</button>
+      </div>
+
+
+  
+  
+      <div class="forgot-pass">
+        <a style="text-decoration: underline; cursor: pointer;" href="login">Already registered? Login here</a>
+      </div>
+    </form>
+  
+    <div class="modal" *ngIf="success; else failureModal" [ngStyle]="{'display':displayStyle}"
+      style="background-color: rgba(0, 0, 0, 0.5)" id="exampleModalCenter" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color:#E7FFE7">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePopup()">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body" id="imgId">
+              <img src="../../../assets/checked.png" alt="Done">
+              <p><strong> Registered Successfully!</strong> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #failureModal>
+      <div class="modal" [ngStyle]="{'display':displayStyle}"
+        style="background-color: rgba(0, 0, 0, 0.5)" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+  
+          <div class="modal-content" style="background-color:#da6d25">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePopup()">
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="modal-body" id="imgId">
+                <img src="../../../assets/checked.png" alt="Done">
+                <p><strong> Oops! You have already registered with this email!</strong> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -7,16 +8,18 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private dataService : DataService) {}
 
   @Input() dashboardActive: boolean = false;
   @Input() portfolioActive: boolean = false;
   @Input() tradeActive: boolean = false;
   @Input() historyActive: boolean = false;
 
-  @Input() username: string = 'John Doe';
+  @Input() username: String = localStorage.getItem("userName")
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    // this.dataService.userName = localStorage.getItem()
+  }
 
   logout() {
     this.authService.logout();

@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ModelComponent } from 'src/app/molecules/model/model.component'; 
 import { LoginFormComponent } from '../login-form/login-form.component';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-buy-trade-form',
@@ -34,7 +35,7 @@ export class BuyTradeFormComponent implements OnInit {
   accNumberWithoutBrackets: string = "";
 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private dataService: DataService) {}
 
   ngOnInit(): void {
     this.fetchTickersFromDB();
@@ -58,7 +59,7 @@ export class BuyTradeFormComponent implements OnInit {
       return;
     
     this.dis = 'display: flex';
-    let mc: ModelComponent = new ModelComponent(null);
+    let mc: ModelComponent = new ModelComponent(null, this.dataService);
     mc.setTotalValue(this.securityPrice, this.quantity.value);
   }
 
@@ -106,7 +107,7 @@ export class BuyTradeFormComponent implements OnInit {
 
   async fetchBankAccountDetails() {
     const bankDetailsUrl = "http://localhost:8080/bank-details";
-    let payload = {"email": "123@gmail.com"}
+    let payload = {"email": this.dataService.userEmail}
     let dataSource = this.http.post(bankDetailsUrl, payload);
 
     let data = dataSource.subscribe(async (response: any) => {

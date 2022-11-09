@@ -12,9 +12,10 @@
                         <td *ngFor="let item of value| keyvalue: originalOrder" [ngClass]="getClassOf(item.value)">{{item.value}}</td>
                     </tbody>
                 </table>
-                <pagination-controls (pageChange)="p = $event" ></pagination-controls>
 
             </div>
+            <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+
         </div>
     </form>
 </fieldset>

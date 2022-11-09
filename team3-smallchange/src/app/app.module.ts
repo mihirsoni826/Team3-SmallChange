@@ -50,6 +50,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CardComponent } from './atoms/card/card.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { TradeHistoryPageComponent } from './pages/trade-history-page/trade-history-page.component';
+import { RegisterFormComponent } from './organisms/register-form/register-form.component';
 import { EquityComponent } from './molecules/equity/equity.component';
 import { MutualFundsComponent } from './molecules/mutual-funds/mutual-funds.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -59,6 +60,11 @@ import { PieChartComponent } from './molecules/pie-chart/pie-chart.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { AllChartsComponent } from './organisms/all-charts/all-charts.component';
 import { Ng2CompleterModule } from 'ng2-completer';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { RegisterModelComponent } from './molecules/register-model/register-model.component';
+
 
 @NgModule({
   imports: [
@@ -73,7 +79,9 @@ import { Ng2CompleterModule } from 'ng2-completer';
     MatTabsModule,
     ChartsModule,
     NgApexchartsModule,
-    Ng2CompleterModule
+    Ng2CompleterModule,
+    NgbModule,
+    NgxSliderModule
   ],
   declarations: [
     AppComponent,
@@ -124,11 +132,14 @@ import { Ng2CompleterModule } from 'ng2-completer';
     DashboardComponent,
     CardComponent,
     NotFoundComponent,
+    RegisterFormComponent,
     TradeHistoryPageComponent,
     EquityComponent,
     MutualFundsComponent,
     PieChartComponent,
-    AllChartsComponent
+    AllChartsComponent,
+    RegisterPageComponent,
+    RegisterModelComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

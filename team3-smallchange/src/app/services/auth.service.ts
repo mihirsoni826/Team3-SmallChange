@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   getToken(): boolean {
-    if (localStorage.getItem('token')) {
+    if (localStorage.getItem('userEmail')) {
       return true;
     } else {
       return false;

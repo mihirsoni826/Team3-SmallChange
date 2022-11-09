@@ -1,6 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+import { DataService } from 'src/app/data.service';
+
 import { BuyTradeFormComponent } from 'src/app/organisms/buy-trade-form/buy-trade-form.component';
+
 
 @Component({
   selector: 'app-model',
@@ -8,7 +12,7 @@ import { BuyTradeFormComponent } from 'src/app/organisms/buy-trade-form/buy-trad
   styleUrls: ['./model.component.css'],
 })
 export class ModelComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private dataService : DataService) {}
 
   @Input() display: string = '';
   @Input() value: string;
@@ -58,7 +62,7 @@ export class ModelComponent implements OnInit {
           "ticker": this.form.security,
         },
         "user": {
-          "email": "123@gmail.com"
+          "email": localStorage.getItem("userEmail")
         },
         "quantity": this.form.quantity,
         "accountNumber": accNumber,
@@ -108,7 +112,7 @@ export class ModelComponent implements OnInit {
         "ticker": this.form.security,
       },
       "user": {
-        "email": "123@gmail.com"
+        "email": localStorage.getItem("userEmail")
       },
       "quantity": this.form.quantity,
       "accountNumber": accNumber,
