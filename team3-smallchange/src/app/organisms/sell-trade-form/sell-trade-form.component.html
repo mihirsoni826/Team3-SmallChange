@@ -4,7 +4,7 @@
       <div class="col-lg-3"></div>
       <div class="col-lg-6 card">
         <form #buyForm="ngForm" (submit)="onSubmit(buyForm.value)" id="buy-trade-form">
-          <app-red-alert *ngIf="insufficientSecurity" boldBanner="Insufficient Security!" banner="Please choose righ quantity" ></app-red-alert>
+          <app-red-alert *ngIf="insufficientSecurity" boldBanner="Insufficient Security!" banner="Please choose right quantity" ></app-red-alert>
   
           <div class="form-group">
             <label for="security" class="font-weight-bold">Security Ticker:</label>
