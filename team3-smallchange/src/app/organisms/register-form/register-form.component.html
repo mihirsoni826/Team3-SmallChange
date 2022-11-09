@@ -4,7 +4,7 @@
   
       <div class="row">
         <div class="form-group">
-          <label for="firstName">First Name</label>
+          <label for="firstName"><strong>First Name</strong></label>
           <input type="text" name="firstName" id="firstName" ngModel #firstName="ngModel" class="form-control" required>
           <div *ngIf="firstName.touched && firstName.errors">
             <small class="text-danger" *ngIf="firstName.errors['required']">Please enter your first name</small>
@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
           <label for="lastName"><strong>Last Name</strong></label>
-          <input type="text" name="lastName" id="lastName" ngModel #lastName="ngModel" class="form-control" />
+          <input type="text" name="lastName" id="lastName" ngModel #lastName="ngModel" class="form-control" required />
           <div *ngIf="lastName.touched && lastName.errors">
             <small class="text-danger" *ngIf="lastName.errors['required']">Please enter your last name</small>
           </div>
@@ -21,14 +21,14 @@
       <div class="row">
         <div class="form-group">
           <label for="email"><strong>Email</strong></label>
-          <input type="text" name="email" id="email" ngModel #email="ngModel" class="form-control" />
+          <input type="text" name="email" id="email" ngModel #email="ngModel" class="form-control" required/>
           <div *ngIf="email.touched && email.errors">
             <small class="text-danger" *ngIf="email.errors['required']">Please enter your email</small>
           </div>
         </div>
          <div class="form-group">
           <label for="phoneNumber"><strong>Phone Number</strong></label>
-          <input type="text" name="phoneNumber" id="phoneNumber" ngModel #phoneNumber="ngModel" class="form-control" />
+          <input type="text" name="phoneNumber" id="phoneNumber" ngModel #phoneNumber="ngModel" class="form-control" required/>
           <div *ngIf="phoneNumber.touched && phoneNumber.errors">
             <small class="text-danger" *ngIf="phoneNumber.errors['required']">Please enter phone number</small>
           </div>
@@ -37,7 +37,7 @@
     <div class="row">
         <div class="form-group">
           <label for="password"><strong>Password</strong></label>
-          <input name="password" id="password" ngModel #password="ngModel" class="form-control" />
+          <input name="password" id="password" ngModel #password="ngModel" class="form-control" required/>
           <!-- <button (click)="showPassword()">{{show ? 'Hide' : 'Show'}}</button> -->
           <div *ngIf="password.touched && password.errors">
             <small class="text-danger" *ngIf="password.errors['required']">Please enter password</small>
@@ -50,7 +50,7 @@
       </div>
     </div>
        
-       <div class="form-group" style="width: 400px; padding-left: 60px;">
+       <div class="form-group" style="width: 400px; padding-left: 60px;" required>
         <label for="riskAppetite" ><strong>Risk of Appetite </strong></label>
         <ngx-slider [(value)]="value" style="padding-left: 10px;" [options]="options"></ngx-slider>
       </div>
@@ -101,7 +101,7 @@
             <div class="modal-body">
               <div class="modal-body" id="imgId">
                 <img src="../../../assets/close.png" alt="Done">
-                <p><strong> Oops! You have already registered with this email!</strong> </p>
+                <p><strong style="color: white;"> Oops! You have already registered with this email!</strong> </p>
               </div>
             </div>
           </div>
