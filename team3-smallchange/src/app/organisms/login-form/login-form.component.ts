@@ -86,6 +86,7 @@ export class LoginFormComponent implements OnInit {
          console.log(this.dataService.userName)
           console.log("yes")
           localStorage.setItem("userEmail", this.dataService.userEmail);
+          localStorage.setItem("userName", this.dataService.userName)
           this.rrouter.navigateByUrl('dashboard');
       }
     }

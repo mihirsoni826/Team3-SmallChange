@@ -58,7 +58,7 @@ export class ModelComponent implements OnInit {
           "ticker": this.form.security,
         },
         "user": {
-          "email": this.dataService.userEmail
+          "email": localStorage.getItem("userEmail")
         },
         "quantity": this.form.quantity,
         "accountNumber": accNumber,
@@ -108,7 +108,7 @@ export class ModelComponent implements OnInit {
         "ticker": this.form.security,
       },
       "user": {
-        "email": this.dataService.userEmail
+        "email": localStorage.getItem("userEmail")
       },
       "quantity": this.form.quantity,
       "accountNumber": accNumber,

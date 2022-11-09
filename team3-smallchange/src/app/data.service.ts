@@ -15,15 +15,6 @@ export class DataService {
   userEmail: String;
   userName: String;
 
-
-  getBrokeragePortfolio() : Observable<any> {
-    return this.http.get<any>('../assets/brokerage-portfolio.json');
-  }
-
-  getMFPortfolio() : Observable<any> {
-    return this.http.get<any>('../assets/mutual-funds.json');
-  }
-
   getPortfolioDataFromApi(): Observable<any> {
     this.userEmail  = localStorage.getItem('userEmail')
     const httpOptions = {

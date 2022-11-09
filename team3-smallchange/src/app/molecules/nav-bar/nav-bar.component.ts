@@ -15,7 +15,7 @@ export class NavBarComponent implements OnInit {
   @Input() tradeActive: boolean = false;
   @Input() historyActive: boolean = false;
 
-  @Input() username: String = this.dataService.userName;
+  @Input() username: String = localStorage.getItem("userName")
 
   public ngOnInit(): void {
     // this.dataService.userName = localStorage.getItem()
