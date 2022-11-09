@@ -15,14 +15,14 @@ import { MutualFundsComponent } from './molecules/mutual-funds/mutual-funds.comp
 const routes: Routes = [
   { path: '', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'portfolio', component: PortfolioComponent, children: [
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  { path: 'portfolio', component: PortfolioComponent, canActivate: [AuthGuard], children: [
     { path: 'Equity', component: EquityComponent },
     { path: 'Mutual-funds', component: MutualFundsComponent }
   ] },
-  { path: 'trade-history', component: TradeHistoryPageComponent},
-  { path: 'buy', component: BuyTradeComponent  },
-  { path: 'sell', component: SellTradePageComponent },
+  { path: 'trade-history', component: TradeHistoryPageComponent, canActivate: [AuthGuard]},
+  { path: 'buy', component: BuyTradeComponent, canActivate: [AuthGuard]  },
+  { path: 'sell', component: SellTradePageComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotFoundComponent }
 
 ];

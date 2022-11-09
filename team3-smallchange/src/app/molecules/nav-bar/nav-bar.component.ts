@@ -17,7 +17,9 @@ export class NavBarComponent implements OnInit {
 
   @Input() username: String = this.dataService.userName;
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    // this.dataService.userName = localStorage.getItem()
+  }
 
   logout() {
     this.authService.logout();

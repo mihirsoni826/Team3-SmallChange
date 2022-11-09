@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { AuthService } from './services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService : AuthService) {}
 
   // getTradeHistory(): Observable<any>{
   //   return this.http.get<any>('../assets/tradehistory.json')
@@ -24,6 +25,7 @@ export class DataService {
   }
 
   getPortfolioDataFromApi(): Observable<any> {
+    this.userEmail  = localStorage.getItem('userEmail')
     const httpOptions = {
        headers: new HttpHeaders({
          'Content-Type': 'application/json',

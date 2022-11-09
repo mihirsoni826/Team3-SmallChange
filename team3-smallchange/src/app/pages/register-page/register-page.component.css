@@ -1,11 +1,11 @@
-/* #register-form {
+#register-form {
     display: flex;
     justify-content: center;
       padding: 3em 1em;
       margin-left: auto;
       margin-right: auto;
       
-    } */
+    }
   
   main{
     background-image: linear-gradient(to right, #FFBE0B , #FF600A);
@@ -29,19 +29,19 @@
     margin-left: 25px;
   }
   
-  .bg{
+  /* .bg{
   
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-image: url("https://i.pinimg.com/736x/5d/73/ea/5d73eaabb25e3805de1f8cdea7df4a42--tumblr-backgrounds-iphone-phone-wallpapers-iphone-wallaper-tumblr.jpg");
-    overflow: hidden;
+    position: relative;
+    background-position: center;
     padding: 7vh 2vw;
     
     width: 42vw;
-    min-width: 300px;
-    min-height: 65vh;
-    max-height: 80vh ;
+    min-width: 500px;
     margin-top: 5vh;
+    height: 100%;
   
     box-shadow: 7px 7px 15px 4px rgba(0, 0, 0, 0.25);
       border: none;
@@ -50,7 +50,7 @@
   
       box-shadow: inset 0 0 0 1000px rgba(16, 39, 245, 0.336);
   
-  }
+  } */
   
   .bg > p{
   
