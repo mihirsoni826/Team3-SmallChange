@@ -106,6 +106,7 @@ export class RegisterFormComponent implements OnInit {
        console.log(response)
       this.displayStyle = "block";
       this.success = true
+      console.log(this.success)
       this.onReset()
      },
      (error) => {
