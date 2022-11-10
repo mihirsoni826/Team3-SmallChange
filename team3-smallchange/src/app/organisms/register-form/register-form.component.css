@@ -6,7 +6,7 @@
 
   .form-group {
     margin-bottom: 2.5vh;
-    padding-left: 50px;
+    padding-left: 60px;
   }
 
   .cardd {
@@ -35,9 +35,10 @@ input {
 
 #submit {
   background-color: #ffbe0b;
-  width: 80%;
+  width: 100%;
   height: 200%;
   border: 0;
+  margin-left: auto;
   padding: 3% 0;
   color: black;
   font-weight: 500;

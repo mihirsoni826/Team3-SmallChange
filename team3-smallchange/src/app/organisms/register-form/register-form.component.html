@@ -2,7 +2,7 @@
 
     <form #registerForm="ngForm" (submit)="onSubmitHandler(registerForm.value)" id="register-user-form" >
   
-      <div class="row">
+      <div class="row" style="padding-top: 50px;">
         <div class="form-group">
           <label for="firstName"><strong>First Name</strong></label>
           <input type="text" name="firstName" id="firstName" ngModel #firstName="ngModel" class="form-control" required>
@@ -51,12 +51,12 @@
     </div>
        
        <div class="form-group" style="width: 400px; padding-left: 60px;" required>
-        <label for="riskAppetite" ><strong>Risk of Appetite </strong></label>
+        <label for="riskAppetite" ><strong>Risk Appetite </strong></label>
         <ngx-slider [(value)]="value" style="padding-left: 10px;" [options]="options"></ngx-slider>
       </div>
    
   
-      <div class="form-group">
+      <div class="form-group" style="margin-right: 30px;">
         <button id="submit" type="submit" class="btn btn-primary btn-block" (click)="onSubmitHandler(registerForm)"
           [disabled]="registerForm.invalid">Register</button>
       </div>
@@ -101,7 +101,7 @@
             <div class="modal-body">
               <div class="modal-body" id="imgId">
                 <img src="../../../assets/close.png" alt="Done">
-                <p><strong style="color: white;"> Oops! You have already registered with this email!</strong> </p>
+                <p><strong style="color: rgb(10, 10, 10);"> Oops! You have already registered with this email!</strong> </p>
               </div>
             </div>
           </div>
