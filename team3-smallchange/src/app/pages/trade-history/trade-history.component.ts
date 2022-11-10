@@ -69,14 +69,7 @@ export class TradeHistoryComponent implements OnInit {
 
     
   }
-  // sortByDate(){
-  //   console.log("hello")
-  //    this.VALUES = this.SORT.sort((a: any, b: any) => {
-  //     console.log(a.date)
-  //     return <any>new Date(b.date) - <any>new Date(a.date);
-  //     // console.log(new Date(a.date))
-  //   });
-  // }
+
 
   reset() {
     for (var i = 1; i < 4; i++) {

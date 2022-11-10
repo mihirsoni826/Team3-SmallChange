@@ -2,17 +2,19 @@
 
     <form #registerForm="ngForm" (submit)="onSubmitHandler(registerForm.value)" id="register-user-form" >
   
-      <div class="row">
+      <div class="row" style="padding-top: 50px;">
         <div class="form-group">
           <label for="firstName"><strong>First Name</strong></label>
-          <input type="text" name="firstName" id="firstName" ngModel #firstName="ngModel" class="form-control" required>
+          <input type="text" name="firstName" id="firstName" 
+           placeholder="First Name" ngModel #firstName="ngModel" class="form-control" required>
           <div *ngIf="firstName.touched && firstName.errors">
             <small class="text-danger" *ngIf="firstName.errors['required']">Please enter your first name</small>
           </div>
         </div>
         <div class="form-group">
           <label for="lastName"><strong>Last Name</strong></label>
-          <input type="text" name="lastName" id="lastName" ngModel #lastName="ngModel" class="form-control" required />
+          <input type="text" name="lastName" id="lastName" ngModel #lastName="ngModel" 
+          placeholder="Last Name" class="form-control" required />
           <div *ngIf="lastName.touched && lastName.errors">
             <small class="text-danger" *ngIf="lastName.errors['required']">Please enter your last name</small>
           </div>
@@ -21,14 +23,16 @@
       <div class="row">
         <div class="form-group">
           <label for="email"><strong>Email</strong></label>
-          <input type="text" name="email" id="email" ngModel #email="ngModel" class="form-control" required/>
+          <input type="text" name="email" id="email" ngModel #email="ngModel" 
+          placeholder="Email Id" class="form-control" required/>
           <div *ngIf="email.touched && email.errors">
             <small class="text-danger" *ngIf="email.errors['required']">Please enter your email</small>
           </div>
         </div>
          <div class="form-group">
           <label for="phoneNumber"><strong>Phone Number</strong></label>
-          <input type="text" name="phoneNumber" id="phoneNumber" ngModel #phoneNumber="ngModel" class="form-control" required/>
+          <input type="text" name="phoneNumber" id="phoneNumber" ngModel #phoneNumber="ngModel" 
+          placeholder="Phone Number" class="form-control" required/>
           <div *ngIf="phoneNumber.touched && phoneNumber.errors">
             <small class="text-danger" *ngIf="phoneNumber.errors['required']">Please enter phone number</small>
           </div>
@@ -37,8 +41,9 @@
     <div class="row">
         <div class="form-group">
           <label for="password"><strong>Password</strong></label>
-          <input name="password" id="password" ngModel #password="ngModel" class="form-control" required/>
-          <!-- <button (click)="showPassword()">{{show ? 'Hide' : 'Show'}}</button> -->
+          <input type={{type}} name="password" id="password" ngModel #password="ngModel" 
+          placeholder="Password" class="form-control" required />
+          <!-- <button (click)="changePasswordView()">{{icon}}</button> -->
           <div *ngIf="password.touched && password.errors">
             <small class="text-danger" *ngIf="password.errors['required']">Please enter password</small>
           </div>
@@ -46,12 +51,13 @@
 
        <div class="form-group">
         <label for="dob"><strong>Date of Birth</strong></label>
-        <input type="date" style="width: 160px" class="form-control" name="dob" id="dob" ngModel #dob="ngModel" required />
+        <input type="date" style="width: 160px" class="form-control" name="dob" id="dob" 
+         ngModel #dob="ngModel" required />
       </div>
     </div>
        
        <div class="form-group" style="width: 400px; padding-left: 60px;" required>
-        <label for="riskAppetite" ><strong>Risk of Appetite </strong></label>
+        <label for="riskAppetite" ><strong>Risk Appetite </strong></label>
         <ngx-slider [(value)]="value" style="padding-left: 10px;" [options]="options"></ngx-slider>
       </div>
    
@@ -62,7 +68,8 @@
       </div>
   
       <div class="forgot-pass">
-        <a style="text-decoration: underline; cursor: pointer;" href="/">Already registered? Login here</a>
+        <b>Already Registered? </b>
+        <a style="text-decoration: underline; cursor: pointer;" href="/"><b>Login Here</b></a>
       </div>
     </form>
   
@@ -92,7 +99,7 @@
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
   
-          <div class="modal-content" style="background-color:#da6d25">
+          <div class="modal-content" style="background-color: #FFD8D8">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePopup()">
                 <span>&times;</span>
@@ -101,7 +108,7 @@
             <div class="modal-body">
               <div class="modal-body" id="imgId">
                 <img src="../../../assets/close.png" alt="Done">
-                <p><strong style="color: white;"> Oops! You have already registered with this email!</strong> </p>
+                <p><strong style="color: rgb(10, 10, 10);"> Oops! You have already registered with this email!</strong> </p>
               </div>
             </div>
           </div>
