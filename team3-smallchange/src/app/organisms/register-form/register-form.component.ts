@@ -23,7 +23,8 @@ export class RegisterFormComponent implements OnInit {
   submitted = false;
   currentRating = 0;
   success : boolean;
-
+  type: String = "password"
+  icon: String = "visibility_off"
   value: number = 3;
   options: Options = {
     floor: 0,
@@ -47,12 +48,20 @@ export class RegisterFormComponent implements OnInit {
     this.displayStyle = "none";
   }
  
-  
-  // click event function toggle
-  showPassword() {
-    console.log(this.show)
-      this.show = !this.show;
+  changePasswordView(){
+
+    if(this.icon == "visibility"){
+      this.icon = "visibility_off"
+      this.type = "password"
+    }
+    if(this.icon == "visibility_off"){
+      this.icon = "visibility"
+      this.type = "text"
+
+    }
+
   }
+ 
 
   onSubmit() {
       this.submitted = true;

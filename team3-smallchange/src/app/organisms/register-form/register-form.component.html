@@ -41,9 +41,9 @@
     <div class="row">
         <div class="form-group">
           <label for="password"><strong>Password</strong></label>
-          <input type="password" name="password" id="password" ngModel #password="ngModel" 
-          placeholder="Password" class="form-control" required/>
-          <!-- <button (click)="showPassword()">{{show ? 'Hide' : 'Show'}}</button> -->
+          <input type={{type}} name="password" id="password" ngModel #password="ngModel" 
+          placeholder="Password" class="form-control" required />
+          <mat-icon (click)="changePasswordView()">{{icon}}</mat-icon>
           <div *ngIf="password.touched && password.errors">
             <small class="text-danger" *ngIf="password.errors['required']">Please enter password</small>
           </div>

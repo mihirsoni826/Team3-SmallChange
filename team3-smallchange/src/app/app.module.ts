@@ -64,6 +64,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { RegisterModelComponent } from './molecules/register-model/register-model.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { RegisterModelComponent } from './molecules/register-model/register-mode
     NgApexchartsModule,
     Ng2CompleterModule,
     NgbModule,
-    NgxSliderModule
+    NgxSliderModule,
+    MatIconModule
   ],
   declarations: [
     AppComponent,
