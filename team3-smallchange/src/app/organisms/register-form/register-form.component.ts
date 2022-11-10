@@ -106,7 +106,15 @@ export class RegisterFormComponent implements OnInit {
        console.log(response)
       this.displayStyle = "block";
       this.success = true
-      console.log(this.success)
+      
+      const payload = {"email": form.email}
+      const createBAUrl = "http://localhost:8080/create-bank-account"
+      var ds = this.http.post(createBAUrl, payload);
+      var da = ds.subscribe( async (response) => {
+        console.log("response " + response);
+        
+      })
+      
       this.onReset()
      },
      (error) => {
