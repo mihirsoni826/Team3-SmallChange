@@ -24,33 +24,40 @@ export class AllChartsComponent implements OnInit {
   acctLabel = 'Account';
   equityLabel = 'Equity';
   mfLabel = 'Mutual Funds';
+  dataPresent: Boolean = false;
 
   constructor(private dataService: DataService) {
    }
 
   ngOnInit(): void {
     this.dataService.getPortfolioDataFromApi().subscribe((response) => {
- 
-       for(let row of response) {
-          if(row['security']['subAccountType'] == 'Equity') {
-            this.equityLabels = [...this.equityLabels, row['security']['ticker']];
-            this.equityData = [...this.equityData, (row['quantity'] * row['security']['marketPrice'])];
-          }
-          else {
-            this.mfLabels = [...this.mfLabels, row['security']['ticker']];
-            this.mfData = [...this.mfData, (row['quantity'] * row['security']['marketPrice'])];
-          }
+       if(response.length == 0) {
+        this.dataPresent = false;
        }
-          
-        var equitySum = this.equityData.reduce(function (x, y) {
-          return x + y;
-        }, 0);   
-        
-        var mfSum = this.mfData.reduce(function (x, y) {
-          return x + y;
-        }, 0); 
+       else {
+        this.dataPresent = true;
 
-        this.accountData = [...this.accountData,equitySum,mfSum];
+        for(let row of response) {
+            if(row['security']['subAccountType'] == 'Equity') {
+              this.equityLabels = [...this.equityLabels, row['security']['ticker']];
+              this.equityData = [...this.equityData, (row['quantity'] * row['security']['marketPrice'])];
+            }
+            else {
+              this.mfLabels = [...this.mfLabels, row['security']['ticker']];
+              this.mfData = [...this.mfData, (row['quantity'] * row['security']['marketPrice'])];
+            }
+        }
+            
+          var equitySum = this.equityData.reduce(function (x, y) {
+            return x + y;
+          }, 0);   
+          
+          var mfSum = this.mfData.reduce(function (x, y) {
+            return x + y;
+          }, 0); 
+
+          this.accountData = [...this.accountData,equitySum,mfSum];
+      }
     })
   }
 
