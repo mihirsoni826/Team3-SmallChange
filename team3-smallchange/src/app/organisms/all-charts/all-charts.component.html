@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="dataPresent">
     <app-pie-chart [chartData]="accountData" [labels]="accountLabels" [innerLabel]="acctLabel"></app-pie-chart>
     <app-pie-chart [chartData]="equityData" [labels]="equityLabels" [innerLabel]="equityLabel"></app-pie-chart>
     <app-pie-chart [chartData]="mfData" [labels]="mfLabels" [innerLabel]="mfLabel"></app-pie-chart>
