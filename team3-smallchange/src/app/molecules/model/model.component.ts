@@ -31,6 +31,7 @@ export class ModelComponent implements OnInit {
   priceFromForm: number = 0;
   qtyFromForm: number = 0;
   isSecurity: boolean =false;
+  feeApplicable: boolean = false;
 
   ngOnInit(): void {
     if (this.tradeAction === 'Sale') {
@@ -45,9 +46,19 @@ export class ModelComponent implements OnInit {
     this.priceFromForm = price;
     this.qtyFromForm = quantity;
 
-    this.valueNumber = Math.round(price * quantity * 100) / 100;
+    let transactionValue = price * quantity;
+
+    if(this.feeApplicable) {
+      transactionValue += transactionValue * 0.0025;
+      document.getElementById('feeWarning').innerHTML = "Brokerage fee: 0.25%";
+    }
+
+    this.valueNumber = Math.round(transactionValue * 100) / 100;
+
+    // Brokerage fee: 0.25%
     
     document.getElementById('totalValueTransaction').innerHTML = " ₹" + this.valueNumber.toString();
+    
   }
 
   onYesClick(eve: Event) {
@@ -102,28 +113,63 @@ export class ModelComponent implements OnInit {
     this.btnCloseClick.emit();
   }
 
+  // portfolioExceeds5000(): boolean {
+
+  //   const url = "http://localhost:8080/portfolio";
+  //   const payload = {"email": localStorage.getItem('userEmail')}
+  //   let investedValue = 0;
+  //   let res: boolean = false;
+
+  //   let dataSource = this.http.post(url, payload);
+
+  //   let data = dataSource.subscribe(async (response: any) => {
+  //     for(let row of response) {
+  //       investedValue += row['quantity'] * row['avg_buy_price'];
+  //     }
+  //     res = investedValue > 5000
+  //   })
+  //   return res;
+  // }
+
   async performBuyTransaction() {
     console.log(this.form);
-    const buyUrl = "http://localhost:8080/buy-trade";
-    let accWithBracket: string = this.form.bankAccount.split("(")[1];
-    let accNumber: string = accWithBracket.substring(0, accWithBracket.length - 1);
-    let payload = {
-      "security": {
-        "ticker": this.form.security,
-      },
-      "user": {
-        "email": localStorage.getItem("userEmail")
-      },
-      "quantity": this.form.quantity,
-      "accountNumber": accNumber,
-      "timeInMilliseconds": Date.now(),
-    }
 
-    let dataSource = this.http.post(buyUrl, payload);
+      const url = "http://localhost:8080/portfolio";
+      const payload = {"email": localStorage.getItem('userEmail')}
+      let investedValue = 0;
+  
+      let dataSource = this.http.post(url, payload);
+  
+      let data = dataSource.subscribe(async (response: any) => {
+        for(let row of response) {
+          investedValue += row['quantity'] * row['avg_buy_price'];
+        }
+        this.feeApplicable = investedValue > 5000
+        console.log(this.feeApplicable);
+        
 
-    let data = dataSource.subscribe(async (response: boolean) => {
-      console.log(response);
-    })
+        const buyUrl = "http://localhost:8080/buy-trade";
+        let accWithBracket: string = this.form.bankAccount.split("(")[1];
+        let accNumber: string = accWithBracket.substring(0, accWithBracket.length - 1);
+        let payload = {
+          "security": {
+            "ticker": this.form.security,
+          },
+          "user": {
+            "email": localStorage.getItem("userEmail")
+          },
+          "quantity": this.form.quantity,
+          "accountNumber": accNumber,
+          "timeInMilliseconds": Date.now(),
+          "feeApplicable": this.feeApplicable
+        }
+
+        let dataSource = this.http.post(buyUrl, payload);
+
+        let data = dataSource.subscribe(async (response: boolean) => {
+          console.log(response);
+        })
+      })
 
   }
 

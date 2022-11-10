@@ -26,7 +26,7 @@ export class DataService {
     const user_data = {email: this.userEmail};
     const body = JSON.stringify(user_data);
  
-    return this.http.post("http://localhost:8080/portfolio/",body,httpOptions);
+    return this.http.post("http://localhost:8080/portfolio/", body, httpOptions);
 
    }
 
