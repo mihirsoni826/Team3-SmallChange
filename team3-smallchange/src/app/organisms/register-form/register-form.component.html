@@ -43,7 +43,7 @@
           <label for="password"><strong>Password</strong></label>
           <input type={{type}} name="password" id="password" ngModel #password="ngModel" 
           placeholder="Password" class="form-control" required />
-          <mat-icon (click)="changePasswordView()">{{icon}}</mat-icon>
+          <!-- <button (click)="changePasswordView()">{{icon}}</button> -->
           <div *ngIf="password.touched && password.errors">
             <small class="text-danger" *ngIf="password.errors['required']">Please enter password</small>
           </div>
